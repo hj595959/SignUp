@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="416dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/purple_200"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="155dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="128dp"
+        android:text="MY PAGE"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="16dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-4dp"
+            tools:layout_editor_absoluteY="16dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="326dp"
+                android:layout_height="82dp"
+                android:layout_gravity="center"
+                android:layout_margin="200dp"
+                android:layout_marginTop="164dp"
+                android:background="#0277BD"
+                android:text="결      제"
+                android:textColor="@color/white"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="326dp"
+                android:layout_height="86dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="216dp"
+                android:background="#0277BD"
+                android:text="결제   내역"
+                android:textColor="@color/white"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            tools:ignore="MissingConstraints">
+
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="132dp"
+                android:layout_height="70dp"
+                android:text="홈"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="659dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="마이페이지"
+                tools:layout_editor_absoluteX="139dp"
+                tools:layout_editor_absoluteY="659dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="132dp"
+                android:layout_height="70dp"
+                android:text="뒤로가기"
+                tools:layout_editor_absoluteX="276dp"
+                tools:layout_editor_absoluteY="659dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
