@@ -6,4 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".Spinner">
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        />
+
+    <Spinner
+        android:id="@+id/age"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <Spinner
+        android:id="@+id/residence"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="279dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/person11"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="125dp" />
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="381dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
