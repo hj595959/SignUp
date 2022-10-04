@@ -10,8 +10,8 @@ public class member {
     String signBirth; //년
     String signBirth2; //월
     String signBirth3; //일
-    String signPw; //비밀번호
-    String signPw2; //비밀번호 확인
+    String signPW; //비밀번호
+    String signPW2; //비밀번호 확인
 
     public member(){
 
@@ -81,29 +81,29 @@ public class member {
         this.signBirth3 = signBirth3;
     }
 
-    public String getSignPw() {
-        return signPw;
+    public String getSignPW() {
+        return signPW;
     }
 
-    public void setSignPw(String signPw) {
-        this.signPw = signPw;
+    public void setSignPW(String signPW) {
+        this.signPW = signPW;
     }
 
-    public String getSignPw2() {
-        return signPw2;
+    public String getSignPW2() {
+        return signPW2;
     }
 
-    public void setSignPw2(String signPw2) {
-        this.signPw2 = signPw2;
+    public void setSignPW2(String signPw2) {
+        this.signPW2 = signPW2;
     }
 
-    public member(String signName ,String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPw){
+    public member(String signName ,String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
          this.signName=  signName;
          this.signmail = signmail;
          this.signID = signID;
          this.signBirth = signBirth;
          this.signBirth2 = signBirth2;
          this.signBirth3 = signBirth3;
-         this.signPw = signPw;
+         this.signPW = signPW;
     }
 }
