@@ -106,6 +106,7 @@
                     />
 
                 <RadioGroup
+                    android:id="@+id/gender"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <RadioButton
@@ -135,6 +136,7 @@
 
 
                 <RadioGroup
+                    android:id="@+id/serviceId"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
                     <RadioButton
