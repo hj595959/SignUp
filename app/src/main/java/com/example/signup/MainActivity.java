@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
     private Button pwcheck , signupbutton;
-    private EditText signName, gender, signID,serviceId, signmail, signBirth, signBirth2, signBirth3, signPW, signPW2;
+    private EditText signName,  signID, signmail, signBirth, signBirth2, signBirth3, signPW, signPW2 ;
     private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스연동
     private DatabaseReference databaseReference = database.getReference();
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         public void addMember(String signName, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
           //member 클래스 에서 선언했던 함수
           member member = new member(signName,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
-          databaseReference.child("member").setValue(member); //member그룹으로 값 저장
+          databaseReference.child("member").push().setValue(member); //member그룹으로 값 저장
         }
 
 
