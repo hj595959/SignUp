@@ -6,54 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".account">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_width="316dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="108dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/service2" />
+        <TextView
+            android:id="@+id/accounttextView"
+            android:layout_width="362dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="30dp"
+            android:text="서비스를 이용 할 방법을      선택해주세요 :)"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/kakaoBtn"
-        android:layout_width="342dp"
-        android:layout_height="76dp"
-        android:background="@color/white"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/kakao"
-        tools:layout_editor_absoluteY="304dp" />
-
-    <Button
-        android:id="@+id/naverBtn"
-        android:layout_width="343dp"
-        android:layout_height="60dp"
-        android:text="naver"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="403dp" />
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="342dp"
         android:layout_height="51dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/account_login"
-        tools:layout_editor_absoluteY="570dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:srcCompat="@drawable/account_login" />
 
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="155dp"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +48,13 @@
         android:id="@+id/imageButton6"
         android:layout_width="342dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/email_login"
-        tools:layout_editor_absoluteY="488dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+        app:srcCompat="@drawable/email_login" />
+    >
 
 </androidx.constraintlayout.widget.ConstraintLayout>

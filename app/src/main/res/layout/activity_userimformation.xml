@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="156dp"
         android:layout_height="97dp"
-        android:src="user pictures" />
+         />
 
 
     <TextView

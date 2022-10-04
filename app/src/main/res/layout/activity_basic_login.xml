@@ -20,6 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
+    >
+
 
     <EditText
         android:id="@+id/join_name"
@@ -103,5 +105,5 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/delete"
         app:layout_constraintStart_toStartOf="parent" />
 
-    #test
+
 </androidx.constraintlayout.widget.ConstraintLayout>
