@@ -55,11 +55,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:orientation="vertical" >
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/emailtextView"
@@ -70,8 +70,7 @@
                  시작할게요 :)"
                     android:textColor="#000000"
                     android:textSize="30sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
                 >
 
 
@@ -84,8 +83,7 @@
 
                     android:textColor="#87CEFA"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
 
                 <EditText
@@ -107,25 +105,25 @@
                     android:text="성별"
                     android:textColor="#87CEFA"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:id="@+id/gender"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <RadioButton
                         android:id="@+id/male"
-                        android:text="남성"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:text="남성" />
+
                     <RadioButton
                         android:id="@+id/female"
-                        android:text="여성"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"/>
+                        android:layout_marginBottom="30dp"
+                        android:text="여성" />
                 </RadioGroup>
 
                 <TextView
@@ -136,26 +134,26 @@
                     android:text="이용서비스"
                     android:textColor="#87CEFA"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
 
                 <RadioGroup
                     android:id="@+id/serviceId"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
+
                     <RadioButton
-                        android:id="@+id/service1"
-                        android:text="간병인 찾기"
+                        android:id="@+id/patient"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:text="간병인 찾기" />
+
                     <RadioButton
-                        android:id="@+id/service2"
-                        android:text="간병인 등록하기"
+                        android:id="@+id/caregiver"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"/>
+                        android:layout_marginBottom="30dp"
+                        android:text="간병인 등록하기" />
                 </RadioGroup>
 
 
@@ -220,24 +218,26 @@
                         android:id="@+id/signBirth"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
                         android:background="@drawable/underline"
                         android:ems="10"
                         android:hint=" 년(4자)"
                         android:inputType="textPersonName"
                         android:text="" />
+
                     <EditText
                         android:id="@+id/signBirth2"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
                         android:background="@drawable/underline"
                         android:ems="10"
                         android:hint=" 월"
                         android:inputType="textPersonName"
                         android:text="" />
+
                     <EditText
                         android:id="@+id/signBirth3"
                         android:layout_width="100dp"
@@ -268,47 +268,40 @@
                     android:layout_marginBottom="5dp"
                     android:text="비밀번호 확인은 우축의 토글을 눌러주세요 :)"
                     android:textColor="#87CEFA"
-                    android:textSize="13dp"
-                     />
+                    android:textSize="13dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-
-
-                <EditText
-                    android:id="@+id/signPW"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/underline"
-                    android:ems="30"
-                    android:hint=" 비밀번호"
-                    android:inputType="textPassword"
-                    android:text="" />
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true">
+
+
+                    <EditText
+                        android:id="@+id/signPW"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/underline"
+                        android:ems="30"
+                        android:hint=" 비밀번호"
+                        android:inputType="textPassword"
+                        android:text="" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
 
 
                 <Button
                     android:id="@+id/signupbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_gravity="center"
-                    android:text="회원가입"
                     android:backgroundTint="#F8B758"
+                    android:onClick="onButton1Clicked"
+                    android:text="회원가입"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:onClick="onButton1Clicked"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>

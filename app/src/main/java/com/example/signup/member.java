@@ -97,7 +97,9 @@ public class member {
         this.signPW2 = signPW2;
     }
 
-    public member(String signName ,String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
+    public member(String gender,String serviceId,String signName ,String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
+         this.gender = gender;
+         this.serviceId = serviceId;
          this.signName=  signName;
          this.signmail = signmail;
          this.signID = signID;
