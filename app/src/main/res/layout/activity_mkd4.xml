@@ -11,7 +11,7 @@
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="dp"
+        android:layout_marginEnd="0dp"
         android:text="결제 내역 확인"
         android:textSize="35dp" />
     <LinearLayout
@@ -49,4 +49,4 @@
             tools:layout_editor_absoluteY="659dp" />
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

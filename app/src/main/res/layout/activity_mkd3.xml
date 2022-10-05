@@ -49,7 +49,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="확인"
+        android:text="확인" />
     <LinearLayout
 
         android:layout_width="wrap_content"
@@ -67,14 +67,7 @@
             tools:layout_editor_absoluteX="7dp"
             tools:layout_editor_absoluteY="659dp" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="138dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="마이페이지"
-            tools:layout_editor_absoluteX="139dp"
-            tools:layout_editor_absoluteY="659dp" />
+
 
         <Button
             android:id="@+id/button3"
