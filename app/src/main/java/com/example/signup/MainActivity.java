@@ -1,5 +1,6 @@
 package com.example.signup;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button pwcheck , signupbutton;
+    private Button signupbutton;
     private EditText signName,  signID, signmail, signBirth, signBirth2, signBirth3, signPW, signPW2 ;
     private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스연동
     private DatabaseReference databaseReference = database.getReference();
@@ -38,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //값을 텍스트로 변환후 함수 선언
+
                 addMember(signName.getText().toString(),signmail.getText().toString(),signID.getText().toString(),signBirth.getText().toString(),signBirth2.getText().toString(),signBirth3.getText().toString(),signPW.getText().toString());
+
+                Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다!", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -53,15 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //비밀번호 확인 버튼
-        pwcheck = findViewById(R.id.pwcheckbutton);
-        pwcheck.setOnClickListener(v -> {
-            if(signPW.getText().toString().equals(signPW2.getText().toString())){
-                pwcheck.setText("일치");
-            }else{
-                Toast.makeText(this,"비밀번호가 다릅니다.", Toast.LENGTH_LONG).show();
-            }
-        });
+
 
     }
         //member값 넣어주기위한 함수
@@ -70,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
           member member = new member(signName,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
           databaseReference.child("member").push().setValue(member); //member그룹으로 값 저장
         }
+
+
+
 
 
 
