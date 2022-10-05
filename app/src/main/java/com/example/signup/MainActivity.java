@@ -72,7 +72,10 @@ public class MainActivity extends AppCompatActivity {
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(signName.getText().toString().length() == 0){
+                    Toast.makeText(getApplicationContext(),"이름을 입력하세요",Toast.LENGTH_SHORT).show();
+                    signName.requestFocus();
+                }
                 //값을 텍스트로 변환후 함수 선언
                 addMember(gender_result ,serviceId_result,signName.getText().toString(),signmail.getText().toString(),signID.getText().toString(),signBirth.getText().toString(),signBirth2.getText().toString(),signBirth3.getText().toString(),signPW.getText().toString());
                 //회원가입 성공 메세지
