@@ -146,14 +146,14 @@
                         android:id="@+id/patient"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="간병인 찾기" />
+                        android:text="환자" />
 
                     <RadioButton
                         android:id="@+id/caregiver"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp"
-                        android:text="간병인 등록하기" />
+                        android:text="간병인" />
                 </RadioGroup>
 
 

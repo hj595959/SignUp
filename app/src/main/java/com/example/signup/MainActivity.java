@@ -72,15 +72,33 @@ public class MainActivity extends AppCompatActivity {
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //유효성 체크
                 if(signName.getText().toString().length() == 0){
-                    Toast.makeText(getApplicationContext(),"이름을 입력하세요",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"이름을 입력하세요!",Toast.LENGTH_SHORT).show();
                     signName.requestFocus();
+                }else if(signmail.getText().toString().length() ==0){
+                    Toast.makeText(getApplicationContext(),"메일을 입력하세요!",Toast.LENGTH_SHORT).show();
+                    signmail.requestFocus();
+                }else if(signID.getText().toString().length() ==0){
+                    Toast.makeText(getApplicationContext(),"아이디를 입력하세요!",Toast.LENGTH_SHORT).show();
+                    signID.requestFocus();
+                }else if(signBirth.getText().toString().length() ==0){
+                    Toast.makeText(getApplicationContext(),"년도를 입력하세요!",Toast.LENGTH_SHORT).show();
+                    signBirth.requestFocus();
+                }else if(signBirth2.getText().toString().length() ==0) {
+                    Toast.makeText(getApplicationContext(), "월을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    signBirth2.requestFocus();
+                }else if(signBirth3.getText().toString().length() ==0) {
+                    Toast.makeText(getApplicationContext(), "일을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    signBirth3.requestFocus();
+                }else {
+                    //값을 텍스트로 변환후 함수 선언
+                    addMember(gender_result, serviceId_result, signName.getText().toString(), signmail.getText().toString(), signID.getText().toString(), signBirth.getText().toString(), signBirth2.getText().toString(), signBirth3.getText().toString(), signPW.getText().toString());
+                    //회원가입 성공 메세지
+                    Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, account.class);
+                    startActivity(intent);
                 }
-                //값을 텍스트로 변환후 함수 선언
-                addMember(gender_result ,serviceId_result,signName.getText().toString(),signmail.getText().toString(),signID.getText().toString(),signBirth.getText().toString(),signBirth2.getText().toString(),signBirth3.getText().toString(),signPW.getText().toString());
-                //회원가입 성공 메세지
-                Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다!", Toast.LENGTH_LONG).show();
-
             }
         });
 
