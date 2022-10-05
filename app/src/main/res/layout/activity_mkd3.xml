@@ -5,41 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".MainActivity">
-
+    <TextView
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="dp"
+        android:text="LOGIN"
+        android:textSize="35dp" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="150dp">
 
+        <EditText
+            android:id="@+id/login"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="24dp"
+            android:ems="10"
+            android:hint="이메일"
+            android:inputType="textPersonName"
+            android:minHeight="48dp">
 
-        >
-
-        <Button
-            android:id="@+id/btn_test1"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:text="거절"
-            android:layout_marginRight="50dp"/>
-
-        <Button
-            android:id="@+id/btn_test2"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:text="수락" />
-
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="24dp"
+            android:ems="10"
+            android:hint="비밀번호"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
     </LinearLayout>
-
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginTop="220dp"
+        tools:ignore="MissingConstraints">
+
 
         <Button
             android:id="@+id/button4"
@@ -67,4 +80,3 @@
             tools:layout_editor_absoluteY="659dp" />
 
     </LinearLayout>
-

@@ -1,45 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="400dp"
-
-
-        >
-
-        <Button
-            android:id="@+id/btn_test1"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:text="거절"
-            android:layout_marginRight="50dp"/>
-
-        <Button
-            android:id="@+id/btn_test2"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:text="수락" />
-
-    </LinearLayout>
-
+    tools:context=".activity_mkd4">
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginTop="220dp"
+        tools:ignore="MissingConstraints">
+
 
         <Button
             android:id="@+id/button4"
@@ -67,4 +40,4 @@
             tools:layout_editor_absoluteY="659dp" />
 
     </LinearLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
