@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, account.class);
                     startActivity(intent);
                 }
+
             }
         });
 
