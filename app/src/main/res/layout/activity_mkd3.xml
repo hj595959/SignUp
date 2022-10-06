@@ -23,7 +23,7 @@
         android:layout_marginTop="150dp">
 
         <EditText
-            android:id="@+id/login"
+            android:id="@+id/signmail"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
@@ -35,7 +35,7 @@
             android:minHeight="48dp"/>
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/signPW"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
@@ -47,6 +47,7 @@
             android:minHeight="48dp" />
     </LinearLayout>
     <Button
+        android:id="@+id/signUpBtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="확인" />
