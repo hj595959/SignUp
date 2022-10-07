@@ -19,8 +19,6 @@ private ImageButton imageButton4,imageButton6;
         imageButton4=findViewById(R.id.imageButton4);
         imageButton6=findViewById(R.id.imageButton6);
 
-
-
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
