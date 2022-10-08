@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         public void addMember(String gender_result,String serviceId_result,String signName, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
           //member 클래스 에서 선언했던 함수
           member member = new member(gender_result,serviceId_result,signName,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
-          databaseReference.child("member").push().setValue(member); //member그룹으로 값 저장
+          databaseReference.child("member").child(signmail).push().setValue(member); //member그룹으로 값 저장
         }
 
 

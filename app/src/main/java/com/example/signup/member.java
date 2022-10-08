@@ -108,4 +108,20 @@ public class member {
          this.signBirth3 = signBirth3;
          this.signPW = signPW;
     }
+
+    @Override
+    public String toString() {
+        return "member{" +
+                "signName='" + signName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", serviceId='" + serviceId + '\'' +
+                ", signmail='" + signmail + '\'' +
+                ", signID='" + signID + '\'' +
+                ", signBirth='" + signBirth + '\'' +
+                ", signBirth2='" + signBirth2 + '\'' +
+                ", signBirth3='" + signBirth3 + '\'' +
+                ", signPW='" + signPW + '\'' +
+                ", signPW2='" + signPW2 + '\'' +
+                '}';
+    }
 }
