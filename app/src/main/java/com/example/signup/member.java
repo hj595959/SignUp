@@ -137,9 +137,9 @@ public class member {
     public String toString() {
         return "member{" +
                 "signName='" + signName + '\'' +
+                ", gender='" + gender + '\'' +
                 ", phoneNb='" + phoneNb + '\'' +
                 ", signAddress='" + signAddress + '\'' +
-                ", gender='" + gender + '\'' +
                 ", serviceId='" + serviceId + '\'' +
                 ", signmail='" + signmail + '\'' +
                 ", signID='" + signID + '\'' +
