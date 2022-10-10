@@ -19,6 +19,7 @@ public class member {
 
     }
 
+
     public String getSignName() {
         return signName;
     }
@@ -115,6 +116,8 @@ public class member {
     public void setSignPW2(String signPw2) {
         this.signPW2 = signPW2;
     }
+
+
 
     public member(String gender,String serviceId,String signName , String phoneNb, String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
          this.gender = gender;
