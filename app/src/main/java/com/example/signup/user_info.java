@@ -17,7 +17,7 @@ public class user_info extends AppCompatActivity {
         //String 형식으로 전달받을 signmail 저장
         String signmail = intent.getStringExtra("signmail");
 
-
+        //전달되는지 테스트 (나중에 지울거임)
         TextView emailEditText = findViewById(R.id.nameEditText);
         emailEditText.setText(signmail);
     }
