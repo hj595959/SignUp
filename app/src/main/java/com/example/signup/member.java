@@ -4,6 +4,8 @@ public class member {
 
     String signName; //이름
     String gender; //성별
+    String phoneNb;
+    String signAddress;
     String serviceId; //간병인,환자 서비스 체크
     String signmail; //이메일
     String signID; //아이디
@@ -24,6 +26,23 @@ public class member {
     public void setSignName(String signName) {
         this.signName = signName;
     }
+
+    public String getPhoneNb() {
+        return phoneNb;
+    }
+
+    public void setPhoneNb(String phoneNb) {
+        this.phoneNb = phoneNb;
+    }
+
+    public String getSignAddress() {
+        return signAddress;
+    }
+
+    public void setSignAddress(String signAddress) {
+        this.signAddress = signAddress;
+    }
+
 
     public String getGender() {
         return gender;
@@ -97,10 +116,12 @@ public class member {
         this.signPW2 = signPW2;
     }
 
-    public member(String gender,String serviceId,String signName ,String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
+    public member(String gender,String serviceId,String signName , String phoneNb, String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
          this.gender = gender;
          this.serviceId = serviceId;
          this.signName=  signName;
+         this.phoneNb= phoneNb;
+         this.signAddress=signAddress;
          this.signmail = signmail;
          this.signID = signID;
          this.signBirth = signBirth;
@@ -113,6 +134,8 @@ public class member {
     public String toString() {
         return "member{" +
                 "signName='" + signName + '\'' +
+                ", phoneNb='" + phoneNb + '\'' +
+                ", signAddress='" + signAddress + '\'' +
                 ", gender='" + gender + '\'' +
                 ", serviceId='" + serviceId + '\'' +
                 ", signmail='" + signmail + '\'' +

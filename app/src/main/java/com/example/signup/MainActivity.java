@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
     private Button signupbutton;
-    private EditText signName,  signID, signmail, signBirth, signBirth2, signBirth3, signPW, signPW2 ;
+    private EditText signName, signID, signmail, signBirth, signBirth2, signBirth3, signPW, phoneNb,signAddress ;
     private RadioGroup gender , serviceId;
     private RadioButton male,female,patient,caregiver;
     private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스연동
@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         female = findViewById(R.id.female); //여자
         patient = findViewById(R.id.patient); //환자
         caregiver = findViewById(R.id.caregiver); //간병인
+        phoneNb = findViewById(R.id.phoneNb);
+        signAddress = findViewById(R.id.signAddress);
 
         //성별 라디오 버튼 상태 값 담기
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -76,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 if(signName.getText().toString().length() == 0){
                     Toast.makeText(getApplicationContext(),"이름을 입력하세요!",Toast.LENGTH_SHORT).show();
                     signName.requestFocus();
+                }else if(phoneNb.getText().toString().length() ==0){
+                    Toast.makeText(getApplicationContext(),"전화번호를 입력하세요!",Toast.LENGTH_SHORT).show();
+                    phoneNb.requestFocus();
+                }else if(signAddress.getText().toString().length() ==0){
+                    Toast.makeText(getApplicationContext(),"주소를 입력하세요!",Toast.LENGTH_SHORT).show();
+                    signAddress.requestFocus();
                 }else if(signmail.getText().toString().length() ==0){
                     Toast.makeText(getApplicationContext(),"메일을 입력하세요!",Toast.LENGTH_SHORT).show();
                     signmail.requestFocus();
@@ -93,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     signBirth3.requestFocus();
                 }else {
                     //값을 텍스트로 변환후 함수 선언
-                    addMember(gender_result, serviceId_result, signName.getText().toString(), signmail.getText().toString(), signID.getText().toString(), signBirth.getText().toString(), signBirth2.getText().toString(), signBirth3.getText().toString(), signPW.getText().toString());
+                    addMember(gender_result, serviceId_result, signName.getText().toString(), phoneNb.getText().toString(), signAddress.getText().toString(), signmail.getText().toString(), signID.getText().toString(), signBirth.getText().toString(), signBirth2.getText().toString(), signBirth3.getText().toString(), signPW.getText().toString());
                     //회원가입 성공 메세지
                     Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, account.class);
@@ -117,9 +125,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
         //member값 넣어주기위한 함수
-        public void addMember(String gender_result,String serviceId_result,String signName, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
+        public void addMember(String gender_result,String serviceId_result,String signName,String phoneNb,String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
           //member 클래스 에서 선언했던 함수
-          member member = new member(gender_result,serviceId_result,signName,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
+          member member = new member(gender_result,serviceId_result,signName,phoneNb,signAddress,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
           databaseReference.child("member").push().setValue(member); //member그룹으로 값 저장
         }
 

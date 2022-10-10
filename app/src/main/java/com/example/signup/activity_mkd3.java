@@ -58,7 +58,7 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
     //로그인 성공 처리
     @Override
     public void onLoginSuccess(member member) {
-        Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! " +member.getSignName() + "님 환영합니다.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! " +member.getSignmail() + "님 환영합니다.", Toast.LENGTH_LONG).show();
 
         //버튼 비활성화
         signUpBtn.setEnabled(false);
