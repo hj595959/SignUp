@@ -1,5 +1,6 @@
 package com.example.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,16 +59,22 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
     //로그인 성공 처리
     @Override
     public void onLoginSuccess(member member) {
-        Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! " +member.getSignmail() + "님 환영합니다.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! " +member.getSignName() + "님 환영합니다.", Toast.LENGTH_LONG).show();
 
         //버튼 비활성화
         signUpBtn.setEnabled(false);
         //로그인한 아이디가 환자 인지 간병인인지 구별
-        if(member.getServiceId().equals("환자")){
-
+       if(member.getServiceId().equals("환자")){
+          Intent intent = new Intent(activity_mkd3.this,user_info.class);
+          intent.putExtra("signmail",member.getSignmail());
+          startActivity(intent);
         }else if(member.getServiceId().equals("간병인")){
-
+            Intent intent = new Intent(activity_mkd3.this,user_info2.class);
+            intent.putExtra("signmail",member.getSignmail());
+            startActivity(intent);
         }
+
+
     }
 
 
