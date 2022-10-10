@@ -51,15 +51,15 @@ public class LoginRepsoitory {
         });
     }
     //로그인 기능 함수
-    private void MemberFetched(Iterable<DataSnapshot> snapshots,String mail,String PW){
+    private void MemberFetched(Iterable<DataSnapshot> snapshots,String Id,String PW){
         //member 클래스 선언 및 초기화
         member loggeedInUser = null;
-        //signmail , signPW 가져오는 부분
+        //signId , signPW 가져오는 부분
         for(DataSnapshot snapshot : snapshots){
             String signID = snapshot.child(Id_NAME).getValue() + "";
             String signPW = snapshot.child(PASSWORD_NAME).getValue() + "";
-            //siigID , signPW 이랑 데이터베이스에 저장된 값이 일치한지 비교
-            if(signID.equals(mail) && signPW.equals(PW)){
+            //sigId , signPW 이랑 데이터베이스에 저장된 값이 일치한지 비교
+            if(signID.equals(Id) && signPW.equals(PW)){
                 //비교후 member 클래스 선언한 곳에 저장
                 loggeedInUser = snapshot.getValue(member.class);
                 break;

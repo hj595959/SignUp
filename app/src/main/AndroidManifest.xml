@@ -13,7 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SignUp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".user_info2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user_info"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activity_mkd4"
             android:exported="false" />
@@ -35,8 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

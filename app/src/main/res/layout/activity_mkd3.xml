@@ -13,6 +13,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:textColor="#87CEFA"
         android:text="LOGIN"
         android:textSize="35dp" />
     <LinearLayout
@@ -23,19 +25,19 @@
         android:layout_marginTop="150dp">
 
         <EditText
-            android:id="@+id/signmail"
+            android:id="@+id/loginId"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="24dp"
             android:ems="10"
-            android:hint="이메일"
+            android:hint="아이디"
             android:inputType="textPersonName"
             android:minHeight="48dp"/>
 
         <EditText
-            android:id="@+id/signPW"
+            android:id="@+id/loginPW"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
@@ -50,6 +52,7 @@
         android:id="@+id/signUpBtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:backgroundTint="#87CEFA"
         android:text="확인" />
     <LinearLayout
 
