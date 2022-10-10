@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Mainpage2 extends AppCompatActivity {
+public class MainPage2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

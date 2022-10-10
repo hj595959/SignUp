@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SignUp"
         tools:targetApi="31">
         <activity
-            android:name=".Mainpage2"
+            android:name=".MainPage2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
