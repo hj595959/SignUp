@@ -13,6 +13,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:textColor="#87CEFA"
         android:text="LOGIN"
         android:textSize="35dp" />
     <LinearLayout
@@ -30,7 +32,7 @@
             android:layout_marginRight="2dp"
             android:layout_marginBottom="24dp"
             android:ems="10"
-            android:hint="이메일"
+            android:hint="아이디"
             android:inputType="textPersonName"
             android:minHeight="48dp"/>
 
@@ -50,6 +52,7 @@
         android:id="@+id/signUpBtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:backgroundTint="#87CEFA"
         android:text="확인" />
     <LinearLayout
 
@@ -79,7 +82,6 @@
             tools:layout_editor_absoluteY="659dp" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

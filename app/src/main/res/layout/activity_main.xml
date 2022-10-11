@@ -2,7 +2,7 @@
 
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -33,7 +33,8 @@
                 android:layout_marginRight="35dp"
                 android:textColor="#000000"
                 android:backgroundTint="@color/white"
-                android:textSize="15dp"
+                android:textSize="15sp"
+
                 />
 
             <TextView
@@ -96,6 +97,52 @@
                     android:hint=" 이름"
                     android:inputType="textPersonName"
                     android:text="" />
+
+
+                <TextView
+                    android:id="@+id/phoneNbText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="전화번호"
+                    android:textColor="#87CEFA"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/phoneNb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="전화번호 ( - 제외)"
+                    android:inputType="phone"
+                    android:text="" />
+
+
+                <TextView
+                    android:id="@+id/addressText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="주소"
+                    android:textColor="#87CEFA"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/signAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="oo시 oo동"
+                    android:text="" />
+
 
                 <TextView
                     android:id="@+id/sextext"
@@ -196,7 +243,6 @@
                     android:background="@drawable/underline"
                     android:ems="10"
                     android:hint=" 아이디"
-                    android:inputType="textPersonName"
                     android:text="" />
 
                 <TextView

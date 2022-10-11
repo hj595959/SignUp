@@ -1,5 +1,6 @@
 package com.example.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,11 +64,19 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
         //버튼 비활성화
         signUpBtn.setEnabled(false);
         //로그인한 아이디가 환자 인지 간병인인지 구별
-        if(member.getServiceId().equals("환자")){
-
+       if(member.getServiceId().equals("환자")){
+          Intent intent = new Intent(activity_mkd3.this,user_info.class);
+          //데이터 보내기
+          intent.putExtra("signmail",member.getSignmail());
+          startActivity(intent);
         }else if(member.getServiceId().equals("간병인")){
-
+            Intent intent = new Intent(activity_mkd3.this,user_info2.class);
+           //데이터 보내기
+            intent.putExtra("signmail",member.getSignmail());
+            startActivity(intent);
         }
+
+
     }
 
 
