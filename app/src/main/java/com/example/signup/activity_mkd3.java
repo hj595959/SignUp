@@ -67,13 +67,13 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
        if(member.getServiceId().equals("환자")){
           Intent intent = new Intent(activity_mkd3.this,user_info.class);
           //데이터 보내기
-          intent.putExtra("signmail",member.getSignmail());
-          startActivity(intent);
+        //  intent.putExtra("signmail",member.getSignmail());
+         // startActivity(intent);
         }else if(member.getServiceId().equals("간병인")){
             Intent intent = new Intent(activity_mkd3.this,user_info2.class);
            //데이터 보내기
-            intent.putExtra("signmail",member.getSignmail());
-            startActivity(intent);
+          //  intent.putExtra("signmail",member.getSignmail());
+          //  startActivity(intent);
         }
 
 
