@@ -7,10 +7,20 @@
     android:orientation="vertical"
     tools:context=".MemberFindLoginIdActivity2">
 
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:textColor="#87CEFA"
+        android:text="아이디 찾기"
+        android:textSize="35dp" />
     <EditText
+        android:layout_marginTop="200dp"
         android:id="@+id/editTextEmaill"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
         android:hint="이메일를 입력해주세요"
         android:inputType="text" />
 
@@ -24,15 +34,15 @@
 
         <Button
             android:id="@+id/buttonDoFindLoginId"
-            android:layout_width="0dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="아이디 찿기" />
         <Button
-            android:id="@+id/buttonCancel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="취소" />
+            android:layout_height="match_parent"
+            android:text="뒤로가기"/>
+
 
 
     </LinearLayout>
