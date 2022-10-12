@@ -2,6 +2,7 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,5 +41,14 @@ public class user_info extends AppCompatActivity {
         //전달되는지 테스트 (나중에 지울거임)
         TextView emailEditText = findViewById(R.id.emailEditText);
         emailEditText.setText(signmail);
+
+        checkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //클릭시 작동되는 코드
+
+
+            }
+        });
     }
 }

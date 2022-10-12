@@ -10,14 +10,9 @@ public class meminfo {
     String rating; //등급
     String checkButton; //확인
 
-    public meminfo(String nameEditText, String emailEditText, String birthDayEditText, String phone, String addressEditText, String rating, String checkButton) {
-        this.nameEditText = nameEditText;
-        this.emailEditText = emailEditText;
-        this.birthDayEditText = birthDayEditText;
-        this.phone = phone;
-        this.addressEditText = addressEditText;
-        this.rating = rating;
-        this.checkButton = checkButton;
+    public meminfo(){
+
+
     }
 
     public String getNameEditText() {
@@ -76,6 +71,16 @@ public class meminfo {
         this.checkButton = checkButton;
     }
 
+    public meminfo(String nameEditText, String emailEditText, String birthDayEditText, String phone, String addressEditText, String rating, String checkButton) {
+        this.nameEditText = nameEditText;
+        this.emailEditText = emailEditText;
+        this.birthDayEditText = birthDayEditText;
+        this.phone = phone;
+        this.addressEditText = addressEditText;
+        this.rating = rating;
+        this.checkButton = checkButton;
+    }
+
     @Override
     public String toString() {
         return "meminfo{" +
@@ -89,9 +94,5 @@ public class meminfo {
                 '}';
     }
 
-    public meminfo(){
 
-
-
-    }
 }
