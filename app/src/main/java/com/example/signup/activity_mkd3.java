@@ -15,7 +15,7 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
 
     private LoginRepsoitory loginRepository;
     //입력값 받아오기
-    private EditText signPW , signmail;
+    private EditText signPW , signID;
     private Button signUpBtn;
 
 
@@ -43,7 +43,7 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
     }
 
     private void bindView(){
-        signmail = findViewById(R.id.signmail);
+        signID = findViewById(R.id.signID);
         signPW = findViewById(R.id.signPW);
         signUpBtn = findViewById(R.id.signUpBtn);
         signUpBtn.setOnClickListener(v -> {
@@ -53,7 +53,7 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
     }
     private void submitLogin(){
         //loginReository에 입력된 메일 , 비번 보내기
-        loginRepository.login(signmail.getText().toString() , signPW.getText().toString());
+        loginRepository.login(signID.getText().toString() , signPW.getText().toString());
     }
 
     //로그인 성공 처리
@@ -65,15 +65,15 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
         signUpBtn.setEnabled(false);
         //로그인한 아이디가 환자 인지 간병인인지 구별
        if(member.getServiceId().equals("환자")){
-          Intent intent = new Intent(activity_mkd3.this,user_info.class);
+           Intent intent = new Intent(activity_mkd3.this,user_info.class);
           //데이터 보내기
-        //  intent.putExtra("signmail",member.getSignmail());
-         // startActivity(intent);
+           intent.putExtra("signmail",member.getSignmail());
+          startActivity(intent);
         }else if(member.getServiceId().equals("간병인")){
             Intent intent = new Intent(activity_mkd3.this,user_info2.class);
            //데이터 보내기
-          //  intent.putExtra("signmail",member.getSignmail());
-          //  startActivity(intent);
+            intent.putExtra("signmail",member.getSignmail());
+            startActivity(intent);
         }
 
 

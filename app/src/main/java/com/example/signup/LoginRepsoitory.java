@@ -18,7 +18,7 @@ public class LoginRepsoitory {
     }
     // 테이블명 , 컬럼 값 명시
     private static final String TABLE_NAME = "member";
-    private static final String Mail_NAME = "signmail";
+    private static final String ID_NAME = "signID";
     private static final String PASSWORD_NAME = "signPW";
 
     //DatabaseReference,Listener 선언
@@ -35,12 +35,12 @@ public class LoginRepsoitory {
     }
 
     //로그인 기능
-    public void login(String mail, String PW){
+    public void login(String id, String PW){
         dbRef.child(TABLE_NAME).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
               //실제로 로그인 기능 실행할 함수 선언
-              MemberFetched(snapshot.getChildren(), mail , PW);
+              MemberFetched(snapshot.getChildren(), id , PW);
             }
             //로그인 기능 실패시 실행되는 부분
             @Override
@@ -50,15 +50,15 @@ public class LoginRepsoitory {
         });
     }
     //로그인 기능 함수
-    private void MemberFetched(Iterable<DataSnapshot> snapshots,String mail,String PW){
+    private void MemberFetched(Iterable<DataSnapshot> snapshots,String id,String PW){
         //member 클래스 선언 및 초기화
         member loggeedInUser = null;
-        //signmail , signPW 가져오는 부분
+        //signID , signPW 가져오는 부분
         for(DataSnapshot snapshot : snapshots){
-            String signmail = snapshot.child(Mail_NAME).getValue() + "";
+            String signID = snapshot.child(ID_NAME).getValue() + "";
             String signPW = snapshot.child(PASSWORD_NAME).getValue() + "";
-            //signmail , signPW 이랑 데이터베이스에 저장된 값이 일치한지 비교
-            if(signmail.equals(mail) && signPW.equals(PW)){
+            //signID , signPW 이랑 데이터베이스에 저장된 값이 일치한지 비교
+            if(signID.equals(id) && signPW.equals(PW)){
                 //비교후 member 클래스 선언한 곳에 저장
                 loggeedInUser = snapshot.getValue(member.class);
                 break;
