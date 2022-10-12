@@ -115,10 +115,13 @@ public class MainActivity extends AppCompatActivity {
 
         //뒤로 가기 버튼
         Button back = findViewById(R.id.back);
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, account.class);
-            startActivity(intent);
-        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, account.class);
+                startActivity(intent);
+            }
+        }) ;
 
 
 
