@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,6 +22,9 @@
             android:id="@+id/btn_test1"
             android:layout_width="130dp"
             android:layout_height="90dp"
+            android:backgroundTint="#87CEFA"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:text="거절"
             android:layout_marginRight="50dp"/>
 
@@ -28,6 +32,9 @@
             android:id="@+id/btn_test2"
             android:layout_width="130dp"
             android:layout_height="90dp"
+            android:backgroundTint="#87CEFA"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:text="수락" />
 
     </LinearLayout>
@@ -40,30 +47,23 @@
         tools:ignore="MissingConstraints">
 
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="132dp"
-            android:layout_height="70dp"
-            android:text="홈"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="659dp" />
-
-        <Button
-            android:id="@+id/button5"
+        <ImageButton
             android:layout_width="138dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="마이페이지"
-            tools:layout_editor_absoluteX="139dp"
-            tools:layout_editor_absoluteY="659dp" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/home"/>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="132dp"
-            android:layout_height="70dp"
-            android:text="뒤로가기"
-            tools:layout_editor_absoluteX="276dp"
-            tools:layout_editor_absoluteY="659dp" />
+        <ImageButton
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/person"/>
+
+        <ImageButton
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back"/>
 
     </LinearLayout>
 </LinearLayout>

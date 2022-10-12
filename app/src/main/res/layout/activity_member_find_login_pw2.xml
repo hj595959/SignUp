@@ -15,6 +15,7 @@
         android:layout_marginEnd="0dp"
         android:gravity="center"
         android:textColor="#87CEFA"
+        android:textStyle="bold"
         android:text="비밀번호 찾기"
         android:textSize="35dp" />
     <EditText
@@ -22,6 +23,7 @@
         android:layout_marginTop="200dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:hint="이메일을 입력해주세요"
         android:inputType="text" />
 
@@ -29,6 +31,7 @@
         android:id="@+id/editTextLoginId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:hint="아이디를 입력해주세요"
         android:inputType="text" />
 
@@ -42,11 +45,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#000000"
+            android:backgroundTint="#87CEFA"
+            android:textStyle="bold"
             android:text="비밀번호 찾기" />
         <Button
             android:id="@+id/buttonCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#87CEFA"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:text="뒤로가기" />
 
 
@@ -55,3 +65,5 @@
 
 
 </LinearLayout>
+
+
