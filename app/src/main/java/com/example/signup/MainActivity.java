@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         //회원가입 버튼
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
