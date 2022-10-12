@@ -3,6 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1985" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1985" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/drawable/radius.xml" value="0.136" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/drawable/underline.xml" value="0.136" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_account.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_finderid2.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_main.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_main_page1.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mainpage2.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_member_find_login_id2.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_member_find_login_pw2.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mkd1.xml" value="0.25" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mkd2.xml" value="0.33" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mkd3.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mkd4.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mkdpracticefrondend1.xml" value="0.3425196850393701" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_mypage.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_spinner.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_user_info.xml" value="0.33" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_user_info2.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/activity_userimformation.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/view_loader.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/layout/view_toolbar.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidAVD/SignUp/app/src/main/res/menu/bottom.xml" value="0.36614583333333334" />
         <entry key="..\:/Capstone_workspace/SignUp/app/src/main/res/layout/activity_account.xml" value="0.296195652173913" />
         <entry key="..\:/Capstone_workspace/SignUp/app/src/main/res/layout/activity_basic_login.xml" value="0.2884963768115942" />
         <entry key="..\:/Capstone_workspace/SignUp/app/src/main/res/layout/activity_main.xml" value="0.2884963768115942" />

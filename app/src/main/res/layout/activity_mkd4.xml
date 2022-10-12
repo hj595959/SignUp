@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="0dp"
+        android:textStyle="bold"
         android:text="결제 내역 확인"
         android:textSize="35dp" />
     <LinearLayout
@@ -23,30 +24,23 @@
         tools:ignore="MissingConstraints">
 
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="132dp"
-            android:layout_height="70dp"
-            android:text="홈"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="659dp" />
-
-        <Button
-            android:id="@+id/button5"
+        <ImageButton
             android:layout_width="138dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="마이페이지"
-            tools:layout_editor_absoluteX="139dp"
-            tools:layout_editor_absoluteY="659dp" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/home"/>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="132dp"
-            android:layout_height="70dp"
-            android:text="뒤로가기"
-            tools:layout_editor_absoluteX="276dp"
-            tools:layout_editor_absoluteY="659dp" />
+        <ImageButton
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/person"/>
+
+        <ImageButton
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back"/>
 
     </LinearLayout>
 </LinearLayout>
