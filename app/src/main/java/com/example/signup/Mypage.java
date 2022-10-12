@@ -15,7 +15,5 @@ public class Mypage extends AppCompatActivity {
         setContentView(R.layout.activity_mypage);
 
 
-
-
     }
 }
