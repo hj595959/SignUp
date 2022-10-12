@@ -97,7 +97,7 @@
                     android:id="@+id/career"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="간병가능 영역 (쉼표  &quot; , &quot; 로 구분)"
+                    android:hint="간병가능 등급 (숫자만 입력)"
                 />
 
                 <Button
