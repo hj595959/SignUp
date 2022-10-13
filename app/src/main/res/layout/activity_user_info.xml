@@ -38,8 +38,8 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     app:cardCornerRadius="100dp">
 
                     <ImageView
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint=" 이메일"
+                    android:hint="생년월일"
                     android:inputType="textEmailAddress" />
 
                 <EditText
@@ -71,14 +71,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="생년월일"
+                    android:hint="주소"
                     android:inputType="date" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/phone"
-                    android:hint="전화번호"
+                    android:hint="원하는 시간"
                     android:inputType="phone" />
 
                 <EditText
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="주소"
+                    android:hint="병명"
                      />
 
                 <EditText
@@ -95,8 +95,22 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    android:hint="요양 등급(숫자만 입력)"
+                    android:hint="치매 여부"
                     />
+
+                    <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="YES" />
+
+                    <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="NO" />
+
 
                 <EditText
                     android:layout_width="match_parent"
@@ -107,6 +121,13 @@
 
                 <Button
                     android:id="@+id/checkButton"
+                    android:backgroundTint="#87CEFA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="수정" />
+                <Button
+                    android:id="@+id/checkButton1"
                     android:backgroundTint="#87CEFA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
