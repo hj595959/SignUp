@@ -78,7 +78,7 @@
                     android:hint="보유하고 있는 자격증"
                 />
                 <TextView
-                    android:id="@+id/location_working"
+                    android:id="@+id/location_work"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
