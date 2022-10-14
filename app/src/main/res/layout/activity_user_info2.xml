@@ -41,8 +41,8 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     app:cardCornerRadius="100dp">
 
                     <ImageView
@@ -53,28 +53,6 @@
                         android:src="@android:drawable/sym_def_app_icon" />
                 </androidx.cardview.widget.CardView>
 
-                <EditText
-                    android:id="@+id/nameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="이름"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/emailEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="생년월일"
-                    android:inputType="textEmailAddress" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/phone"
-                    android:hint="주소"
-                    android:inputType="phone" />
 
                 <EditText
                     android:id="@+id/birthDayEditText"
@@ -99,7 +77,34 @@
                     android:layout_height="wrap_content"
                     android:hint="보유하고 있는 자격증"
                 />
+                <TextView
+                    android:id="@+id/location_working"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="간병 희망 근로지"
+                    android:textColor="#87CEFA"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
+                <RadioGroup
+                    android:id="@+id/location_working"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/home_work"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="병원 간병" />
+
+                    <RadioButton
+                        android:id="@+id/hospital_work"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:text="재택 간병" />
+                </RadioGroup>
                 <Button
                     android:id="@+id/checkButton2"
                     android:backgroundTint="#87CEFA"
