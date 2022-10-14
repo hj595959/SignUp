@@ -10,10 +10,8 @@ public class meminfo {
     String rating; //등급
     String checkButton; //확인
 
-    public meminfo(){
 
-
-    }
+    public meminfo(){}
 
     public String getNameEditText() {
         return nameEditText;
