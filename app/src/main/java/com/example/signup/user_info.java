@@ -24,23 +24,13 @@ public class user_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-        checkButton = findViewById(R.id.checkButton);
-        nameEditText = findViewById(R.id.nameEditText);
-        emailEditText = findViewById(R.id.emailEditText);
-        birthDayEditText = findViewById(R.id.birthDayEditText);
-        phone = findViewById(R.id.phone);
-        addressEditText = findViewById(R.id.addressEditText);
-        rating = findViewById(R.id.rating);
-        note = findViewById(R.id.note);
 
         //전달할 데이터 받을 intent 선언
         Intent intent=  getIntent();
         //String 형식으로 전달받을 signmail 저장
         String signID = intent.getStringExtra("signID");
 
-        //전달되는지 테스트 (나중에 지울거임)
-        TextView emailEditText = findViewById(R.id.emailEditText);
-        emailEditText.setText(signID);
+
 
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override

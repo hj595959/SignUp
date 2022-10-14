@@ -55,7 +55,7 @@
 
 
                 <EditText
-                    android:id="@+id/birthDayEditText"
+                    android:id="@+id/career"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -63,7 +63,7 @@
                     android:inputType="date" />
 
                 <EditText
-                    android:id="@+id/addressEditText"
+                    android:id="@+id/workTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -72,7 +72,7 @@
 
                 <EditText
 
-                    android:id="@+id/career"
+                    android:id="@+id/license"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="보유하고 있는 자격증"
