@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class account extends AppCompatActivity {
 
-private ImageButton imageButton4,imageButton6;
+private ImageButton imageButton4,imageButton6,imageButton5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,14 @@ private ImageButton imageButton4,imageButton6;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(account.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(account.this, MemberFindLoginIdActivity2.class);
                 startActivity(intent);
             }
         });
