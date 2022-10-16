@@ -51,10 +51,10 @@
             android:name=".Mypage"
             android:exported="false" />
         <activity
-            android:name=".account"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".account"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
