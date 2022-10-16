@@ -53,25 +53,11 @@
 
 
                 <EditText
+                    android:id="@+id/time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/phone"
                     android:hint="원하는 시간"
                     android:inputType="time" />
-
-
-                <EditText
-                    android:id="@+id/time"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/underline"
-                    android:ems="10"
-                    android:hint="00:00"
-                    android:inputType="time"
-                    android:text="" />
-
 
 
 
@@ -147,35 +133,35 @@
                     android:layout_height="match_parent">
 
                     <RadioButton
-                        android:id="@+id/1rating"
+                        android:id="@+id/rating1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="1등급" />
 
                     <RadioButton
-                        android:id="@+id/2rating"
+                        android:id="@+id/rating2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:text="2등급" />
                     <RadioButton
-                        android:id="@+id/3rating"
+                        android:id="@+id/rating3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:text="3등급" />
                     <RadioButton
-                        android:id="@+id/4rating"
+                        android:id="@+id/rating4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="4등급" />
                     <RadioButton
-                        android:id="@+id/5rating"
+                        android:id="@+id/rating5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="5등급" />
                     <RadioButton
-                        android:id="@+id/6rating"
+                        android:id="@+id/rating6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="6등급" />
