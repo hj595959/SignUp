@@ -69,6 +69,17 @@
                     android:ems="10"
                     android:hint="원하는 시간"
                     android:inputType="textPostalAddress" />
+                <EditText
+                    android:id="@+id/info2_time"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/underline"
+                    android:ems="10"
+                    android:hint="00:00"
+                    android:inputType="time"
+                    android:text="" />
 
                 <EditText
 
@@ -104,6 +115,50 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp"
                         android:text="재택 간병" />
+                </RadioGroup>
+                <ImageButton
+                    android:layout_width="400dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/rating"/>
+                <RadioGroup
+                    android:id="@+id/info2_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/info2_1rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1등급" />
+
+                    <RadioButton
+                        android:id="@+id/info2_2rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="2등급" />
+                    <RadioButton
+                        android:id="@+id/info2_3rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="3등급" />
+                    <RadioButton
+                        android:id="@+id/info2_4rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4등급" />
+                    <RadioButton
+                        android:id="@+id/info2_5rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5등급" />
+                    <RadioButton
+                        android:id="@+id/info2_6rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6등급" />
                 </RadioGroup>
                 <Button
                     android:id="@+id/checkButton2"
