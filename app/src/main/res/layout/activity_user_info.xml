@@ -51,7 +51,6 @@
                 </androidx.cardview.widget.CardView>
 
 
-
                 <EditText
                     android:id="@+id/time"
                     android:layout_width="match_parent"
