@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/phone"
                     android:hint="원하는 시간"
-                    android:inputType="phone" />
+                    android:inputType="time" />
 
                 <EditText
                     android:id="@+id/addressEditText"

@@ -1,8 +1,8 @@
 package com.example.signup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Mkd1Activity extends AppCompatActivity {
 
