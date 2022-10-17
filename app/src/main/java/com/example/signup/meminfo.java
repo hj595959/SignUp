@@ -7,12 +7,14 @@ public class meminfo {
     String dementia_check; // 채매여부 확인
     String info_rateing; // 등급
     String note; // 특이사항
+    String signID; //이것도 해여해
 
     public meminfo(){
 
     }
 
-    public meminfo(String time, String diseaseName, String location_check, String dementia_check, String info_rateing, String note) {
+    public meminfo(String signID,String time, String diseaseName, String location_check, String dementia_check, String info_rateing, String note) {
+        this.signID = signID;
         this.time = time;
         this.diseaseName = diseaseName;
         this.location_check = location_check;
@@ -69,6 +71,14 @@ public class meminfo {
         this.note = note;
     }
 
+    public String getSignID() {
+        return signID;
+    }
+
+    public void setSignID(String signID) {
+        this.signID = signID;
+    }
+
     @Override
     public String toString() {
         return "meminfo{" +
@@ -78,6 +88,7 @@ public class meminfo {
                 ", dementia_check='" + dementia_check + '\'' +
                 ", info_rateing='" + info_rateing + '\'' +
                 ", note='" + note + '\'' +
+                ", signID='" + signID + '\'' +
                 '}';
     }
 }

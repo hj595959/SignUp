@@ -22,7 +22,7 @@ public class user_info extends AppCompatActivity {
     private Button checkButton, checkButton1;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
-
+    private String location_check_result,dementia_check_result , info_rateing_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +51,13 @@ public class user_info extends AppCompatActivity {
         checkButton = findViewById(R.id.checkButton);
         checkButton1 = findViewById(R.id.checkButton1);
 
-        //String 형식으로 전달받을 signmail 저장
+        //String 형식으로 전달받을 sigID 저장
         String signID = intent.getStringExtra("signID");
 
         location_check.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                String location_check_result;
+
                 if (i == R.id.home_care) {
                     location_check_result = String.valueOf(home_care.getText());
                 } else if (i == R.id.hospital_care) {
@@ -69,7 +69,7 @@ public class user_info extends AppCompatActivity {
         dementia_check.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                String dementia_check_result;
+
                 if (i == R.id.dimentia_yes) {
                     dementia_check_result = String.valueOf(dimentia_yes.getText());
                 } else if (i == R.id.dimentia_no) {
@@ -81,7 +81,7 @@ public class user_info extends AppCompatActivity {
         info_rateing.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                String info_rateing_result;
+
                 if (i == R.id.rating1) {
                     info_rateing_result = String.valueOf(rating1.getText());
                 } else if (i == R.id.rating2) {
@@ -98,20 +98,18 @@ public class user_info extends AppCompatActivity {
             }
         });
 
-
+       //등록 버튼 클릭시
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //클릭시 작동되는 코드
-
-
+                addmeminfo(signID,diseaseName.getText().toString(),time.getText().toString(),note.getText().toString(),location_check_result,dementia_check_result,info_rateing_result);
             }
         });
     }
 
-    public void addmeminfo(String diseaseName, String time, String note, String location_check, String dementia_check, String info_rateing) {
-        meminfo meminfo = new meminfo(diseaseName, time, note, location_check, dementia_check, info_rateing);
-        databaseReference.child("meminfo").push().setValue(meminfo);
+    public void addmeminfo(String signID,String diseaseName, String time, String note, String location_check_result, String dementia_check_result, String info_rateing_result) {
+        meminfo meminfo = new meminfo(signID,diseaseName, time, note, location_check_result, dementia_check_result, info_rateing_result);
+        databaseReference.child("patient").push().setValue(meminfo);
     }
 }
 
