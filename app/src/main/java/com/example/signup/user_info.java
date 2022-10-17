@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -99,10 +99,12 @@ public class user_info extends AppCompatActivity {
         });
 
        //등록 버튼 클릭시
-        checkButton.setOnClickListener(new View.OnClickListener() {
+        checkButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addmeminfo(signID,diseaseName.getText().toString(),time.getText().toString(),note.getText().toString(),location_check_result,dementia_check_result,info_rateing_result);
+                Toast.makeText(getApplicationContext(), "환자 등록 에 성공했습니다!", Toast.LENGTH_LONG).show();
+                checkButton1.setEnabled(false); //버튼 비활성화
             }
         });
     }
