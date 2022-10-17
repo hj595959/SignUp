@@ -55,7 +55,7 @@
                     android:id="@+id/time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="원하는 시간"
+                    android:hint="원하는 시간(10시20분 >> 1020)"
                     android:inputType="time" />
 
 

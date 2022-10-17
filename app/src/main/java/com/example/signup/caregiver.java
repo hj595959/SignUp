@@ -6,6 +6,7 @@ public class caregiver {
     String workTime; //일하는시간
     String license; //자격증
     String location_work; //자택간병 , 병원간병 선택
+    String info2_rating; //간병 등급
 
     public caregiver(){
 
@@ -51,6 +52,14 @@ public class caregiver {
         this.signID = signID;
     }
 
+    public String getInfo2_rating() {
+        return info2_rating;
+    }
+
+    public void setInfo2_rating(String info2_rating) {
+        this.info2_rating = info2_rating;
+    }
+
     @Override
     public String toString() {
         return "caregiver{" +
@@ -59,15 +68,17 @@ public class caregiver {
                 ", workTime='" + workTime + '\'' +
                 ", license='" + license + '\'' +
                 ", location_work='" + location_work + '\'' +
+                ", info2_rating='" + info2_rating + '\'' +
                 '}';
     }
 
-    public caregiver(String signID ,String career, String workTime, String license, String location_work){
+    public caregiver(String signID , String career, String workTime, String license, String location_work,String info2_rating){
         this.signID = signID;
         this.career = career;
         this.workTime = workTime;
         this.license = license;
         this.location_work = location_work;
+        this.info2_rating = info2_rating;
     }
 
 }

@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="경력"
+                    android:hint="경력(년)"
                     android:inputType="date" />
 
                 <EditText
@@ -67,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="원하는 시간"
+                    android:hint="원하는 시간(10시20분 >> 1020)"
                     android:inputType="time" />
 
                 <EditText
