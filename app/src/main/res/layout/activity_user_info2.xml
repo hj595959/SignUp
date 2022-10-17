@@ -104,11 +104,12 @@
                         android:layout_marginBottom="30dp"
                         android:text="재택 간병" />
                 </RadioGroup>
-                <ImageButton
+
+                <ImageView
                     android:layout_width="400dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="250dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/rating"/>
+                    app:srcCompat="@drawable/rating1" />
                 <RadioGroup
                     android:id="@+id/info2_rating"
                     android:layout_width="match_parent"

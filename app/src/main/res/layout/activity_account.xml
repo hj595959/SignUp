@@ -36,15 +36,25 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton6"
         app:srcCompat="@drawable/account_login" />
 
+
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="155dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/idpw" />
+        app:srcCompat="@drawable/findid" />
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="155dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/findpw" />
 
 
     <ImageButton

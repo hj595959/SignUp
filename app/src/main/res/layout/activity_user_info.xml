@@ -51,6 +51,7 @@
                 </androidx.cardview.widget.CardView>
 
 
+
                 <EditText
                     android:id="@+id/time"
                     android:layout_width="match_parent"
@@ -61,7 +62,7 @@
 
 
             <EditText
-                    android:id="@+id/addressEditText"
+                    android:id="@+id/diseaseName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -121,11 +122,12 @@
                         android:layout_height="wrap_content"
                         android:text="NO" />
                 </RadioGroup>
-                <ImageButton
+
+                <ImageView
                     android:layout_width="400dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="311dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/rating"/>
+                    app:srcCompat="@drawable/rating1" />
                 <RadioGroup
                     android:id="@+id/info_rateing"
                     android:layout_width="match_parent"
