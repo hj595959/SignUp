@@ -109,6 +109,8 @@ public class user_info extends AppCompatActivity {
         });
     }
 
+
+
     public void addmeminfo(String signID,String diseaseName, String time, String note, String location_check_result, String dementia_check_result, String info_rateing_result) {
         meminfo meminfo = new meminfo(signID,diseaseName, time, note, location_check_result, dementia_check_result, info_rateing_result);
         databaseReference.child("patient").push().setValue(meminfo);
