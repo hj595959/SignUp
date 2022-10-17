@@ -48,10 +48,10 @@
             android:name=".activity_mkd3"
             android:exported="false" />
         <activity
-            android:name=".Mypage"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MemberFindLoginIdActivity2"
             android:exported="false" />
         <activity
             android:name=".account"
