@@ -51,12 +51,27 @@
                 </androidx.cardview.widget.CardView>
 
 
+
                 <EditText
-                    android:id="@+id/time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="원하는 시간(10시20분 >> 1020)"
+                    android:id="@+id/phone"
+                    android:hint="원하는 시간"
                     android:inputType="time" />
+
+
+                <EditText
+                    android:id="@+id/time"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/underline"
+                    android:ems="10"
+                    android:hint="00:00"
+                    android:inputType="time"
+                    android:text="" />
+
 
 
 
@@ -121,11 +136,12 @@
                         android:layout_height="wrap_content"
                         android:text="NO" />
                 </RadioGroup>
-                <ImageButton
+
+                <ImageView
                     android:layout_width="400dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="311dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/rating"/>
+                    app:srcCompat="@drawable/rating1" />
                 <RadioGroup
                     android:id="@+id/info_rateing"
                     android:layout_width="match_parent"
