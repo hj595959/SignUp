@@ -83,13 +83,13 @@
                     android:layout_height="match_parent">
 
                     <RadioButton
-                        android:id="@+id/home_care"
+                        android:id="@+id/hospital_care"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="병원 간병" />
 
                     <RadioButton
-                        android:id="@+id/hospital_care"
+                        android:id="@+id/home_care"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp"

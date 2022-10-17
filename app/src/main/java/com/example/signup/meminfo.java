@@ -1,48 +1,32 @@
 package com.example.signup;
 
 public class meminfo {
+    String time; // 원하는 시간
+    String addressEditText; // 병명
+    String location_check; // 병원간병, 재택간병
+    String dementia_check; // 채매여부 확인
+    String info_rateing; // 등급
+    String note; // 특이사항
 
-    String nameEditText; //이름
-    String emailEditText; //이메일
-    String birthDayEditText; //생년워일
-    String phone; // 전화번호
-    String addressEditText; //주소
-    String rating; //등급
-    String checkButton; //확인
+    public meminfo(){
 
-
-    public meminfo(){}
-
-    public String getNameEditText() {
-        return nameEditText;
     }
 
-    public void setNameEditText(String nameEditText) {
-        this.nameEditText = nameEditText;
+    public meminfo(String time, String addressEditText, String location_check, String dementia_check, String info_rateing, String note) {
+        this.time = time;
+        this.addressEditText = addressEditText;
+        this.location_check = location_check;
+        this.dementia_check = dementia_check;
+        this.info_rateing = info_rateing;
+        this.note = note;
     }
 
-    public String getEmailEditText() {
-        return emailEditText;
+    public String getTime() {
+        return time;
     }
 
-    public void setEmailEditText(String emailEditText) {
-        this.emailEditText = emailEditText;
-    }
-
-    public String getBirthDayEditText() {
-        return birthDayEditText;
-    }
-
-    public void setBirthDayEditText(String birthDayEditText) {
-        this.birthDayEditText = birthDayEditText;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getAddressEditText() {
@@ -53,44 +37,48 @@ public class meminfo {
         this.addressEditText = addressEditText;
     }
 
-    public String getRating() {
-        return rating;
+    public String getLocation_check() {
+        return location_check;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setLocation_check(String location_check) {
+        this.location_check = location_check;
     }
 
-    public String getCheckButton() {
-        return checkButton;
+    public String getDementia_check() {
+        return dementia_check;
     }
 
-    public void setCheckButton(String checkButton) {
-        this.checkButton = checkButton;
+    public void setDementia_check(String dementia_check) {
+        this.dementia_check = dementia_check;
     }
 
-    public meminfo(String nameEditText, String emailEditText, String birthDayEditText, String phone, String addressEditText, String rating, String checkButton) {
-        this.nameEditText = nameEditText;
-        this.emailEditText = emailEditText;
-        this.birthDayEditText = birthDayEditText;
-        this.phone = phone;
-        this.addressEditText = addressEditText;
-        this.rating = rating;
-        this.checkButton = checkButton;
+    public String getInfo_rateing() {
+        return info_rateing;
+    }
+
+    public void setInfo_rateing(String info_rateing) {
+        this.info_rateing = info_rateing;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     @Override
     public String toString() {
         return "meminfo{" +
-                "nameEditText='" + nameEditText + '\'' +
-                ", emailEditText='" + emailEditText + '\'' +
-                ", birthDayEditText='" + birthDayEditText + '\'' +
-                ", phone='" + phone + '\'' +
+                "time='" + time + '\'' +
                 ", addressEditText='" + addressEditText + '\'' +
-                ", rating='" + rating + '\'' +
-                ", checkButton='" + checkButton + '\'' +
+                ", location_check='" + location_check + '\'' +
+                ", dementia_check='" + dementia_check + '\'' +
+                ", info_rateing='" + info_rateing + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
-
-
 }
+
