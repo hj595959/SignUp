@@ -54,6 +54,10 @@
             android:name=".MemberFindLoginIdActivity2"
             android:exported="false" />
         <activity
+            android:name=".MemberFindLoginPwActivity2"
+            android:exported="false" />
+
+        <activity
             android:name=".account"
             android:exported="true">
             <intent-filter>

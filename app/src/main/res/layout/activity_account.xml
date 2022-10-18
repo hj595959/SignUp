@@ -68,6 +68,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout3"
         app:srcCompat="@drawable/email_login" />
-    >
 
 </androidx.constraintlayout.widget.ConstraintLayout>
