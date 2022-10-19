@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MemberFindLoginPwActivity2 extends AppCompatActivity {
 
-    private EditText signID;
+    private EditText signID,signmail;
     private Button buttonDoFindLoginPw, buttonCancel;
     private DatabaseReference databaseReference;
     //데이터 받아올 member 클래스의 리스트 생성
@@ -35,12 +35,13 @@ public class MemberFindLoginPwActivity2 extends AppCompatActivity {
         signID = findViewById(R.id.signID);
         buttonCancel = findViewById(R.id.buttonCancel);
         buttonDoFindLoginPw = findViewById(R.id.buttonDoFindLoginPw);
+        signmail = findViewById(R.id.signmail);
 
 
         buttonDoFindLoginPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Query myQuery = databaseReference.orderByChild("signID").equalTo(signID.getText().toString());
+                Query myQuery = databaseReference.orderByChild("signID,signmail").equalTo(signID.getText().toString(), signmail.getText().toString());
 
                 myQuery.addValueEventListener(new ValueEventListener() {
 
