@@ -1,5 +1,6 @@
 package com.example.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +48,7 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
                         for(DataSnapshot datasnapshot : snapshot.getChildren()){
                             member memberadd = datasnapshot.getValue(member.class);
                             member.setSignID(memberadd.getSignID());
-                            Toast.makeText(getApplicationContext(),"회원님의 아이디는 :"  + member.getSignID() + "입니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"회원님의 아이디는 :"  + member.getSignID() + " 입니다.", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -64,7 +65,8 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MemberFindLoginIdActivity2.this, account.class);
+                startActivity(intent);
             }
         });
 

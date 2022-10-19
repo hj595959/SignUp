@@ -92,7 +92,7 @@ public class user_info2 extends AppCompatActivity {
             public void onClick(View view) {
 
                 addCaregiver(signID,career.getText().toString(),workTime.getText().toString(),license.getText().toString(),location_working_result , info2_rating_result);
-                //회원가입 성공 메세지
+                //간병인등록 메세지
                 Toast.makeText(getApplicationContext(), "간병인 등록 에 성공했습니다!", Toast.LENGTH_LONG).show();
                 //Intent intent = new Intent(user_info2.this, .class); 어디로 이동하는지 몰라서 일단 주석
                 //startActivity(intent);
