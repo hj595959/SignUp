@@ -7,20 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".MainActivity">
+    tools:context=".MainPage1">
 
 
     <Spinner
-        android:id="@+id/planets_spinner"
+        android:id="@+id/gender_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="선택된 아이템"
-        android:textSize="24sp" />
-
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -54,6 +47,7 @@
 
 
         <ImageButton
+            android:id="@+id/home_btn"
             android:layout_width="138dp"
             android:layout_height="100dp"
             android:scaleType="fitCenter"

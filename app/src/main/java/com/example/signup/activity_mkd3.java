@@ -69,6 +69,7 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
           //데이터 보내기
            intent.putExtra("signID",member.getSignID());
           startActivity(intent);
+
         }else if(member.getServiceId().equals("간병인")){
 
             Intent intent = new Intent(activity_mkd3.this,user_info2.class);

@@ -99,7 +99,8 @@ public class user_info2 extends AppCompatActivity {
             }
         });
     } 
-    
+
+
     public void addCaregiver(String signID,String career,String workTime,String license , String location_working_result, String info2_rating_result){
         caregiver caregiver = new caregiver(signID,career,workTime,license,location_working_result,info2_rating_result);
         databaseReference.child("caregiver").push().setValue(caregiver); //caregiver에 값 저장
