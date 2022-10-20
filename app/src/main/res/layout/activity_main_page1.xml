@@ -10,6 +10,17 @@
     tools:context=".MainActivity">
 
 
+    <Spinner
+        android:id="@+id/planets_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택된 아이템"
+        android:textSize="24sp" />
+
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -23,6 +34,7 @@
             android:background="#87CEFA"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             >
 
            />
