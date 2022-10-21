@@ -9,40 +9,58 @@
     android:gravity="center_horizontal"
     tools:context=".MainPage1">
 
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
     <Spinner
         android:id="@+id/gender_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+    <Spinner
+        android:id="@+id/location_spinner"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+    <Spinner
+        android:id="@+id/home_care_spinner"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+        <Button
+            android:id="@+id/find_matching"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="#87CEFA"
+            android:textStyle="bold"
+            android:text="검색">
+        </Button>
+    </LinearLayout>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_margin="40dp"
         app:cardCornerRadius="40dp"
         android:layout_height="400dp"
+
         >
 
         <LinearLayout
             android:background="#87CEFA"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             >
-
-           />
 
         </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
+
+
     <LinearLayout
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="160dp"
+    android:layout_marginTop="100dp"
     tools:ignore="MissingConstraints">
 
 
@@ -66,6 +84,5 @@
             app:srcCompat="@drawable/back"/>
 
         </LinearLayout>
-
 
 </LinearLayout>
