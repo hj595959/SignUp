@@ -100,6 +100,7 @@ public class MemberFindLoginPwActivity2 extends AppCompatActivity {
                             member memberadd = dataSnapshot.getValue(member.class);
                             buttonDoFindLoginPw.setEnabled(true);
                             buttonDoFindLoginPw.setVisibility(View.VISIBLE);
+                            //버튼 활성호ㅏ
                             }
 
 
