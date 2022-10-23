@@ -114,15 +114,6 @@ public class MainPage1 extends AppCompatActivity {
         });
 
 
-        bottomHomeBtn=findViewById(R.id.bottomHomeBtn);
-        bottomHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainPage1.this, MainPage1.class);
-                startActivity(intent);
-            }
-        });
-
         bottomMyPageBtn=findViewById(R.id.bottomMyPageBtn);
         bottomMyPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +122,6 @@ public class MainPage1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
 
         bottomBackBtn=findViewById(R.id.bottomBackBtn);
