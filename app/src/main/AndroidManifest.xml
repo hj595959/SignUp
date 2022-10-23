@@ -56,6 +56,10 @@
         <activity
             android:name=".MemberFindLoginPwActivity2"
             android:exported="false" />
+        <activity
+            android:name=".Mypage"
+            android:exported="false" />
+
 
         <activity
             android:name=".account"
