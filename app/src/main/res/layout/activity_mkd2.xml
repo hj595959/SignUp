@@ -44,18 +44,21 @@
 
 
         <ImageButton
+            android:id="@+id/bottomHomeBtn"
             android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/home"/>
+            app:srcCompat="@drawable/home" />
 
         <ImageButton
+            android:id="@+id/bottomMyPageBtn"
             android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/person"/>
+            app:srcCompat="@drawable/person" />
 
         <ImageButton
+            android:id="@+id/bottomBackBtn"
             android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"

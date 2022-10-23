@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="100dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btn_test1"
@@ -33,7 +34,7 @@
             android:textStyle="bold"
             android:textSize="40dp"
             android:text="결제"
-            android:layout_marginRight="50dp"/>
+            />
 
         <Button
             android:id="@+id/btn_test2"
@@ -66,18 +67,21 @@
 
 
         <ImageButton
+            android:id="@+id/bottomHomeBtn"
             android:layout_width="138dp"
             android:layout_height="100dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/home"/>
 
         <ImageButton
+            android:id="@+id/bottomMyPageBtn"
             android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/person"/>
 
         <ImageButton
+            android:id="@+id/bottomBackBtn"
             android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"

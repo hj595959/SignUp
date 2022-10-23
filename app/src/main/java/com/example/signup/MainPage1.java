@@ -1,10 +1,13 @@
 package com.example.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +16,13 @@ import java.util.ArrayList;
 public class MainPage1 extends AppCompatActivity {
 
     private Spinner gender_spinner,location_spinner,home_care_spinner;
+    private ImageButton bottomHomeBtn, bottomMyPageBtn, bottomBackBtn;
+    private long backKeyPressedTime = 0;
+    private Toast toast;
+
     ArrayList<String> gender_list,location_list,home_care_list;
     ArrayAdapter<String> arrayAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +99,8 @@ public class MainPage1 extends AppCompatActivity {
         home_care_spinner.setAdapter(arrayAdapter);
         home_care_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
 
+
+
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -101,6 +111,47 @@ public class MainPage1 extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
+        });
+
+
+        bottomHomeBtn=findViewById(R.id.bottomHomeBtn);
+        bottomHomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainPage1.this, MainPage1.class);
+                startActivity(intent);
+            }
+        });
+
+        bottomMyPageBtn=findViewById(R.id.bottomMyPageBtn);
+        bottomMyPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainPage1.this, Mypage.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        bottomBackBtn=findViewById(R.id.bottomBackBtn);
+        bottomBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
+                    backKeyPressedTime = System.currentTimeMillis();
+                    Toast.makeText(getApplicationContext(),"한번 더 누르면 종료됩니다.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                // 마지막으로 뒤로 가기 버튼을 눌렀던 시간에 2.5초를 더해 현재 시간과 비교 후
+                // 마지막으로 뒤로 가기 버튼을 눌렀던 시간이 2.5초가 지나지 않았으면 종료
+                if (System.currentTimeMillis() <= backKeyPressedTime + 2500) {
+                    finishAffinity();
+                    System.exit(0);
+                    Toast.makeText(getApplicationContext(),"이용해주셔서 감사합니다.", Toast.LENGTH_LONG).show();
+
+            }}
         });
     }
 }
