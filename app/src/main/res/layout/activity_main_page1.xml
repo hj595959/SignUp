@@ -77,14 +77,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="0dp"
+    android:layout_marginTop="40dp"
     tools:ignore="MissingConstraints">
 
 
         <ImageButton
             android:id="@+id/bottomHomeBtn"
             android:layout_width="136dp"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/home" />
 
