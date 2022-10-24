@@ -140,6 +140,8 @@ public class MainPage1 extends AppCompatActivity {
                     System.exit(0);
                     Toast.makeText(getApplicationContext(),"이용해주셔서 감사합니다.", Toast.LENGTH_LONG).show();
 
+                    //조조조조
+
             }}
         });
     }
