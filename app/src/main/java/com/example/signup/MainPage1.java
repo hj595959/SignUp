@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -17,17 +18,50 @@ public class MainPage1 extends AppCompatActivity {
 
     private Spinner gender_spinner,location_spinner,home_care_spinner;
     private ImageButton bottomMyPageBtn, bottomBackBtn;
+    private Button info3_button,info4_button;
     private long backKeyPressedTime = 0;
     private Toast toast;
 
+
+
     ArrayList<String> gender_list,location_list,home_care_list;
     ArrayAdapter<String> arrayAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page1);
+        //데이터 받기
+        Intent intent = getIntent();
+        String signID = intent.getStringExtra("signID");
+        String serviceId = intent.getStringExtra("serviceId");
+        info3_button = findViewById(R.id.info3_button);
+        info4_button = findViewById(R.id.info4_button);
+
+        if(serviceId.equals("간병인")){
+            info4_button.setVisibility(View.GONE);
+        }else if(serviceId.equals("환자")){
+            info3_button.setVisibility(View.GONE);
+        }
+
+        info3_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainPage1.this,user_info2.class);
+                intent.putExtra("signID",signID);
+                startActivity(intent);
+            }
+        });
+
+        info4_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainPage1.this,user_info.class);
+                intent.putExtra("signID",signID);
+                startActivity(intent);
+            }
+        });
+
 
         gender_list = new ArrayList<>();
         gender_list.add("선택없음");
@@ -114,6 +148,7 @@ public class MainPage1 extends AppCompatActivity {
         });
 
 
+
         bottomMyPageBtn=findViewById(R.id.bottomMyPageBtn);
         bottomMyPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,8 +174,6 @@ public class MainPage1 extends AppCompatActivity {
                     finishAffinity();
                     System.exit(0);
                     Toast.makeText(getApplicationContext(),"이용해주셔서 감사합니다.", Toast.LENGTH_LONG).show();
-
-                    //조조조조
 
             }}
         });
