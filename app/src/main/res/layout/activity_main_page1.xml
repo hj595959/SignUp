@@ -55,13 +55,29 @@
     </androidx.cardview.widget.CardView>
 
 
+    <Button
+        android:id="@+id/info3_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#87CEFA"
+        android:textStyle="bold"
+        android:text="간병인 정보 등록 및 수정"
+        tools:ignore="InvalidId" />
+    <Button
+        android:id="@+id/info4_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#87CEFA"
+        android:textStyle="bold"
+        android:text="환자 정보 등록 및 수정"
+        tools:ignore="InvalidId" />
 
     <LinearLayout
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="0dp"
     tools:ignore="MissingConstraints">
 
 
