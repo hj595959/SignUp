@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class MainPage1 extends AppCompatActivity {
 
     private Spinner gender_spinner,location_spinner,home_care_spinner;
-    private ImageButton bottomHomeBtn, bottomMyPageBtn, bottomBackBtn;
+    private ImageButton bottomMyPageBtn, bottomBackBtn;
     private long backKeyPressedTime = 0;
     private Toast toast;
 
