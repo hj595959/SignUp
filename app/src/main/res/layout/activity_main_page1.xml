@@ -51,33 +51,88 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/cardName"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/cardDate"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/cardLocation"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/cardDetail"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="210dp">
+
+        </TextView>
+
+
+
+
+
+
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/choiceBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        >
 
-    <Button
-        android:id="@+id/info3_button"
+    </Button>
+
+
+    <RelativeLayout
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="#87CEFA"
-        android:textStyle="bold"
-        android:text="간병인 정보 등록"
-        tools:ignore="InvalidId" />
-    <Button
-        android:id="@+id/info4_button"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#87CEFA"
-        android:textStyle="bold"
-        android:text="환자 정보 등록"
-        tools:ignore="InvalidId" />
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/info3_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#87CEFA"
+            android:textStyle="bold"
+            android:text="간병인 정보 등록 및 수정"
+            tools:ignore="InvalidId" />
+        <Button
+            android:id="@+id/info4_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#87CEFA"
+            android:textStyle="bold"
+            android:text="환자 정보 등록 및 수정"
+            tools:ignore="InvalidId" />
+    </RelativeLayout>
+
 
     <LinearLayout
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="10dp"
     tools:ignore="MissingConstraints">
 
 
