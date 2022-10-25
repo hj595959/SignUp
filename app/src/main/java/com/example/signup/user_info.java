@@ -19,7 +19,7 @@ public class user_info extends AppCompatActivity {
     private EditText diseaseName, time, note;
     private RadioGroup location_check, dementia_check, info_rateing;
     private RadioButton hospital_care, home_care, dimentia_yes, dimentia_no, rating1, rating2, rating3, rating4, rating5, rating6;
-    private Button checkButton, checkButton1;
+    private Button checkButton1;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
     private String location_check_result,dementia_check_result , info_rateing_result;
@@ -48,7 +48,6 @@ public class user_info extends AppCompatActivity {
         rating4 = findViewById(R.id.rating4);
         rating5 = findViewById(R.id.rating5);
         rating6 = findViewById(R.id.rating6);
-        checkButton = findViewById(R.id.checkButton);
         checkButton1 = findViewById(R.id.checkButton1);
 
         //String 형식으로 전달받을 sigID 저장
@@ -105,6 +104,8 @@ public class user_info extends AppCompatActivity {
                 addmeminfo(signID,diseaseName.getText().toString(),time.getText().toString(),note.getText().toString(),location_check_result,dementia_check_result,info_rateing_result);
                 Toast.makeText(getApplicationContext(), "환자 등록 에 성공했습니다!", Toast.LENGTH_LONG).show();
                 checkButton1.setEnabled(false); //버튼 비활성화
+                //Intent intent = new Intent(user_info.this, MainPage1.class);
+                //startActivity(intent);
             }
         });
     }

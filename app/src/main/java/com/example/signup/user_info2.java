@@ -19,7 +19,7 @@ public class user_info2 extends AppCompatActivity {
     private EditText career , workTime , license;
     private RadioGroup location_working , info2_rating;
     private RadioButton home_work , hospital_work , info2_1rating , info2_2rating , info2_3rating , info2_4rating , info2_5rating , info2_6rating;
-    private Button checkButton2 , checkButton3;
+    private Button  checkButton3;
     private String signID ,location_working_result , info2_rating_result;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
@@ -46,7 +46,6 @@ public class user_info2 extends AppCompatActivity {
         info2_4rating = findViewById(R.id.info2_4rating);
         info2_5rating = findViewById(R.id.info2_5rating);
         info2_6rating = findViewById(R.id.info2_6rating);
-        checkButton2 = findViewById(R.id.checkButton2);
         checkButton3 = findViewById(R.id.checkButton3);
 
         //String 형식으로 전달받을 signID 저장
@@ -94,7 +93,7 @@ public class user_info2 extends AppCompatActivity {
                 addCaregiver(signID,career.getText().toString(),workTime.getText().toString(),license.getText().toString(),location_working_result , info2_rating_result);
                 //간병인등록 메세지
                 Toast.makeText(getApplicationContext(), "간병인 등록 에 성공했습니다!", Toast.LENGTH_LONG).show();
-                //Intent intent = new Intent(user_info2.this, .class); 어디로 이동하는지 몰라서 일단 주석
+               //Intent intent = new Intent(user_info2.this, MainPage1.class);
                 //startActivity(intent);
             }
         });
