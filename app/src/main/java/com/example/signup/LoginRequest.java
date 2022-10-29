@@ -14,12 +14,12 @@ public class LoginRequest extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/Login.php";
     private Map<String, String> map;
 
-    public LoginRequest(String userB1, String userID, Response.Listener<String> listener){
+    public LoginRequest(String userPassword, String userID, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("userID",userID);
-        map.put("userPassword", "userPassword");
+        map.put("userPassword", userPassword);
 
     }
 
