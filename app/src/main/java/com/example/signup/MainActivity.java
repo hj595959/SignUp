@@ -12,19 +12,21 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Button signupbutton;
-    private EditText signName, signID, signmail, signBirth, signBirth2, signBirth3, signPW, phoneNb,signAddress ;
-    private RadioGroup gender , serviceId;
-    private RadioButton male,female,patient,caregiver;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스연동
-    private DatabaseReference databaseReference = database.getReference();
-    private String gender_result , serviceId_result;
+    private EditText signName, signID, signmail, signBirth, signBirth2, signBirth3, signPW, phoneNb, signAddress;
+    private RadioGroup gender, serviceId;
+    private RadioButton male, female, patient, caregiver;
+    private String gender_result, serviceId_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         signBirth3 = findViewById(R.id.signBirth3);
         signPW = findViewById(R.id.signPW);
         gender = findViewById(R.id.gender);
-        serviceId =  findViewById(R.id.serviceId);
-        male=  findViewById(R.id.male); // 남자
+        serviceId = findViewById(R.id.serviceId);
+        male = findViewById(R.id.male); // 남자
         female = findViewById(R.id.female); //여자
         patient = findViewById(R.id.patient); //환자
         caregiver = findViewById(R.id.caregiver); //간병인
@@ -52,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i == R.id.male){
+                if (i == R.id.male) {
                     gender_result = String.valueOf(male.getText());
-                }else if(i == R.id.female){
+                } else if (i == R.id.female) {
                     gender_result = String.valueOf(female.getText());
                 }
             }
@@ -63,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
         serviceId.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i == R.id.patient){
+                if (i == R.id.patient) {
                     serviceId_result = String.valueOf(patient.getText());
-                }else if(i == R.id.caregiver){
+                } else if (i == R.id.caregiver) {
                     serviceId_result = String.valueOf(caregiver.getText());
                 }
             }
@@ -76,37 +78,63 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //유효성 체크
-                if(signName.getText().toString().length() == 0){
-                    Toast.makeText(getApplicationContext(),"이름을 입력하세요!",Toast.LENGTH_SHORT).show();
+                if (signName.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "이름을 입력하세요!", Toast.LENGTH_SHORT).show();
                     signName.requestFocus();
-                }else if(phoneNb.getText().toString().length() ==0){
-                    Toast.makeText(getApplicationContext(),"전화번호를 입력하세요!",Toast.LENGTH_SHORT).show();
+                } else if (phoneNb.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "전화번호를 입력하세요!", Toast.LENGTH_SHORT).show();
                     phoneNb.requestFocus();
-                }else if(signAddress.getText().toString().length() ==0){
-                    Toast.makeText(getApplicationContext(),"주소를 입력하세요!",Toast.LENGTH_SHORT).show();
+                } else if (signAddress.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "주소를 입력하세요!", Toast.LENGTH_SHORT).show();
                     signAddress.requestFocus();
-                }else if(signmail.getText().toString().length() ==0){
-                    Toast.makeText(getApplicationContext(),"메일을 입력하세요!",Toast.LENGTH_SHORT).show();
+                } else if (signmail.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "메일을 입력하세요!", Toast.LENGTH_SHORT).show();
                     signmail.requestFocus();
-                }else if(signID.getText().toString().length() ==0){
-                    Toast.makeText(getApplicationContext(),"아이디를 입력하세요!",Toast.LENGTH_SHORT).show();
+                } else if (signID.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "아이디를 입력하세요!", Toast.LENGTH_SHORT).show();
                     signID.requestFocus();
-                }else if(signBirth.getText().toString().length() ==0){
-                    Toast.makeText(getApplicationContext(),"년도를 입력하세요!",Toast.LENGTH_SHORT).show();
+                } else if (signBirth.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "년도를 입력하세요!", Toast.LENGTH_SHORT).show();
                     signBirth.requestFocus();
-                }else if(signBirth2.getText().toString().length() ==0) {
+                } else if (signBirth2.getText().toString().length() == 0) {
                     Toast.makeText(getApplicationContext(), "월을 입력하세요!", Toast.LENGTH_SHORT).show();
                     signBirth2.requestFocus();
-                }else if(signBirth3.getText().toString().length() ==0) {
+                } else if (signBirth3.getText().toString().length() == 0) {
                     Toast.makeText(getApplicationContext(), "일을 입력하세요!", Toast.LENGTH_SHORT).show();
                     signBirth3.requestFocus();
-                }else {
+                } else {
                     //값을 텍스트로 변환후 함수 선언
-                    addMember(gender_result, serviceId_result, signName.getText().toString(), phoneNb.getText().toString(), signAddress.getText().toString(), signmail.getText().toString(), signID.getText().toString(), signBirth.getText().toString(), signBirth2.getText().toString(), signBirth3.getText().toString(), signPW.getText().toString());
-                    //회원가입 성공 메세지
-                    Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, account.class);
-                    startActivity(intent);
+                    String userID = signID.getText().toString();
+                    String userName = signName.getText().toString();
+                    String userPassword = signPW.getText().toString();
+
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                boolean success = jsonObject.getBoolean("success");
+                                if (success) {
+                                    Toast.makeText(getApplicationContext(), "회원등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this, activity_mkd3.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "회원등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+
+                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                    queue.add(registerRequest);
+
+
                 }
 
             }
@@ -121,23 +149,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, account.class);
                 startActivity(intent);
             }
-        }) ;
-
-
-
+        });
 
 
     }
-        //member값 넣어주기위한 함수
-        public void addMember(String gender_result,String serviceId_result,String signName,String phoneNb,String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
-          //member 클래스 에서 선언했던 함수
-          member member = new member(gender_result,serviceId_result,signName,phoneNb,signAddress,signmail,signID,signBirth,signBirth2,signBirth3,signPW);
-          databaseReference.child("member").push().setValue(member); //member그룹으로 값 저장
-        }
+}
 
 
 
 
 
 
-    }

@@ -2,6 +2,7 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -9,13 +10,17 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseError;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 
-public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.Listener {
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    private LoginRepsoitory loginRepository;
+public class activity_mkd3 extends AppCompatActivity {
+
     //입력값 받아오기
-    private EditText signPW , signID;
+    private EditText signPW, signID;
     private Button signUpBtn;
 
 
@@ -23,63 +28,57 @@ public class activity_mkd3 extends AppCompatActivity implements LoginRepsoitory.
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mkd3);
-        //loginRepository 실행할 함수 선언
-        injectDependencies();
-        //findViewById 실행할 함수 선언
-        bindView();
-    }
-    @Override
-    protected  void onStart(){
-        super.onStart();
-        loginRepository.setListener(this);
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        loginRepository.setListener(null);
-    }
-    private void injectDependencies(){
-        loginRepository = new LoginRepsoitory();
-    }
-
-    private void bindView(){
         signID = findViewById(R.id.signID);
         signPW = findViewById(R.id.signPW);
         signUpBtn = findViewById(R.id.signUpBtn);
-        signUpBtn.setOnClickListener(v -> {
-            //로그인 버튼 클릭시 수행될 함수 선언
-           submitLogin();
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID = signID.getText().toString();
+                String userPassword = signPW.getText().toString();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                String userID = jsonObject.getString("userID");
+                                String userPassword = jsonObject.getString("userPassword");
+
+                                Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(activity_mkd3.this, MainPage1.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userPassword", userPassword);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                LoginRequest loginRequest = new LoginRequest(userID, userPassword, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(activity_mkd3.this);
+                queue.add(loginRequest);
+
+            }
+
         });
-    }
-    private void submitLogin(){
-        //loginReository에 입력된 메일 , 비번 보내기
-        loginRepository.login(signID.getText().toString() , signPW.getText().toString());
-    }
 
-    //로그인 성공 처리
-    @Override
-    public void onLoginSuccess(member member) {
-        Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! " +member.getSignName() + "님 환영합니다.", Toast.LENGTH_LONG).show();
-
-        //버튼 비활성화
-        signUpBtn.setEnabled(false);
-
-           Intent intent = new Intent(activity_mkd3.this,MainPage1.class);
-           intent.putExtra("signID",member.getSignID());
-           intent.putExtra("serviceId",member.getServiceId());
-           startActivity(intent);
-
-    }
-
-
-    //로그인 실패 처리
-    @Override
-    public void onLoginFailure(DatabaseError error) {
-      if(error != null){
-          Toast.makeText(getApplicationContext(), "로그인 실패 했습니다!", Toast.LENGTH_LONG).show();
-
-          return;
-      }
-        Toast.makeText(getApplicationContext(), "로그인 실패 했습니다!", Toast.LENGTH_LONG).show();
     }
 }
+
+
+
+
+
+
+
+
+
