@@ -31,7 +31,6 @@ public class activity_mkd3 extends AppCompatActivity {
             public void onClick(View view) {
                 final String userID = signID.getText().toString();
                 final String userPassword = signPW.getText().toString();
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -39,13 +38,13 @@ public class activity_mkd3 extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success) {
-                                String userID = jsonResponse.getString("userID");
-                                String userServiceID = jsonResponse.getString("userServiceID");
+                                String userID_result = jsonResponse.getString("userID");
+                                String userServiceID_result = jsonResponse.getString("userServiceID");
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(activity_mkd3.this, MainPage1.class);
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userServiceID", userServiceID);
+                                intent.putExtra("userID", userID_result);
+                                intent.putExtra("userServiceID", userServiceID_result);
                                 activity_mkd3.this.startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();

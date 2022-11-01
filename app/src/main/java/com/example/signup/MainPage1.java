@@ -49,6 +49,7 @@ public class MainPage1 extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainPage1.this,user_info2.class);
                 intent.putExtra("userID",userID);
+                intent.putExtra("userServiceID",userServiceID);
                 startActivity(intent);
             }
         });
@@ -58,7 +59,8 @@ public class MainPage1 extends AppCompatActivity {
             public void onClick(View view) {
                Intent intent = new Intent(MainPage1.this,user_info.class);
                intent.putExtra("userID",userID);
-              startActivity(intent);
+               intent.putExtra("userServiceID",userServiceID);
+               startActivity(intent);
             }
         });
 
