@@ -44,24 +44,24 @@ public class MainPage1 extends AppCompatActivity {
             info3_button.setVisibility(View.GONE);
         }
 
-        info3_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainPage1.this,user_info2.class);
-                intent.putExtra("signID",signID);
-                startActivity(intent);
-            }
-        });
-
-        info4_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainPage1.this,user_info.class);
-                intent.putExtra("signID",signID);
-                startActivity(intent);
-            }
-        });
-
+//        info3_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainPage1.this,user_info2.class);
+//                intent.putExtra("signID",signID);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        info4_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainPage1.this,user_info.class);
+//                intent.putExtra("signID",signID);
+//                startActivity(intent);
+//            }
+//        });
+//
 
         gender_list = new ArrayList<>();
         gender_list.add("선택없음");

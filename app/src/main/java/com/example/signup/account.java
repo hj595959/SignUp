@@ -38,21 +38,21 @@ private ImageButton imageButton4,imageButton6,imageButton5,imageButton7;
             }
         });
 
-        imageButton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(account.this, MemberFindLoginIdActivity2.class);
-                startActivity(intent);
-            }
-        });
-
-        imageButton7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(account.this, MemberFindLoginPwActivity2.class);
-                startActivity(intent);
-            }
-        });
+//        imageButton5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(account.this, MemberFindLoginIdActivity2.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        imageButton7.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(account.this, MemberFindLoginPwActivity2.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }

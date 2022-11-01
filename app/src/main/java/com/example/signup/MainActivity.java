@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     private Button signupbutton;
-    private EditText signName, signID, signmail, signBirth, signBirth2, signBirth3, signPW, phoneNb, signAddress;
+//    private EditText signName, signID, signmail, signBirth, signBirth2, signBirth3, signPW, phoneNb, signAddress;
     private RadioGroup gender, serviceId;
     private RadioButton male, female, patient, caregiver;
     private String gender_result, serviceId_result;
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         signupbutton = findViewById(R.id.signupbutton);
-        signName = findViewById(R.id.signName);
+        final EditText signName = findViewById(R.id.signName);
 //        signmail = findViewById(R.id.signmail);
-        signID = findViewById(R.id.signID);
+        final EditText signID = findViewById(R.id.signID);
 //        signBirth = findViewById(R.id.signBirth);
 //        signBirth2 = findViewById(R.id.signBirth2);
 //        signBirth3 = findViewById(R.id.signBirth3);
-        signPW = findViewById(R.id.signPW);
+        final EditText signPW = findViewById(R.id.signPW);
 //        gender = findViewById(R.id.gender);
 //        serviceId = findViewById(R.id.serviceId);
 //        male = findViewById(R.id.male); // 남자
