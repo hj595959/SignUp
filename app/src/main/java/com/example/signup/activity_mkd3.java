@@ -13,7 +13,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class activity_mkd3 extends AppCompatActivity {
@@ -30,32 +29,30 @@ public class activity_mkd3 extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID = signID.getText().toString();
-                String userPassword = signPW.getText().toString();
-
+                final String userID = signID.getText().toString();
+                final String userPassword = signPW.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            boolean success = jsonObject.getBoolean("success");
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
                             if (success) {
-                                String userID = jsonObject.getString("userID");
-                                String userPassword = jsonObject.getString("userPassword");
+                                String userID = jsonResponse.getString("userID");
+                                String userServiceID = jsonResponse.getString("userServiceID");
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(activity_mkd3.this, MainPage1.class);
                                 intent.putExtra("userID", userID);
-                                intent.putExtra("userPassword", userPassword);
+                                intent.putExtra("userServiceID", userServiceID);
                                 activity_mkd3.this.startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
