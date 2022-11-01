@@ -1,7 +1,5 @@
 package com.example.signup;
 
-import androidx.annotation.Nullable;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -23,7 +21,6 @@ public class LoginRequest extends StringRequest {
 
     }
 
-    @Nullable
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return map;

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.signup">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:usesCleartextTraffic="true"
@@ -29,18 +29,18 @@
         <activity
             android:name=".MainPage1"
             android:exported="false">
-
         </activity>
-        <activity
-            android:name=".user_info2"
-            android:exported="false">
 
-        </activity>
-        <activity
-            android:name=".user_info"
-            android:exported="false">
+<!--        <activity-->
+<!--            android:name=".user_info2"-->
+<!--            android:exported="false">-->
 
-        </activity>
+<!--        </activity>-->
+<!--        <activity-->
+<!--            android:name=".user_info"-->
+<!--            android:exported="false">-->
+
+<!--        </activity>-->
         <activity
             android:name=".activity_mkd4"
             android:exported="false" />
@@ -50,12 +50,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".MemberFindLoginIdActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".MemberFindLoginPwActivity2"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".MemberFindLoginIdActivity2"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".MemberFindLoginPwActivity2"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".Mypage"
             android:exported="false" />
