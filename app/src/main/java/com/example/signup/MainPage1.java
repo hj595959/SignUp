@@ -44,7 +44,7 @@ public class MainPage1 extends AppCompatActivity {
             info3_button.setVisibility(View.GONE);
         }
 
-       info3_button.setOnClickListener(new View.OnClickListener() {
+        info3_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainPage1.this,user_info2.class);

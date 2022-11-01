@@ -17,7 +17,7 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
     member member;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_find_login_id2);
 
 
@@ -27,11 +27,11 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
 
 
-       buttonDoFindLoginId.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           }
-         });
+        buttonDoFindLoginId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
 
         //뒤로가기 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -42,5 +42,5 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
             }
         });
 
-   }
+    }
 }
