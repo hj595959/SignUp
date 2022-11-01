@@ -33,35 +33,35 @@ public class MainPage1 extends AppCompatActivity {
         setContentView(R.layout.activity_main_page1);
         //데이터 받기
         Intent intent = getIntent();
-        String signID = intent.getStringExtra("signID");
-        String serviceId = intent.getStringExtra("serviceId");
+        String userID = intent.getStringExtra("userID");
+        String userServiceID = intent.getStringExtra("userServiceID");
         info3_button = findViewById(R.id.info3_button);
         info4_button = findViewById(R.id.info4_button);
 
-        if(serviceId.equals("간병인")){
+        if(userServiceID.equals("간병인")){
             info4_button.setVisibility(View.GONE);
-        }else if(serviceId.equals("환자")){
+        }else if(userServiceID.equals("환자")){
             info3_button.setVisibility(View.GONE);
         }
 
-//        info3_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainPage1.this,user_info2.class);
-//                intent.putExtra("signID",signID);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        info4_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainPage1.this,user_info.class);
-//                intent.putExtra("signID",signID);
-//                startActivity(intent);
-//            }
-//        });
-//
+       info3_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainPage1.this,user_info2.class);
+                intent.putExtra("userID",userID);
+                startActivity(intent);
+            }
+        });
+
+        info4_button.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+               Intent intent = new Intent(MainPage1.this,user_info.class);
+               intent.putExtra("userID",userID);
+              startActivity(intent);
+            }
+        });
+
 
         gender_list = new ArrayList<>();
         gender_list.add("선택없음");

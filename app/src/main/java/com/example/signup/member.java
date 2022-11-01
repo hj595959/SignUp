@@ -120,17 +120,17 @@ public class member {
 
 
     public member(String gender,String serviceId,String signName , String phoneNb, String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
-         this.gender = gender;
-         this.serviceId = serviceId;
-         this.signName=  signName;
-         this.phoneNb= phoneNb;
-         this.signAddress=signAddress;
-         this.signmail = signmail;
-         this.signID = signID;
-         this.signBirth = signBirth;
-         this.signBirth2 = signBirth2;
-         this.signBirth3 = signBirth3;
-         this.signPW = signPW;
+        this.gender = gender;
+        this.serviceId = serviceId;
+        this.signName=  signName;
+        this.phoneNb= phoneNb;
+        this.signAddress=signAddress;
+        this.signmail = signmail;
+        this.signID = signID;
+        this.signBirth = signBirth;
+        this.signBirth2 = signBirth2;
+        this.signBirth3 = signBirth3;
+        this.signPW = signPW;
     }
 
     @Override
