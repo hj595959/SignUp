@@ -106,7 +106,7 @@ public class user_info extends AppCompatActivity {
                 String userID_db = intent.getStringExtra("userID");
                 String time_db = time.getText().toString();
                 String diseaseName_db = diseaseName.getText().toString();
-                String location_check_db = info_rateing_result;
+                String location_check_db = location_check_result;
                 String dementia_check_db = dementia_check_result;
                 String info_rating_db = info_rateing_result;
                 String note_db = note.getText().toString();
