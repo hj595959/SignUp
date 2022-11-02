@@ -62,18 +62,6 @@
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/emailtextView"
-                    android:layout_width="362dp"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="30dp"
-                    android:text="Email로 회원가입을
-                 시작할게요 :)"
-                    android:textColor="#000000"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-                >
-
 
                 <TextView
                     android:id="@+id/signNametext"
