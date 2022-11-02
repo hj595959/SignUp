@@ -2,6 +2,7 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,16 +13,30 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class MainPage1 extends AppCompatActivity {
 
-    private Spinner gender_spinner,location_spinner,home_care_spinner;
+    public Spinner gender_spinner,location_spinner,home_care_spinner;
     private ImageButton bottomMyPageBtn, bottomBackBtn;
-    private Button info3_button,info4_button;
+    private Button info3_button,info4_button , find_matching;
     private long backKeyPressedTime = 0;
     private Toast toast;
 
+    private static final String TAG_JSON = "result";
+    private static final String json_userID = "userID";
+    private static final String json_userName = "userName";
+    private static final String json_userGender = "userGender";
+    private static final String json_lovation_work = "lovation_work";
+    private static final String json_Ucareer = "Ucareer";
+    private static final String json_Ulicense = "Ulicense";
 
 
     ArrayList<String> gender_list,location_list,home_care_list;
@@ -32,6 +47,8 @@ public class MainPage1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page1);
         //데이터 받기
+        member member = new member();
+        caregiver caregiver = new caregiver();
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
         String userServiceID = intent.getStringExtra("userServiceID");
@@ -79,7 +96,8 @@ public class MainPage1 extends AppCompatActivity {
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                String gender = gender_spinner.getSelectedItem().toString();
+                member.setGender(gender);
             }
 
             @Override
@@ -87,7 +105,6 @@ public class MainPage1 extends AppCompatActivity {
 
             }
         });
-
 
         location_list = new ArrayList<>();
         location_list.add("인천시");
@@ -113,6 +130,8 @@ public class MainPage1 extends AppCompatActivity {
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                 String location = location_spinner.getSelectedItem().toString();
+                member.setSignAddress(location);
             }
 
             @Override
@@ -137,7 +156,8 @@ public class MainPage1 extends AppCompatActivity {
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                String home_care = home_care_spinner.getSelectedItem().toString();
+                caregiver.setLocation_work(home_care);
             }
 
             @Override
@@ -176,7 +196,49 @@ public class MainPage1 extends AppCompatActivity {
 
             }}
         });
+        find_matching = findViewById(R.id.find_matching);
+        find_matching.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                 String gender = member.getGender();
+                 String location = member.getSignAddress();
+                 String location_work  = caregiver.getLocation_work();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonObject = new JSONObject("result");
+                            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+                            for(int i =0; i<jsonArray.length(); i++){
+                                JSONObject item = jsonArray.getJSONObject(i);
+
+                                String userID = item.getString(json_userID);
+                                String userName = item.getString(json_userName);
+                                String userGender = item.getString(json_userGender);
+                                String lovation_work = item.getString(json_lovation_work);
+                                String Ucareer = item.getString(json_Ucareer);
+                                String Ulicense = item.getString(json_Ulicense);
+
+                                Log.v("userID",userID);
+                            }
+
+                        }catch(Exception e){
+                           e.printStackTrace();
+                        }
+
+
+                    }
+                };
+
+                matchingList matchingList = new matchingList(gender,location,location_work,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
+                queue.add(matchingList);
+
+            }
+        });
 
 
     }

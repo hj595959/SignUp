@@ -128,9 +128,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
-                    android:hint="oo시 oo동"
+                    android:hint="oo시"
                     android:text="" />
-
 
                 <TextView
                     android:id="@+id/sextext"
