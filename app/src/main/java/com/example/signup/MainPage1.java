@@ -66,7 +66,6 @@ public class MainPage1 extends AppCompatActivity {
 
 
         gender_list = new ArrayList<>();
-        gender_list.add("선택없음");
         gender_list.add("남자");
         gender_list.add("여자");
 
@@ -91,19 +90,18 @@ public class MainPage1 extends AppCompatActivity {
 
 
         location_list = new ArrayList<>();
-        location_list.add("선택 없음");
-        location_list.add("인천");
-        location_list.add("경기");
-        location_list.add("서울");
-        location_list.add("전북");
-        location_list.add("전남");
-        location_list.add("충남");
-        location_list.add("충북");
-        location_list.add("제주");
-        location_list.add("부산");
-        location_list.add("대구");
-        location_list.add("대전");
-        location_list.add("울산");
+        location_list.add("인천시");
+        location_list.add("경기시");
+        location_list.add("서울시");
+        location_list.add("전북시");
+        location_list.add("전남시");
+        location_list.add("충남시");
+        location_list.add("충북시");
+        location_list.add("제주시");
+        location_list.add("부산시");
+        location_list.add("대구시");
+        location_list.add("대전시");
+        location_list.add("울산시");
 
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
@@ -124,7 +122,6 @@ public class MainPage1 extends AppCompatActivity {
         });
 
         home_care_list = new ArrayList<>();
-        home_care_list.add("선택없음");
         home_care_list.add("재택 간병");
         home_care_list.add("병원 간병");
 
