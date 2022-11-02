@@ -7,6 +7,7 @@ public class meminfo {
     String dementia_check; // 채매여부 확인
     String info_rateing; // 등급
     String note; // 특이사항
+
     String signID; //이것도 해여해
 
     public meminfo(){
@@ -37,11 +38,11 @@ public class meminfo {
     public void setLocation_check(String location_check) {
         this.location_check = location_check;
     }
-        public String getDementia_check() {
+    public String getDementia_check() {
         return dementia_check;
     }
 
-  public void setDementia_check(String dementia_check) {
+    public void setDementia_check(String dementia_check) {
         this.dementia_check = dementia_check;
     }
 

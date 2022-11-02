@@ -3,12 +3,21 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class user_info2 extends AppCompatActivity {
@@ -34,7 +43,7 @@ public class user_info2 extends AppCompatActivity {
         license = findViewById(R.id.license);
         location_working = findViewById(R.id.location_working);
         home_work = findViewById(R.id.home_work);
-       hospital_work = findViewById(R.id.hospital_work);
+        hospital_work = findViewById(R.id.hospital_work);
         info2_rating = findViewById(R.id.info2_rating);
         info2_1rating = findViewById(R.id.info2_1rating);
         info2_2rating = findViewById(R.id.info2_2rating);
@@ -80,6 +89,45 @@ public class user_info2 extends AppCompatActivity {
             }
         });
 
+        checkButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Ucareer = career.getText().toString();
+                String info_ration = info2_rating_result;
+                String Ulicense = license.getText().toString();
+                String lovation_work = location_working_result;
+                String uworkTime = workTime.getText().toString();
+                String userID = intent.getStringExtra("userID");
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                String userServiceID = intent.getStringExtra("userServiceID");
+                                Toast.makeText(getApplicationContext(), "간병인 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(user_info2.this, MainPage1.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userServiceID", userServiceID);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "간병인 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                Info2Request info2Request = new Info2Request(Ucareer, info_ration, Ulicense, lovation_work, uworkTime, userID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(user_info2.this);
+                queue.add(info2Request);
+
+            }
+        });
 
     }
 

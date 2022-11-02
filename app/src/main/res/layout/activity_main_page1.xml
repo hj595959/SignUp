@@ -54,13 +54,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/person11"
             android:layout_gravity="center_horizontal"
             >\
         </ImageView>
 
         <TextView
-            android:text="이름:김간병"
             android:textSize="15dp"
             android:gravity="center"
             android:id="@+id/cardName"
@@ -78,7 +76,6 @@
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="220dp"
-            android:text="날짜 및 시간:협의"
             android:textSize="15dp"
             android:gravity="center">
 
@@ -90,7 +87,6 @@
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="280dp"
-            android:text="지역 :인천광역시"
             android:textSize="15dp"
             android:gravity="center">
 
@@ -102,7 +98,6 @@
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="340dp"
-            android:text="요양 가능 등급:3등급 이내"
             android:textSize="15dp"
             android:gravity="center">
 

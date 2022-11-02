@@ -7,8 +7,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class user_info extends AppCompatActivity {
@@ -45,8 +53,7 @@ public class user_info extends AppCompatActivity {
         rating6 = findViewById(R.id.rating6);
         checkButton1 = findViewById(R.id.checkButton1);
 
-        //String 형식으로 전달받을 sigID 저장
-        String signID = intent.getStringExtra("signID");
+
 
         location_check.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -95,7 +102,41 @@ public class user_info extends AppCompatActivity {
        //등록 버튼 클릭시
         checkButton1.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
+                //String 형식으로 전달받을 sigID 저장
+                String userID_db = intent.getStringExtra("userID");
+                String time_db = time.getText().toString();
+                String diseaseName_db = diseaseName.getText().toString();
+                String location_check_db = location_check_result;
+                String dementia_check_db = dementia_check_result;
+                String info_rating_db = info_rateing_result;
+                String note_db = note.getText().toString();
 
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            if (success) {
+                                String userServiceID = intent.getStringExtra("userServiceID");
+                                Toast.makeText(getApplicationContext(), "환자등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(user_info.this, MainPage1.class);
+                                intent.putExtra("userID", userID_db);
+                                intent.putExtra("userServiceID", userServiceID);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "환자등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                User_infoRequest user_infoRequest = new User_infoRequest(userID_db, time_db, diseaseName_db, location_check_db, dementia_check_db, info_rating_db, note_db,  responseListener);
+                RequestQueue queue = Volley.newRequestQueue(user_info.this);
+                queue.add(user_infoRequest);
             }
         });
     }

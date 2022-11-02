@@ -32,9 +32,7 @@
             android:layout_marginRight="2dp"
             android:layout_marginBottom="24dp"
             android:textStyle="bold"
-            android:ems="10"
             android:hint="아이디"
-            android:inputType="textPersonName"
             android:minHeight="48dp"/>
 
         <EditText
@@ -45,9 +43,7 @@
             android:layout_marginRight="6dp"
             android:layout_marginBottom="24dp"
             android:textStyle="bold"
-            android:ems="10"
             android:hint="비밀번호"
-            android:inputType="textEmailAddress"
             android:minHeight="48dp" />
     </LinearLayout>
     <Button
