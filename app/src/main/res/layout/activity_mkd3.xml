@@ -39,6 +39,8 @@
             android:layout_marginBottom="24dp"
             android:textStyle="bold"
             android:hint="아이디"
+            android:ems="10"
+
             android:minHeight="48dp"/>
 
         <EditText
