@@ -6,25 +6,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MemberFindLoginIdActivity2">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/jeiulogo">
+
+    </ImageView>
+
 
     <TextView
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
         android:gravity="center"
-        android:textColor="#87CEFA"
         android:text="아이디 찾기"
-        android:textStyle="bold"
-        android:textSize="35dp" />
+        android:textColor="#eee6c4"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
     <EditText
-        android:layout_marginTop="200dp"
         android:id="@+id/signmail"
         android:layout_width="400dp"
         android:layout_height="60dp"
-        android:textStyle="bold"
+        android:layout_marginTop="140dp"
         android:hint="이메일를 입력해주세요"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +48,7 @@
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#87CEFA"
+            android:backgroundTint="#eee6c4"
             android:textColor="#000000"
             android:textStyle="bold"
             android:text="아이디 찾기" />
@@ -46,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:backgroundTint="#87CEFA"
+            android:backgroundTint="#eee6c4"
             android:textColor="#000000"
             android:textStyle="bold"
             android:text="뒤로가기"/>
