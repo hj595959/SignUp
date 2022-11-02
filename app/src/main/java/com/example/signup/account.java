@@ -22,6 +22,7 @@ private ImageButton imageButton4,imageButton6,imageButton5,imageButton7;
         imageButton7 = findViewById(R.id.imageButton7);
 
 
+
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +54,9 @@ private ImageButton imageButton4,imageButton6,imageButton5,imageButton7;
                 startActivity(intent);
             }
        });
+
+
+
 
     }
 }
