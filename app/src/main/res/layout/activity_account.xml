@@ -12,26 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="49dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <ImageView
-            android:layout_width="230dp"
-            android:layout_height="130dp"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:src="@drawable/jeiulogo">
 
         </ImageView>
-        <TextView
-            android:id="@+id/accounttextView"
-            android:layout_width="362dp"
-            android:layout_height="82dp"
-            android:layout_marginTop="30dp"
-            android:text="서비스를 이용 할 방법을      선택해주세요 :)"
-            android:textColor="#eee6c4"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 
+        <ImageView
+            android:layout_width="364dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/accountimage44">
+
+        </ImageView>
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/imageButton4"
