@@ -30,24 +30,24 @@
         android:padding="5dp" />
 
     <TextView
-        android:id="@+id/textView_list_location"
+        android:id="@+id/textView_list_location1"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="5dp" />
 
     <TextView
-        android:id="@+id/textView_list_location"
+        android:id="@+id/textView_list_location2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="5dp" />
 
     <TextView
-        android:id="@+id/textView_list_location"
+        android:id="@+id/textView_list_location3"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="5dp" />1
+        android:padding="5dp" />
 
 </LinearLayout>
