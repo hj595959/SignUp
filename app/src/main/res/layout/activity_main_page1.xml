@@ -53,8 +53,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            >\
+            android:layout_gravity="center_horizontal">
         </ImageView>
 
         <TextView
@@ -106,35 +105,35 @@
 
     </androidx.cardview.widget.CardView>
 
+
     <ImageButton
         android:id="@+id/choiceBtn"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:scaleType="fitCenter"
         android:backgroundTint="@color/white"
+        android:scaleType="fitCenter"
 
         android:src="@drawable/heartbtn">
 
     </ImageButton>
 
-
     <RelativeLayout
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp">
         <Button
             android:id="@+id/info3_button"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:backgroundTint="#87CEFA"
+            android:layout_width="3000dp"
+            android:layout_height="200dp"
+            android:backgroundTint="#eee6c4"
             android:textStyle="bold"
             android:text="간병인 정보 등록 및 수정"
             tools:ignore="InvalidId" />
 
         <Button
             android:id="@+id/info4_button"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
             android:backgroundTint="#EEE6C4"
             android:text="환자 정보 등록 및 수정"
             android:textColor="@color/black"
