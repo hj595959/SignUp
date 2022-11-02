@@ -83,8 +83,8 @@ public class MainPage1 extends AppCompatActivity {
 
 
         gender_list = new ArrayList<>();
-        gender_list.add("남자");
-        gender_list.add("여자");
+        gender_list.add("남성");
+        gender_list.add("여성");
 
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
@@ -204,14 +204,15 @@ public class MainPage1 extends AppCompatActivity {
                  String gender = member.getGender();
                  String location = member.getSignAddress();
                  String location_work  = caregiver.getLocation_work();
-
+                Log.v("test","test1");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String result) {
                         try{
-                            JSONObject jsonObject = new JSONObject("result");
+                            JSONObject jsonObject = new JSONObject(result);
                             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
-
+                            Log.v("test",String.valueOf(jsonObject));
+                            Log.v("test","test2");
                             for(int i =0; i<jsonArray.length(); i++){
                                 JSONObject item = jsonArray.getJSONObject(i);
 
@@ -222,7 +223,7 @@ public class MainPage1 extends AppCompatActivity {
                                 String Ucareer = item.getString(json_Ucareer);
                                 String Ulicense = item.getString(json_Ulicense);
 
-                                Log.v("userID",userID);
+                                Log.v("test1",userID);
                             }
 
                         }catch(Exception e){
