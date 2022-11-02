@@ -106,7 +106,6 @@ public class MainPage1 extends AppCompatActivity {
             }
         });
 
-
         location_list = new ArrayList<>();
         location_list.add("인천시");
         location_list.add("경기시");

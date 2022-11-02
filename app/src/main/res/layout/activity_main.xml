@@ -131,7 +131,6 @@
                     android:hint="oo시"
                     android:text="" />
 
-
                 <TextView
                     android:id="@+id/sextext"
                     android:layout_width="match_parent"
