@@ -4,10 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        layout="@layout/view_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -68,13 +64,14 @@
                     android:ems="10"
                     android:hint="병명"
                      />
+
                 <TextView
                     android:id="@+id/location_care"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="간병 희망 위치"
-                    android:textColor="#87CEFA"
+                    android:textColor="#eee6c4"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -104,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="치매 여부"
-                    android:textColor="#87CEFA"
+                    android:textColor="#eee6c4"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -179,14 +176,14 @@
 
                 <Button
                     android:id="@+id/checkButton"
-                    android:backgroundTint="#87CEFA"
+                    android:backgroundTint="#eee6c4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:text="수정" />
                 <Button
                     android:id="@+id/checkButton1"
-                    android:backgroundTint="#87CEFA"
+                    android:backgroundTint="#eee6c4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
