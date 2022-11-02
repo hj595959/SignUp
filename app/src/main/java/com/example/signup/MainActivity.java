@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     //값을 텍스트로 변환후 함수 선언
                     String userID = signID.getText().toString();
-                    String userName = signName.getText().toString();
                     String userPassword = signPW.getText().toString();
+                    String userName = signName.getText().toString();
                     String userMail = signmail.getText().toString();
                     int userBirthday = Integer.parseInt(signBirth.getText().toString());
                     int userBirthday2 = Integer.parseInt(signBirth2.getText().toString());
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     };
 
-                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, responseListener);
+                    RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                     queue.add(registerRequest);
 
