@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="0dp"
+        android:textColor="#EEE6C4"
         android:textStyle="bold"
         android:text="결제 내역 확인"
         android:textSize="35dp" />

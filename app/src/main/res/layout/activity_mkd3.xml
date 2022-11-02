@@ -6,14 +6,20 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/jeiulogo">
 
+    </ImageView>
     <TextView
         android:layout_width="155dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="0dp"
         android:gravity="center"
-        android:textColor="#87CEFA"
+        android:textColor="#EEE6C4"
         android:textStyle="bold"
         android:text="LOGIN"
         android:textSize="35dp" />
@@ -50,7 +56,7 @@
         android:id="@+id/signUpBtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:backgroundTint="#87CEFA"
+        android:backgroundTint="#EEE6C4"
         android:textStyle="bold"
         android:text="확인" />
 
