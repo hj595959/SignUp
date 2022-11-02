@@ -17,7 +17,7 @@
         >
 
         <LinearLayout
-            android:background="#87CEFA"
+            android:background="#eee6c4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -35,6 +35,8 @@
         <TextView
             android:text="이름:김간병"
             android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:gravity="center"
             android:id="@+id/cardName"
             android:layout_width="280dp"
@@ -53,6 +55,8 @@
             android:layout_marginTop="220dp"
             android:text="날짜 및 시간:협의"
             android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:gravity="center">
 
         </TextView>
@@ -64,7 +68,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="280dp"
             android:text="지역 :인천광역시"
+            android:textColor="@color/black"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -77,6 +83,8 @@
             android:layout_marginTop="340dp"
             android:text="요양 가능 등급:3등급 이내"
             android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:gravity="center">
 
         </TextView>
@@ -96,7 +104,7 @@
             android:id="@+id/btn_test1"
             android:layout_width="130dp"
             android:layout_height="90dp"
-            android:backgroundTint="#87CEFA"
+            android:backgroundTint="#eee6c4"
             android:textColor="#000000"
             android:textStyle="bold"
             android:text="취소"
@@ -106,42 +114,36 @@
             android:id="@+id/btn_test2"
             android:layout_width="130dp"
             android:layout_height="90dp"
-            android:backgroundTint="#87CEFA"
+            android:backgroundTint="#eee6c4"
             android:textColor="#000000"
             android:textStyle="bold"
             android:text="결제" />
 
     </LinearLayout>
     <LinearLayout
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="220dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+    <ImageButton
+        android:id="@+id/bottomHomeBtn1"
+        android:layout_width="138dp"
+        android:layout_height="90dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/home"/>
 
+    <ImageButton
+        android:id="@+id/bottomMyPageBtn2"
+        android:layout_width="138dp"
+        android:layout_height="90dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/person"/>
 
-        <ImageButton
-            android:id="@+id/bottomHomeBtn"
-            android:layout_width="138dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/bottomMyPageBtn"
-            android:layout_width="138dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/person" />
-
-        <ImageButton
-            android:id="@+id/bottomBackBtn"
-            android:layout_width="138dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/back"/>
-
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/bottomBackBtn3"
+        android:layout_width="138dp"
+        android:layout_height="90dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/back" />
+</LinearLayout>
 
 </LinearLayout>
