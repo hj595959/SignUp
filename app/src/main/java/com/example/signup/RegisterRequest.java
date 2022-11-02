@@ -11,14 +11,15 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/Register.php";
     private Map<String, String> map;
 
-    public RegisterRequest(String userID, String userPassword, String userName, String userMail, int userBirthday, int userBirthday2, int userBirthday3, int userPhoneNB, String userAddress, String userGender, String userServiceID, Response.Listener<String> listener)
+    public RegisterRequest(String userID, String userName, String userPassword, String userMail, int userBirthday, int userBirthday2, int userBirthday3, int userPhoneNB, String userAddress, String userGender, String userServiceID, Response.Listener<String> listener)
     {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("userID",userID);
-        map.put("userPassword", userPassword);
+
         map.put("userName", userName);
+        map.put("userPassword", userPassword);
         map.put("userMail", userMail);
         map.put("userBirthday", userBirthday + "");
         map.put("userBirthday2", userBirthday2 + "");
