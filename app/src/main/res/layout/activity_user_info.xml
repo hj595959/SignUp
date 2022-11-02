@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <include
+        layout="@layout/view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -71,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="간병 희망 위치"
-                    android:textColor="#EEE6C4"
+                    android:textColor="#87CEFA"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -101,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="치매 여부"
-                    android:textColor="#EEE6C4"
+                    android:textColor="#87CEFA"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -176,14 +179,14 @@
 
                 <Button
                     android:id="@+id/checkButton"
-                    android:backgroundTint="#EEE6C4"
+                    android:backgroundTint="#87CEFA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:text="수정" />
                 <Button
                     android:id="@+id/checkButton1"
-                    android:backgroundTint="#EEE6C4"
+                    android:backgroundTint="#87CEFA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
