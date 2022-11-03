@@ -26,20 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_test1"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
-            android:backgroundTint="#EEE6C4"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="40dp"
-            android:text="결제"
-            />
+
 
         <Button
             android:id="@+id/btn_test2"
@@ -50,24 +41,25 @@
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="40dp"
-            android:text="MY PAGE" />
+            android:text="내 정보" />
+
         <Button
             android:id="@+id/btn_test3"
             android:layout_width="300dp"
             android:layout_height="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="100dp"
             android:backgroundTint="#EEE6C4"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="40dp"
-            android:text="결제 내역" />
+            android:text="신청 현황" />
     </LinearLayout>
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="160dp"
         tools:ignore="MissingConstraints">
 
 
@@ -76,7 +68,7 @@
             android:layout_width="138dp"
             android:layout_height="100dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/home"/>
+            app:srcCompat="@drawable/home" />
 
         <ImageButton
             android:id="@+id/bottomMyPageBtn"
