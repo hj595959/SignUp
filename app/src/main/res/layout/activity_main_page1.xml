@@ -131,16 +131,16 @@
     </androidx.cardview.widget.CardView>
 
 
-    <ImageButton
+    <Button
         android:id="@+id/choiceBtn"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:backgroundTint="@color/white"
-        android:scaleType="fitCenter"
+        android:backgroundTint="#eee6c4"
+        android:textColor="@color/black"
+        android:text="다음"
+        android:scaleType="fitCenter">
 
-        android:src="@drawable/heartbtn">
-
-    </ImageButton>
+    </Button>
 
     <RelativeLayout
         android:layout_width="300dp"
