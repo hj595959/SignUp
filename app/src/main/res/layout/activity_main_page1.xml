@@ -61,7 +61,7 @@
             android:gravity="center"
             android:id="@+id/cardName"
             android:layout_width="280dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="16dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             >
@@ -69,11 +69,11 @@
         </TextView>
 
         <TextView
-            android:id="@+id/cardDate"
+            android:id="@+id/cardGender"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="56dp"
             android:textSize="15dp"
             android:gravity="center">
 
@@ -84,22 +84,47 @@
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="96dp"
+            android:textSize="15dp"
+            android:gravity="center">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/cardDate"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="136dp"
             android:textSize="15dp"
             android:gravity="center">
 
         </TextView>
 
         <TextView
-            android:id="@+id/cardDetail"
+            android:id="@+id/cardCareer"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="176dp"
             android:textSize="15dp"
             android:gravity="center">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/cardLicense"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="206dp"
+            android:textSize="15dp"
+            android:gravity="center">
+
+        </TextView>
+
+
 
 
 
