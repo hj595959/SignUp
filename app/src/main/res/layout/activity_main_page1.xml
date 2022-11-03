@@ -124,23 +124,60 @@
 
         </TextView>
 
+        <TextView
+            android:id="@+id/cardID"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="246dp"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:visibility="gone"
+
+            >
+
+        </TextView>
+
 
 
 
 
     </androidx.cardview.widget.CardView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        >
 
-    <Button
-        android:id="@+id/choiceBtn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#eee6c4"
-        android:textColor="@color/black"
-        android:text="다음"
-        android:scaleType="fitCenter">
+        <Button
+            android:id="@+id/choiceBtn1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#eee6c4"
+            android:textColor="@color/black"
+            android:text="이전"
+            android:layout_marginRight="4dp"
+            android:scaleType="fitCenter">
+        </Button>
 
-    </Button>
+
+        <Button
+            android:id="@+id/choiceBtn2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#eee6c4"
+            android:textColor="@color/black"
+            android:layout_marginLeft="4dp"
+            android:text="다음"
+            android:scaleType="fitCenter">
+
+
+
+        </Button>
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="300dp"
