@@ -46,15 +46,17 @@ public class MainPage1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page1);
-        //데이터 받기
+
         member member = new member();
         caregiver caregiver = new caregiver();
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
         String userServiceID = intent.getStringExtra("userServiceID");
+        ArrayList<matchingDTO> matchList = new ArrayList<>();
+        matchingDTO matchingDTO = new matchingDTO();
         info3_button = findViewById(R.id.info3_button);
         info4_button = findViewById(R.id.info4_button);
-
+        int conut = 0;
         if(userServiceID.equals("간병인")){
             info4_button.setVisibility(View.GONE);
         }else if(userServiceID.equals("환자")){
@@ -204,15 +206,20 @@ public class MainPage1 extends AppCompatActivity {
                  String gender = member.getGender();
                  String location = member.getSignAddress();
                  String location_work  = caregiver.getLocation_work();
-                Log.v("test","test1");
+                 String serviceID = userServiceID;
+                 if(serviceID.equals("환자")){
+                     serviceID = "간병인";
+                 }else if(serviceID.equals("간병인")){
+                     serviceID = "환자";
+                 }
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String result) {
                         try{
                             JSONObject jsonObject = new JSONObject(result);
                             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
-                            Log.v("test",String.valueOf(jsonObject));
-                            Log.v("test","test2");
+
                             for(int i =0; i<jsonArray.length(); i++){
                                 JSONObject item = jsonArray.getJSONObject(i);
 
@@ -223,7 +230,14 @@ public class MainPage1 extends AppCompatActivity {
                                 String Ucareer = item.getString(json_Ucareer);
                                 String Ulicense = item.getString(json_Ulicense);
 
-                                Log.v("test1",userID);
+                                matchingDTO.setUserID(userID);
+                                matchingDTO.setUserName(userName);
+                                matchingDTO.setUserGender(userGender);
+                                matchingDTO.setLovation_work(lovation_work);
+                                matchingDTO.setUcareer(Ucareer);
+                                matchingDTO.setUlicense(Ulicense);
+                                matchList.add(matchingDTO);
+                               Log.v("userID",matchList.get(i).getUserID());
                             }
 
                         }catch(Exception e){
@@ -234,7 +248,7 @@ public class MainPage1 extends AppCompatActivity {
                     }
                 };
 
-                matchingList matchingList = new matchingList(gender,location,location_work,responseListener);
+                matchingList matchingList = new matchingList(gender,location,location_work,serviceID,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
                 queue.add(matchingList);
 

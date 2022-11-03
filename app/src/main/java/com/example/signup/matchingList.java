@@ -12,7 +12,7 @@ public class matchingList extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/matchingList.php";
     private Map<String, String> map;
 
-    public matchingList(String gender,String location,String location_work,Response.Listener<String> listener)
+    public matchingList(String gender,String location,String location_work,String serviceID,Response.Listener<String> listener)
     {
         super(Request.Method.POST, URL, listener, null);
 
@@ -20,7 +20,7 @@ public class matchingList extends StringRequest {
         map.put("userGender",gender);
         map.put("userAddress", location);
         map.put("lovation_work", location_work);
-
+        map.put("userServiceID",serviceID);
 
     }
 
