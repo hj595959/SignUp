@@ -8,7 +8,7 @@ public class matchingDTO {
     private String lovation_work;
     private String Ucareer;
     private String Ulicense;
-
+    private String uworkTime;
 
     public String getUserID() {
         return userID;
@@ -58,6 +58,15 @@ public class matchingDTO {
         Ulicense = ulicense;
     }
 
+    public String getUworkTime() {
+        return uworkTime;
+    }
+
+    public void setUworkTime(String uworkTime) {
+        this.uworkTime = uworkTime;
+    }
+
+
     @Override
     public String toString() {
         return "matchingDTO{" +
@@ -67,6 +76,7 @@ public class matchingDTO {
                 ", lovation_work='" + lovation_work + '\'' +
                 ", Ucareer='" + Ucareer + '\'' +
                 ", Ulicense='" + Ulicense + '\'' +
+                ", uworkTime='" + uworkTime + '\'' +
                 '}';
     }
 }

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,10 +27,10 @@ public class MainPage1 extends AppCompatActivity {
 
     public Spinner gender_spinner,location_spinner,home_care_spinner;
     private ImageButton bottomMyPageBtn, bottomBackBtn;
-    private Button info3_button,info4_button , find_matching;
+    private Button info3_button,info4_button , find_matching ,choiceBtn1 ,choiceBtn2;
     private long backKeyPressedTime = 0;
     private Toast toast;
-
+    private TextView cardName , cardGender , cardLocation,cardDate,cardCareer,cardLicense,cardID;
     private static final String TAG_JSON = "result";
     private static final String json_userID = "userID";
     private static final String json_userName = "userName";
@@ -37,8 +38,8 @@ public class MainPage1 extends AppCompatActivity {
     private static final String json_lovation_work = "lovation_work";
     private static final String json_Ucareer = "Ucareer";
     private static final String json_Ulicense = "Ulicense";
-
-
+    private static final String json_uworkTime = "uworkTime";
+    private static int count = 0;
     ArrayList<String> gender_list,location_list,home_care_list;
     ArrayAdapter<String> arrayAdapter;
 
@@ -56,7 +57,17 @@ public class MainPage1 extends AppCompatActivity {
         matchingDTO matchingDTO = new matchingDTO();
         info3_button = findViewById(R.id.info3_button);
         info4_button = findViewById(R.id.info4_button);
-        int conut = 0;
+        choiceBtn1 = findViewById(R.id.choiceBtn1);
+        choiceBtn2 = findViewById(R.id.choiceBtn2);
+        cardName = findViewById(R.id.cardName);
+        cardGender = findViewById(R.id.cardGender);
+        cardLocation = findViewById(R.id.cardLocation);
+        cardDate = findViewById(R.id.cardDate);
+        cardCareer =  findViewById(R.id.cardCareer);
+        cardLicense = findViewById(R.id.cardLicense);
+        cardID = findViewById(R.id.cardID);
+
+
         if(userServiceID.equals("간병인")){
             info4_button.setVisibility(View.GONE);
         }else if(userServiceID.equals("환자")){
@@ -70,6 +81,7 @@ public class MainPage1 extends AppCompatActivity {
                 intent.putExtra("userID",userID);
                 intent.putExtra("userServiceID",userServiceID);
                 startActivity(intent);
+
             }
         });
 
@@ -213,6 +225,7 @@ public class MainPage1 extends AppCompatActivity {
                      serviceID = "환자";
                  }
 
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String result) {
@@ -229,13 +242,14 @@ public class MainPage1 extends AppCompatActivity {
                                 String lovation_work = item.getString(json_lovation_work);
                                 String Ucareer = item.getString(json_Ucareer);
                                 String Ulicense = item.getString(json_Ulicense);
-
+                                String uworkTime = item.getString(json_uworkTime);
                                 matchingDTO.setUserID(userID);
                                 matchingDTO.setUserName(userName);
                                 matchingDTO.setUserGender(userGender);
                                 matchingDTO.setLovation_work(lovation_work);
                                 matchingDTO.setUcareer(Ucareer);
                                 matchingDTO.setUlicense(Ulicense);
+                                matchingDTO.setUworkTime(uworkTime);
                                 matchList.add(matchingDTO);
                                Log.v("userID",matchList.get(i).getUserID());
                             }
@@ -252,6 +266,52 @@ public class MainPage1 extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
                 queue.add(matchingList);
 
+
+                if( matchList.size()!=0){
+                    Log.v("match",matchList.get(count).getUserName());
+                    cardName.setText(matchList.get(count).getUserName());
+                    cardGender.setText(matchList.get(count).getUserGender());
+                    cardLocation.setText(matchList.get(count).getLovation_work());
+                    cardDate.setText(matchList.get(count).getUworkTime());
+                    cardCareer.setText(matchList.get(count).getUcareer());
+                    cardLicense.setText(matchList.get(count).getUlicense());
+                    cardID.setText(matchList.get(count).getUserID());
+                }
+
+
+            }
+        });
+
+        choiceBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count > matchList.toArray().length) {
+                    Toast.makeText(getApplicationContext(),"마지막페이지입니다.", Toast.LENGTH_LONG).show();
+                    count--;
+                }else{
+                    count++;
+                    cardName.setText(matchList.get(count).getUserName());
+                    cardGender.setText(matchList.get(count).getUserGender());
+                    cardLocation.setText(matchList.get(count).getLovation_work());
+                    cardDate.setText(matchList.get(count).getUworkTime());
+                    cardCareer.setText(matchList.get(count).getUcareer());
+                    cardLicense.setText(matchList.get(count).getUlicense());
+                    cardID.setText(matchList.get(count).getUserID());
+                }
+            }
+        });
+
+        choiceBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count--;
+                cardName.setText(matchList.get(count).getUserName());
+                cardGender.setText(matchList.get(count).getUserGender());
+                cardLocation.setText(matchList.get(count).getLovation_work());
+                cardDate.setText(matchList.get(count).getUworkTime());
+                cardCareer.setText(matchList.get(count).getUcareer());
+                cardLicense.setText(matchList.get(count).getUlicense());
+                cardID.setText(matchList.get(count).getUserID());
             }
         });
 
