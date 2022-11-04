@@ -151,8 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             }});
-        String userID = signID.getText().toString();
-
 
         signIDCheck.setOnClickListener(new View.OnClickListener() {
             @Override
