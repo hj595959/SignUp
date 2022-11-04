@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -19,12 +20,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class MainActivity extends AppCompatActivity {
 
-    private Button signupbutton;
+    private Button signupbutton, signEmailCheck, signIDCheck;
     private String gender_result, serviceId_result;
-
+    private AlertDialog.Builder dialog;
+    private boolean validate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         signupbutton = findViewById(R.id.signupbutton);
+        signEmailCheck =findViewById(R.id.signEmailCheck);
+        signIDCheck = findViewById(R.id.signIDCheck);
+
+
         final EditText signName = findViewById(R.id.signName);
         final EditText signmail = findViewById(R.id.signmail);
         final EditText signID = findViewById(R.id.signID);
@@ -146,8 +151,51 @@ public class MainActivity extends AppCompatActivity {
 
 
             }});
+        String userID = signID.getText().toString();
 
 
+        signIDCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userID = signID.getText().toString();
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            if(success) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                dialog = builder.setMessage("사용할 수 있는 아이디 입니다.")
+                                       .setPositiveButton("확인",null);
+                                dialog.show();
+                                signID.setEnabled(false);
+                                validate = true;
+                                signID.setBackgroundColor(getResources().getColor(R.color.colorGrqy));
+                            }
+                            else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                dialog = builder.setMessage("사용할 수 없는 아이디 입니다.")
+                                        .setNegativeButton("확인",null);
+
+                                dialog.show();
+                            }
+                        }
+                        catch (JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+
+                };
+            IDCheckRequest iDCheckRequest = new IDCheckRequest(userID, responseListener);
+            RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+            queue.add(iDCheckRequest);
+        }
+
+
+        });
 
 
     }}
