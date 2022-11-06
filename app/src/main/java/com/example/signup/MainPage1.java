@@ -27,7 +27,7 @@ public class MainPage1 extends AppCompatActivity {
 
     public Spinner gender_spinner,location_spinner,home_care_spinner;
     private ImageButton bottomMyPageBtn, bottomBackBtn;
-    private Button info3_button,info4_button , find_matching ,choiceBtn1 ,choiceBtn2;
+    private Button info3_button,info4_button , find_matching ,choiceBtn1 ,choiceBtn2 ,matching_but1;
     private long backKeyPressedTime = 0;
     private Toast toast;
     private TextView cardName , cardGender , cardLocation,cardDate,cardCareer,cardLicense,cardID;
@@ -56,6 +56,7 @@ public class MainPage1 extends AppCompatActivity {
         String userID = intent.getStringExtra("userID");
         String userServiceID = intent.getStringExtra("userServiceID");
 
+        matching_but1 = findViewById(R.id.matching_but1);
         info3_button = findViewById(R.id.info3_button);
         info4_button = findViewById(R.id.info4_button);
         choiceBtn1 = findViewById(R.id.choiceBtn1);
@@ -68,6 +69,7 @@ public class MainPage1 extends AppCompatActivity {
         cardLicense = findViewById(R.id.cardLicense);
         cardID = findViewById(R.id.cardID);
 
+        matching_but1.setVisibility(View.INVISIBLE);
 
         if(userServiceID.equals("간병인")){
             info4_button.setVisibility(View.GONE);
@@ -222,7 +224,7 @@ public class MainPage1 extends AppCompatActivity {
                  String gender = member.getGender();
                  String location = member.getSignAddress();
                  String location_work  = caregiver.getLocation_work();
-
+                 matching_but1.setVisibility(View.VISIBLE);
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String result) {
