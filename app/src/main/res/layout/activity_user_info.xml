@@ -168,11 +168,10 @@
                 </RadioGroup>
 
                 <EditText
+                    android:id="@+id/note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/note"
-                    android:hint="특이사항 (쉼표  &quot; , &quot; 로 구분)"
-                    />
+                    android:hint="특이사항 (쉼표  &quot; , &quot; 로 구분)" />
 
                 <Button
                     android:id="@+id/checkButton"

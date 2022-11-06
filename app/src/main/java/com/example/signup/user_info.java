@@ -24,7 +24,7 @@ public class user_info extends AppCompatActivity {
     private EditText diseaseName, time, note;
     private RadioGroup location_check, dementia_check, info_rateing;
     private RadioButton hospital_care, home_care, dimentia_yes, dimentia_no, rating1, rating2, rating3, rating4, rating5, rating6;
-    private Button checkButton1;
+    private Button checkButton1 , checkButton;
 
     private String location_check_result,dementia_check_result , info_rateing_result;
     @Override
@@ -52,7 +52,7 @@ public class user_info extends AppCompatActivity {
         rating5 = findViewById(R.id.rating5);
         rating6 = findViewById(R.id.rating6);
         checkButton1 = findViewById(R.id.checkButton1);
-
+        checkButton = findViewById(R.id.checkButton);
 
 
         location_check.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -139,10 +139,47 @@ public class user_info extends AppCompatActivity {
                 queue.add(user_infoRequest);
             }
         });
+
+        checkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID_db = intent.getStringExtra("userID");
+                String time_db = time.getText().toString();
+                String diseaseName_db = diseaseName.getText().toString();
+                String location_check_db = location_check_result;
+                String dementia_check_db = dementia_check_result;
+                String info_rating_db = info_rateing_result;
+                String note_db = note.getText().toString();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            if (success) {
+                                String userServiceID = intent.getStringExtra("userServiceID");
+                                Toast.makeText(getApplicationContext(), "정보가 수정되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(user_info.this, MainPage1.class);
+                                intent.putExtra("userID", userID_db);
+                                intent.putExtra("userServiceID", userServiceID);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "환자수정 에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                userInfoUpdate userInfoUpdate = new userInfoUpdate(userID_db, time_db, diseaseName_db, location_check_db, dementia_check_db, info_rating_db, note_db,  responseListener);
+                RequestQueue queue = Volley.newRequestQueue(user_info.this);
+                queue.add(userInfoUpdate);
+            }
+        });
+
     }
-
-
-
-
 }
 
