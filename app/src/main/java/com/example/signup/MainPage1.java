@@ -39,6 +39,11 @@ public class MainPage1 extends AppCompatActivity {
     private static final String json_Ucareer = "Ucareer";
     private static final String json_Ulicense = "Ulicense";
     private static final String json_uWorkTime = "uWorkTime";
+    private static final String json_diseaseName = "diseaseName";
+    private static final String json_location_check = "location_check";
+    private static final String json_note = "note";
+    private static final String json_time = "time";
+
     int count = 0;
 
     ArrayList<String> gender_list,location_list,home_care_list;
@@ -51,6 +56,7 @@ public class MainPage1 extends AppCompatActivity {
 
         member member = new member();
         ArrayList<matchingDTO> matchList = new ArrayList<matchingDTO>();
+        ArrayList<matchingDTO2> matchList2 = new ArrayList<matchingDTO2>();
         caregiver caregiver = new caregiver();
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
@@ -224,61 +230,125 @@ public class MainPage1 extends AppCompatActivity {
                  String gender = member.getGender();
                  String location = member.getSignAddress();
                  String location_work  = caregiver.getLocation_work();
+                 String checkServiceID = userServiceID;
+
                  matching_but1.setVisibility(View.VISIBLE);
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String result) {
-                        try{
-                            JSONObject jsonObject = new JSONObject(result);
-                            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
-                            matchList.clear();
-                            Log.v("count jsonArray",String.valueOf(jsonArray.length()));
-                            for(int i =0; i<jsonArray.length(); i++){
-                                JSONObject item = jsonArray.getJSONObject(i);
+                 if(checkServiceID.equals("환자")) {
+                     checkServiceID = "간병인";
+                     Response.Listener<String> responseListener = new Response.Listener<String>() {
+                         @Override
+                         public void onResponse(String result) {
+                             try {
+                                 JSONObject jsonObject = new JSONObject(result);
+                                 JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+                                 matchList.clear();
+                                 Log.v("count jsonArray", String.valueOf(jsonArray.length()));
+                                 for (int i = 0; i < jsonArray.length(); i++) {
+                                     JSONObject item = jsonArray.getJSONObject(i);
 
-                                String userID = item.getString(json_userID);
-                                String userName = item.getString(json_userName);
-                                String userGender = item.getString(json_userGender);
-                                String lovation_work = item.getString(json_lovation_work);
-                                String Ucareer = item.getString(json_Ucareer);
-                                String Ulicense = item.getString(json_Ulicense);
-                                String uWorkTime = item.getString(json_uWorkTime);
+                                     String userID = item.getString(json_userID);
+                                     String userName = item.getString(json_userName);
+                                     String userGender = item.getString(json_userGender);
+                                     String lovation_work = item.getString(json_lovation_work);
+                                     String Ucareer = item.getString(json_Ucareer);
+                                     String Ulicense = item.getString(json_Ulicense);
+                                     String uWorkTime = item.getString(json_uWorkTime);
 
-                                matchingDTO matchingDTO = new matchingDTO();
-                                matchingDTO.setUserID(userID);
-                                matchingDTO.setUserName(userName);
-                                matchingDTO.setUserGender(userGender);
-                                matchingDTO.setLovation_work(lovation_work);
-                                matchingDTO.setUcareer(Ucareer);
-                                matchingDTO.setUlicense(Ulicense);
-                                matchingDTO.setUworkTime(uWorkTime);
-                                matchList.add(matchingDTO);
-                               Log.v("count userID",matchList.get(i).getUserID());
-                            }
+                                     matchingDTO matchingDTO = new matchingDTO();
+                                     matchingDTO.setUserID(userID);
+                                     matchingDTO.setUserName(userName);
+                                     matchingDTO.setUserGender(userGender);
+                                     matchingDTO.setLovation_work(lovation_work);
+                                     matchingDTO.setUcareer(Ucareer);
+                                     matchingDTO.setUlicense(Ulicense);
+                                     matchingDTO.setUworkTime(uWorkTime);
+                                     matchList.add(matchingDTO);
+                                     Log.v("count userID", matchList.get(i).getUserID());
+                                 }
 
-                        }catch(Exception e){
-                           e.printStackTrace();
-                        }
-                        if( matchList.size() > 0){
-                            cardName.setText(matchList.get(count).getUserName());
-                            cardGender.setText(matchList.get(count).getUserGender());
-                            cardLocation.setText(matchList.get(count).getLovation_work());
-                            cardDate.setText(matchList.get(count).getUworkTime());
-                            cardCareer.setText(matchList.get(count).getUcareer());
-                            cardLicense.setText(matchList.get(count).getUlicense());
-                            cardID.setText(matchList.get(count).getUserID());
-                        }else{
-                            Toast.makeText(getApplicationContext(),"조건에 맞는 간병인이 없습니다.", Toast.LENGTH_LONG).show();
-                        }
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+                             if (matchList.size() > 0) {
+                                 cardName.setText(matchList.get(count).getUserName());
+                                 cardGender.setText(matchList.get(count).getUserGender());
+                                 cardLocation.setText(matchList.get(count).getLovation_work());
+                                 cardDate.setText(matchList.get(count).getUworkTime());
+                                 cardCareer.setText(matchList.get(count).getUcareer());
+                                 cardLicense.setText(matchList.get(count).getUlicense());
+                                 cardID.setText(matchList.get(count).getUserID());
+                             } else {
+                                 Toast.makeText(getApplicationContext(), "조건에 맞는 간병인이 없습니다.", Toast.LENGTH_LONG).show();
+                             }
 
-                    }
+                         }
 
-                };
+                     };
 
 
-                matchingList matchingList = new matchingList(gender,location,location_work,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
-                queue.add(matchingList);
+                     matchingList matchingList = new matchingList(gender, location, location_work,checkServiceID, responseListener);
+                     RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
+                     queue.add(matchingList);
+
+                 }else if(checkServiceID.equals("간병인")){
+                     checkServiceID = "환자";
+
+                     Response.Listener<String> responseListener = new Response.Listener<String>() {
+                         @Override
+                         public void onResponse(String result) {
+                             try {
+                                 JSONObject jsonObject = new JSONObject(result);
+                                 JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+                                 matchList2.clear();
+                                 Log.v("count jsonArray", String.valueOf(jsonArray.length()));
+                                 for (int i = 0; i < jsonArray.length(); i++) {
+                                     JSONObject item = jsonArray.getJSONObject(i);
+
+                                     String userID = item.getString(json_userID);
+                                     String userName = item.getString(json_userName);
+                                     String userGender = item.getString(json_userGender);
+                                     String diseaseName = item.getString(json_diseaseName);
+                                     String location_check = item.getString(json_location_check);
+                                     String note = item.getString(json_note);
+                                     String time = item.getString(json_time);
+
+                                     matchingDTO2 matchingDTO2 = new matchingDTO2();
+                                     matchingDTO2.setUserID(userID);
+                                     matchingDTO2.setUserName(userName);
+                                     matchingDTO2.setUserGender(userGender);
+                                     matchingDTO2.setDiseaseName(diseaseName);
+                                     matchingDTO2.setLocation_check(location_check);
+                                     matchingDTO2.setNote(note);
+                                     matchingDTO2.setTime(time);
+                                     matchList2.add(matchingDTO2);
+                                 }
+
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+                             if (matchList2.size() > 0) {
+                                 cardName.setText(matchList2.get(count).getUserName());
+                                 cardGender.setText(matchList2.get(count).getUserGender());
+                                 cardLocation.setText(matchList2.get(count).getDiseaseName());
+                                 cardDate.setText(matchList2.get(count).getLocation_check());
+                                 cardCareer.setText(matchList2.get(count).getNote());
+                                 cardLicense.setText(matchList2.get(count).getTime());
+                                 cardID.setText(matchList2.get(count).getUserID());
+                             } else {
+                                 Toast.makeText(getApplicationContext(), "조건에 맞는 환자가 없습니다.", Toast.LENGTH_LONG).show();
+                             }
+
+                         }
+
+                     };
+
+
+                     matchingList2 matchingList2 = new matchingList2(gender, location, location_work,checkServiceID, responseListener);
+                     RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
+                     queue.add(matchingList2);
+
+
+                 }
 
             }
         });
@@ -287,18 +357,34 @@ public class MainPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 count++;
-                if(count == matchList.size()) {
+                if (userServiceID.equals("환자")) {
+                    if (count == matchList.size()) {
 
-                    Toast.makeText(getApplicationContext(),"마지막페이지입니다.", Toast.LENGTH_LONG).show();
-                    count--;
-                }else{
-                    cardName.setText(matchList.get(count).getUserName());
-                    cardGender.setText(matchList.get(count).getUserGender());
-                    cardLocation.setText(matchList.get(count).getLovation_work());
-                    cardDate.setText(matchList.get(count).getUworkTime());
-                    cardCareer.setText(matchList.get(count).getUcareer());
-                    cardLicense.setText(matchList.get(count).getUlicense());
-                    cardID.setText(matchList.get(count).getUserID());
+                        Toast.makeText(getApplicationContext(), "마지막페이지입니다.", Toast.LENGTH_LONG).show();
+                        count--;
+                    } else {
+                        cardName.setText(matchList.get(count).getUserName());
+                        cardGender.setText(matchList.get(count).getUserGender());
+                        cardLocation.setText(matchList.get(count).getLovation_work());
+                        cardDate.setText(matchList.get(count).getUworkTime());
+                        cardCareer.setText(matchList.get(count).getUcareer());
+                        cardLicense.setText(matchList.get(count).getUlicense());
+                        cardID.setText(matchList.get(count).getUserID());
+                    }
+                }else if(userServiceID.equals("간병인")){
+                    if (count == matchList2.size()) {
+
+                        Toast.makeText(getApplicationContext(), "마지막페이지입니다.", Toast.LENGTH_LONG).show();
+                        count--;
+                    } else {
+                        cardName.setText(matchList2.get(count).getUserName());
+                        cardGender.setText(matchList2.get(count).getUserGender());
+                        cardLocation.setText(matchList2.get(count).getDiseaseName());
+                        cardDate.setText(matchList2.get(count).getLocation_check());
+                        cardCareer.setText(matchList2.get(count).getNote());
+                        cardLicense.setText(matchList2.get(count).getTime());
+                        cardID.setText(matchList2.get(count).getUserID());
+                    }
                 }
             }
         });
@@ -307,17 +393,33 @@ public class MainPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 count--;
-                if(count >=  0) {
-                    cardName.setText(matchList.get(count).getUserName());
-                    cardGender.setText(matchList.get(count).getUserGender());
-                    cardLocation.setText(matchList.get(count).getLovation_work());
-                    cardDate.setText(matchList.get(count).getUworkTime());
-                    cardCareer.setText(matchList.get(count).getUcareer());
-                    cardLicense.setText(matchList.get(count).getUlicense());
-                    cardID.setText(matchList.get(count).getUserID());
-                }else{
-                    Toast.makeText(getApplicationContext()," 처음페이지입니다.", Toast.LENGTH_LONG).show();
-                    count = 0;
+                if (userServiceID.equals("환자")) {
+                    if (count >= 0) {
+                        cardName.setText(matchList.get(count).getUserName());
+                        cardGender.setText(matchList.get(count).getUserGender());
+                        cardLocation.setText(matchList.get(count).getLovation_work());
+                        cardDate.setText(matchList.get(count).getUworkTime());
+                        cardCareer.setText(matchList.get(count).getUcareer());
+                        cardLicense.setText(matchList.get(count).getUlicense());
+                        cardID.setText(matchList.get(count).getUserID());
+                    } else {
+                        Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
+                        count = 0;
+                    }
+                }else if(userServiceID.equals("간병인")){
+                    if (count >= 0) {
+                        cardName.setText(matchList2.get(count).getUserName());
+                        cardGender.setText(matchList2.get(count).getUserGender());
+                        cardLocation.setText(matchList2.get(count).getDiseaseName());
+                        cardDate.setText(matchList2.get(count).getLocation_check());
+                        cardCareer.setText(matchList2.get(count).getNote());
+                        cardLicense.setText(matchList2.get(count).getTime());
+                        cardID.setText(matchList2.get(count).getUserID());
+                    } else {
+                        Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
+                        count = 0;
+                    }
+
                 }
             }
         });
