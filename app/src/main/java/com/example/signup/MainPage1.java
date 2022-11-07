@@ -271,12 +271,12 @@ public class MainPage1 extends AppCompatActivity {
                                  e.printStackTrace();
                              }
                              if (matchList.size() > 0) {
-                                 cardName.setText(matchList.get(count).getUserName());
-                                 cardGender.setText(matchList.get(count).getUserGender());
-                                 cardLocation.setText(matchList.get(count).getLovation_work());
-                                 cardDate.setText(matchList.get(count).getUworkTime());
-                                 cardCareer.setText(matchList.get(count).getUcareer());
-                                 cardLicense.setText(matchList.get(count).getUlicense());
+                                 cardName.setText("이름: "+matchList.get(count).getUserName());
+                                 cardGender.setText("성별: "+matchList.get(count).getUserGender());
+                                 cardLocation.setText("간병지: "+matchList.get(count).getLovation_work());
+                                 cardDate.setText("시간: "+matchList.get(count).getUworkTime());
+                                 cardCareer.setText("경력: "+matchList.get(count).getUcareer());
+                                 cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                                  cardID.setText(matchList.get(count).getUserID());
                              } else {
                                  Toast.makeText(getApplicationContext(), "조건에 맞는 간병인이 없습니다.", Toast.LENGTH_LONG).show();
@@ -328,12 +328,12 @@ public class MainPage1 extends AppCompatActivity {
                                  e.printStackTrace();
                              }
                              if (matchList2.size() > 0) {
-                                 cardName.setText(matchList2.get(count).getUserName());
-                                 cardGender.setText(matchList2.get(count).getUserGender());
-                                 cardLocation.setText(matchList2.get(count).getDiseaseName());
-                                 cardDate.setText(matchList2.get(count).getLocation_check());
-                                 cardCareer.setText(matchList2.get(count).getNote());
-                                 cardLicense.setText(matchList2.get(count).getTime());
+                                 cardName.setText("이름: "+matchList2.get(count).getUserName());
+                                 cardGender.setText("성별: "+matchList2.get(count).getUserGender());
+                                 cardLocation.setText("병명: "+matchList2.get(count).getDiseaseName());
+                                 cardDate.setText("간병지: "+matchList2.get(count).getLocation_check());
+                                 cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
+                                 cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                                  cardID.setText(matchList2.get(count).getUserID());
                              } else {
                                  Toast.makeText(getApplicationContext(), "조건에 맞는 환자가 없습니다.", Toast.LENGTH_LONG).show();
@@ -364,12 +364,12 @@ public class MainPage1 extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "마지막페이지입니다.", Toast.LENGTH_LONG).show();
                         count--;
                     } else {
-                        cardName.setText(matchList.get(count).getUserName());
-                        cardGender.setText(matchList.get(count).getUserGender());
-                        cardLocation.setText(matchList.get(count).getLovation_work());
-                        cardDate.setText(matchList.get(count).getUworkTime());
-                        cardCareer.setText(matchList.get(count).getUcareer());
-                        cardLicense.setText(matchList.get(count).getUlicense());
+                        cardName.setText("이름: "+matchList.get(count).getUserName());
+                        cardGender.setText("성별: "+matchList.get(count).getUserGender());
+                        cardLocation.setText("간병지: "+matchList.get(count).getLovation_work());
+                        cardDate.setText("시간: "+matchList.get(count).getUworkTime());
+                        cardCareer.setText("경력: "+matchList.get(count).getUcareer());
+                        cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                         cardID.setText(matchList.get(count).getUserID());
                     }
                 }else if(userServiceID.equals("간병인")){
@@ -378,12 +378,12 @@ public class MainPage1 extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "마지막페이지입니다.", Toast.LENGTH_LONG).show();
                         count--;
                     } else {
-                        cardName.setText(matchList2.get(count).getUserName());
-                        cardGender.setText(matchList2.get(count).getUserGender());
-                        cardLocation.setText(matchList2.get(count).getDiseaseName());
-                        cardDate.setText(matchList2.get(count).getLocation_check());
-                        cardCareer.setText(matchList2.get(count).getNote());
-                        cardLicense.setText(matchList2.get(count).getTime());
+                        cardName.setText("이름: "+matchList2.get(count).getUserName());
+                        cardGender.setText("성별: "+matchList2.get(count).getUserGender());
+                        cardLocation.setText("병명: "+matchList2.get(count).getDiseaseName());
+                        cardDate.setText("간병지: "+matchList2.get(count).getLocation_check());
+                        cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
+                        cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                         cardID.setText(matchList2.get(count).getUserID());
                     }
                 }
@@ -396,12 +396,12 @@ public class MainPage1 extends AppCompatActivity {
                 count--;
                 if (userServiceID.equals("환자")) {
                     if (count >= 0) {
-                        cardName.setText(matchList.get(count).getUserName());
-                        cardGender.setText(matchList.get(count).getUserGender());
-                        cardLocation.setText(matchList.get(count).getLovation_work());
-                        cardDate.setText(matchList.get(count).getUworkTime());
-                        cardCareer.setText(matchList.get(count).getUcareer());
-                        cardLicense.setText(matchList.get(count).getUlicense());
+                        cardName.setText("이름: "+matchList.get(count).getUserName());
+                        cardGender.setText("성별: "+matchList.get(count).getUserGender());
+                        cardLocation.setText("간병지: "+matchList.get(count).getLovation_work());
+                        cardDate.setText("시간: "+matchList.get(count).getUworkTime());
+                        cardCareer.setText("경력: "+matchList.get(count).getUcareer());
+                        cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                         cardID.setText(matchList.get(count).getUserID());
                     } else {
                         Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
@@ -409,12 +409,12 @@ public class MainPage1 extends AppCompatActivity {
                     }
                 }else if(userServiceID.equals("간병인")){
                     if (count >= 0) {
-                        cardName.setText(matchList2.get(count).getUserName());
-                        cardGender.setText(matchList2.get(count).getUserGender());
-                        cardLocation.setText(matchList2.get(count).getDiseaseName());
-                        cardDate.setText(matchList2.get(count).getLocation_check());
-                        cardCareer.setText(matchList2.get(count).getNote());
-                        cardLicense.setText(matchList2.get(count).getTime());
+                        cardName.setText("이름: "+matchList2.get(count).getUserName());
+                        cardGender.setText("성별: "+matchList2.get(count).getUserGender());
+                        cardLocation.setText("병명: "+matchList2.get(count).getDiseaseName());
+                        cardDate.setText("간병지: "+matchList2.get(count).getLocation_check());
+                        cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
+                        cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                         cardID.setText(matchList2.get(count).getUserID());
                     } else {
                         Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
