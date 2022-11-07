@@ -247,6 +247,7 @@ public class MainPage1 extends AppCompatActivity {
                                  for (int i = 0; i < jsonArray.length(); i++) {
                                      JSONObject item = jsonArray.getJSONObject(i);
 
+
                                      String userID = item.getString(json_userID);
                                      String userName = item.getString(json_userName);
                                      String userGender = item.getString(json_userGender);
