@@ -42,12 +42,23 @@
             android:textStyle="bold"
             android:textSize="40dp"
             android:text="내 정보" />
+        <Button
+            android:id="@+id/matching_list"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#EEE6C4"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:text="매칭 목록" />
+
 
         <Button
             android:id="@+id/btn_test3"
             android:layout_width="300dp"
             android:layout_height="70dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#EEE6C4"
             android:textColor="#000000"
             android:textStyle="bold"
@@ -59,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="130dp"
         tools:ignore="MissingConstraints">
 
 
