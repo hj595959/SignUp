@@ -5,8 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="100dp"
     >
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:textColor="#EEE6C4"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:text="매칭 목록"
+        android:textSize="35dp"/>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -93,7 +102,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp">
+        android:layout_marginTop="100dp">
         <ImageButton
             android:id="@+id/bottomHomeBtn1"
             android:layout_width="138dp"
@@ -114,6 +123,17 @@
             android:layout_height="90dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/back" />
+        <TextView
+            android:id="@+id/receive_ID2"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="246dp"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:visibility="gone"
+
+            />
     </LinearLayout>
 
 </LinearLayout>
