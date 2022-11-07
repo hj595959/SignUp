@@ -1,4 +1,5 @@
-package com.example.signup;public class UserData {
+package com.example.signup;
+public class UserData {
     private String userID;
     private String userName;
     private String userGender;

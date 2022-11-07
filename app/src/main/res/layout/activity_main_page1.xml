@@ -182,8 +182,6 @@
             android:text="다음"
             android:scaleType="fitCenter">
 
-
-
         </Button>
 
     </LinearLayout>

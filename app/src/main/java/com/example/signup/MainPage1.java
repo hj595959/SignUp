@@ -441,8 +441,9 @@ public class MainPage1 extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success");
                             if (success) {
                                 Toast.makeText(getApplicationContext(), "매칭등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(MainPage1.this, MainPage1.class);
+                                Intent intent = new Intent(MainPage1.this, Mypage.class);
                                 intent.putExtra("userID", sendID);
+                                intent.putExtra("userServiceID", userServiceID);
                                 MainPage1.this.startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "매칭등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
