@@ -40,11 +40,31 @@ public class activity_mkd3 extends AppCompatActivity {
                             if (success) {
                                 String userID_result = jsonResponse.getString("userID");
                                 String userServiceID_result = jsonResponse.getString("userServiceID");
+                                String userName_result = jsonResponse.getString("userName");
+                                String userAddress_result = jsonResponse.getString("userAddress");
+                                String userMail_result = jsonResponse.getString("userMail");
+                                String userBirthday_result = jsonResponse.getString("userBirthday");
+                                String userBirthday2_result = jsonResponse.getString("userBirthday2");
+                                String userBirthday3_result = jsonResponse.getString("userBirthday3");
+                                String userPhoneNB_result = jsonResponse.getString("userPhoneNB");
+
+
+
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(activity_mkd3.this, MainPage1.class);
                                 intent.putExtra("userID", userID_result);
+                                intent.putExtra("userPW",userPassword);
                                 intent.putExtra("userServiceID", userServiceID_result);
+                                intent.putExtra("userName", userName_result);
+                                intent.putExtra("userAddress", userAddress_result);
+                                intent.putExtra("userMail", userMail_result);
+                                intent.putExtra("userBirthday", userBirthday_result);
+                                intent.putExtra("userBirthday2", userBirthday2_result);
+                                intent.putExtra("userBirthday3", userBirthday3_result);
+                                intent.putExtra("userPhoneNB", userPhoneNB_result);
+
+
                                 activity_mkd3.this.startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();

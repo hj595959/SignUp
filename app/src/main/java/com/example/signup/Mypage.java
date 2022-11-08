@@ -21,50 +21,57 @@ public class Mypage extends AppCompatActivity {
 
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
+        String userPW = intent.getStringExtra("userPW");
+        String userPhoneNB = intent.getStringExtra("userPhoneNB");
         String userServiceID = intent.getStringExtra("userServiceID");
-        //매칭목록
-        matching_list = findViewById(R.id.matching_list);
-        matching_list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Mypage.this, Mkd2Activity.class);
-                intent.putExtra("userID", userID);
-                intent.putExtra("userServiceID", userServiceID);
-                startActivity(intent);
-            }
-        });
-        //신청현황
-        btn_test3 = findViewById(R.id.btn_test3);
-        btn_test3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Mypage.this, apply_list.class);
-                intent.putExtra("userID", userID);
-                intent.putExtra("userServiceID", userServiceID);
-                startActivity(intent);
-            }
-        });
+        String userName = intent.getStringExtra("userName");
+        String userBirthday = intent.getStringExtra("userBirthday");
+        String userBirthday2 = intent.getStringExtra("userBirthday2");
+        String userBirthday3 = intent.getStringExtra("userBirthday3");
+        String userMail = intent.getStringExtra("userMail");
+        String userAddress = intent.getStringExtra("userAddress");
 
 
-        bottomHomeBtn=findViewById(R.id.bottomHomeBtn);
+        bottomHomeBtn = findViewById(R.id.bottomHomeBtn);
         bottomHomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Mypage.this, MainPage1.class);
-                startActivity(intent);
+                finish();
+
             }
         });
 
 
-        bottomBackBtn=findViewById(R.id.bottomBackBtn);
+        bottomBackBtn = findViewById(R.id.bottomBackBtn);
         bottomBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.exit(0);
+                finish();
+
+            }
+        });
+
+        btn_test2 = findViewById(R.id.btn_test2);
+        btn_test2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Mypage.this, loginMyPage.class);
+                intent.putExtra("userID", userID);
+                intent.putExtra("userPW", userPW);
+                intent.putExtra("userServiceID", userServiceID);
+                intent.putExtra("userName", userName);
+                intent.putExtra("userAddress", userAddress);
+                intent.putExtra("userMail", userMail);
+                intent.putExtra("userBirthday", userBirthday);
+                intent.putExtra("userBirthday2", userBirthday2);
+                intent.putExtra("userBirthday3", userBirthday3);
+                intent.putExtra("userPhoneNB", userPhoneNB);
+                startActivity(intent);
+
 
 
             }
+        });
 
 
-    });
-}}
+    }}

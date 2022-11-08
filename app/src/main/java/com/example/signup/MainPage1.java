@@ -61,7 +61,17 @@ public class MainPage1 extends AppCompatActivity {
         caregiver caregiver = new caregiver();
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
+        String userPW =intent.getStringExtra("userPW");
         String userServiceID = intent.getStringExtra("userServiceID");
+        String userName = intent.getStringExtra("userName");
+        String userBirthday = intent.getStringExtra("userBirthday");
+        String userBirthday2 = intent.getStringExtra("userBirthday2");
+        String userBirthday3 = intent.getStringExtra("userBirthday3");
+        String userMail = intent.getStringExtra("userMail");
+        String userAddress = intent.getStringExtra("userAddress");
+        String userPhoneNB = intent.getStringExtra("userPhoneNB");
+
+
 
         matching_but1 = findViewById(R.id.matching_but1);
         info3_button = findViewById(R.id.info3_button);
@@ -197,8 +207,17 @@ public class MainPage1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage1.this, Mypage.class);
-                intent.putExtra("userID", userID);
-                intent.putExtra("userServiceID", userServiceID);
+                intent.putExtra("userID",userID);
+                intent.putExtra("userPW",userPW);
+                intent.putExtra("userServiceID",userServiceID);
+                intent.putExtra("userName",userName);
+                intent.putExtra("userAddress", userAddress);
+                intent.putExtra("userMail", userMail);
+                intent.putExtra("userBirthday", userBirthday);
+                intent.putExtra("userBirthday2", userBirthday2);
+                intent.putExtra("userBirthday3", userBirthday3);
+                intent.putExtra("userPhoneNB", userPhoneNB);
+
                 startActivity(intent);
             }
         });
@@ -444,7 +463,7 @@ public class MainPage1 extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(getApplicationContext(), "매칭등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainPage1.this, Mypage.class);
-                                intent.putExtra("userID", userID);
+                                intent.putExtra("userID", sendID);
                                 intent.putExtra("userServiceID", userServiceID);
                                 MainPage1.this.startActivity(intent);
                             } else {
