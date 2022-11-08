@@ -46,6 +46,7 @@ public class apply_list extends AppCompatActivity {
         receive_ID1 = findViewById(R.id.receive_ID1);
         choiceBtn1 = findViewById(R.id.choiceBtn1);
         choiceBtn2 = findViewById(R.id.choiceBtn2);
+        matching_choice = findViewById(R.id.matching_choice);
 
 
         ArrayList<mypageMatchDTO> mypageMatchList = new ArrayList<mypageMatchDTO>();
