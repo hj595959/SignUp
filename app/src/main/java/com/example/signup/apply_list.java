@@ -2,6 +2,7 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -211,7 +213,42 @@ public class apply_list extends AppCompatActivity {
             }
         });
 
+        matching_choice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String sendID = receive_ID1.getText().toString();
+                String receiveID = userID;
 
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                Toast.makeText(getApplicationContext(), "매칭이 확정되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(apply_list.this, Mypage.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userServiceID", userServiceID);
+                                apply_list.this.startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "매칭확정 에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                matchupdate matchupdate = new matchupdate(sendID, receiveID,  responseListener);
+                RequestQueue queue = Volley.newRequestQueue(apply_list.this);
+                queue.add(matchupdate);
+
+
+            }
+        });
 
     }
 }

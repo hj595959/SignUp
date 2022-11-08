@@ -27,7 +27,7 @@ public class Mypage extends AppCompatActivity {
         matching_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Mypage.this, apply_list.class);
+                Intent intent = new Intent(Mypage.this, Mkd2Activity.class);
                 intent.putExtra("userID", userID);
                 intent.putExtra("userServiceID", userServiceID);
                 startActivity(intent);
@@ -38,8 +38,9 @@ public class Mypage extends AppCompatActivity {
         btn_test3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Mypage.this, Mkd2Activity.class);
+                Intent intent = new Intent(Mypage.this, apply_list.class);
                 intent.putExtra("userID", userID);
+                intent.putExtra("userServiceID", userServiceID);
                 startActivity(intent);
             }
         });

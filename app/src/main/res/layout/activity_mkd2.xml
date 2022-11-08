@@ -83,6 +83,21 @@
             android:gravity="center">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/receive_ID1"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="246dp"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:visibility="gone"
+
+            >
+        </TextView>
+
+
         <Button
             android:id="@+id/matching_choice"
             android:layout_width="150dp"

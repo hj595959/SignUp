@@ -197,6 +197,8 @@ public class MainPage1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage1.this, Mypage.class);
+                intent.putExtra("userID", userID);
+                intent.putExtra("userServiceID", userServiceID);
                 startActivity(intent);
             }
         });
@@ -442,7 +444,7 @@ public class MainPage1 extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(getApplicationContext(), "매칭등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainPage1.this, Mypage.class);
-                                intent.putExtra("userID", sendID);
+                                intent.putExtra("userID", userID);
                                 intent.putExtra("userServiceID", userServiceID);
                                 MainPage1.this.startActivity(intent);
                             } else {
