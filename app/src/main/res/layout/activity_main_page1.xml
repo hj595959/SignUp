@@ -141,7 +141,7 @@
                 android:id="@+id/matching_but1"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="60dp"
                 android:layout_marginTop="280dp"
                 android:backgroundTint="#00FFFFFF"
                 android:text="매칭"
@@ -163,17 +163,18 @@
         android:gravity="center"
         >
 
+
         <Button
             android:id="@+id/choiceBtn1"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:backgroundTint="#eee6c4"
-            android:textColor="@color/black"
-            android:text="이전"
             android:layout_marginRight="4dp"
-            android:scaleType="fitCenter">
-        </Button>
+            android:backgroundTint="#eee6c4"
+            android:scaleType="fitCenter"
+            android:text="이전"
+            android:textColor="@color/black">
 
+        </Button>
 
         <Button
             android:id="@+id/choiceBtn2"

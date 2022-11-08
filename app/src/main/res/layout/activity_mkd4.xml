@@ -13,7 +13,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/jeiulogo"/>
+        android:src="@drawable/reallogo"/>
 
     <TextView
         android:layout_width="230dp"
@@ -30,7 +30,7 @@
         android:layout_width="258dp"
         android:layout_height="120dp"
         android:layout_marginTop="45dp"
-        android:background="#dbc981"
+        android:background="#eee6c4"
         android:textStyle="bold"
         android:gravity="center"
         android:text="2022-11-02                16 : 00   조주환 입금                                  + 100000"
@@ -40,7 +40,7 @@
         android:layout_width="258dp"
         android:layout_height="120dp"
         android:layout_marginTop="45dp"
-        android:background="#dbc981"
+        android:background="#eee6c4"
         android:textStyle="bold"
         android:gravity="center"
         android:text="2022-11-01                7 : 00   문경덕 입금                                  + 100000"

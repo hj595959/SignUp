@@ -14,7 +14,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:src="@drawable/jeiulogo">
+        android:src="@drawable/reallogo">
 
     </ImageView>
 
@@ -33,6 +33,7 @@
     <EditText
         android:id="@+id/signID"
         android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_height="60dp"
         android:hint="아이디를 입력해주세요"
         android:inputType="text"

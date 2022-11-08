@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:src="@drawable/jeiulogo">
+        android:src="@drawable/reallogo">
 
     </ImageView>
     <TextView
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="100dp">
 
         <EditText
             android:id="@+id/signID"
