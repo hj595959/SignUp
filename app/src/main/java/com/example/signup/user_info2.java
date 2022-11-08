@@ -25,7 +25,7 @@ public class user_info2 extends AppCompatActivity {
     private EditText career, workTime, license;
     private RadioGroup location_working, info2_rating;
     private RadioButton home_work, hospital_work, info2_1rating, info2_2rating, info2_3rating, info2_4rating, info2_5rating, info2_6rating;
-    private Button checkButton3;
+    private Button checkButton3 , checkButton2;
     private String signID, location_working_result, info2_rating_result;
 
 
@@ -52,7 +52,7 @@ public class user_info2 extends AppCompatActivity {
         info2_5rating = findViewById(R.id.info2_5rating);
         info2_6rating = findViewById(R.id.info2_6rating);
         checkButton3 = findViewById(R.id.checkButton3);
-
+        checkButton2 = findViewById(R.id.checkButton2);
         //String 형식으로 전달받을 signID 저장
         signID = intent.getStringExtra("signID");
 
@@ -129,6 +129,45 @@ public class user_info2 extends AppCompatActivity {
             }
         });
 
+        checkButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Ucareer_db = career.getText().toString();
+                String info_ration_db = info2_rating_result;
+                String Ulicense_db = license.getText().toString();
+                String lovation_work_db = location_working_result;
+                String uworkTime_db = workTime.getText().toString();
+                String userID_db = intent.getStringExtra("userID");
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            if (success) {
+                                String userServiceID = intent.getStringExtra("userServiceID");
+                                Toast.makeText(getApplicationContext(), "정보가 수정되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(user_info2.this, MainPage1.class);
+                                intent.putExtra("userID", userID_db);
+                                intent.putExtra("userServiceID", userServiceID);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "간병인 수정 에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                userInfo2Update userInfo2Update = new userInfo2Update(userID_db, Ucareer_db, info_ration_db, Ulicense_db, lovation_work_db, uworkTime_db, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(user_info2.this);
+                queue.add(userInfo2Update);
+
+            }
+        });
     }
 
 }

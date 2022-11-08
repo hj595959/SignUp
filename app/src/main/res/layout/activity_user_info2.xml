@@ -71,6 +71,13 @@
                     android:layout_height="wrap_content"
                     android:hint="보유하고 있는 자격증"
                 />
+
+                <ImageView
+                    android:layout_width="400dp"
+                    android:layout_height="250dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/rating1" />
+
                 <TextView
                     android:id="@+id/location_work"
                     android:layout_width="match_parent"
@@ -99,12 +106,6 @@
                         android:layout_marginBottom="30dp"
                         android:text="재택 간병" />
                 </RadioGroup>
-
-                <ImageView
-                    android:layout_width="400dp"
-                    android:layout_height="250dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/rating1" />
 
                 <RadioGroup
                     android:id="@+id/info2_rating"
