@@ -31,6 +31,17 @@ public class Mypage extends AppCompatActivity {
         String userMail = intent.getStringExtra("userMail");
         String userAddress = intent.getStringExtra("userAddress");
 
+//매칭목록
+        matching_list = findViewById(R.id.matching_list);
+        matching_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Mypage.this, Mkd2Activity.class);
+                intent.putExtra("userID", userID);
+                intent.putExtra("userServiceID", userServiceID);
+                startActivity(intent);
+            }
+        });
 
         bottomHomeBtn = findViewById(R.id.bottomHomeBtn);
         bottomHomeBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +81,17 @@ public class Mypage extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        btn_test3 = findViewById(R.id.btn_test3);
+        btn_test3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Mypage.this, apply_list.class);
+                intent.putExtra("userID", userID);
+                intent.putExtra("userServiceID", userServiceID);
+                startActivity(intent);
             }
         });
 

@@ -242,7 +242,7 @@ public class MainPage1 extends AppCompatActivity {
             }}
         });
 
-
+        //매칭과 데이터삽입을 위한 코드
         find_matching = findViewById(R.id.find_matching);
         find_matching.setOnClickListener(new View.OnClickListener() {
             @Override

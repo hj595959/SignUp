@@ -1,7 +1,7 @@
 package com.example.signup;
 
 public class matchingDTO {
-
+    //데이터를 담아주기위한 클래스
     private String userID;
     private String userName;
     private String userGender;
@@ -10,6 +10,7 @@ public class matchingDTO {
     private String Ulicense;
     private String uworkTime;
 
+    //데이터를 담기 위한 getter , setter 선언
     public String getUserID() {
         return userID;
     }
@@ -66,7 +67,7 @@ public class matchingDTO {
         this.uworkTime = uworkTime;
     }
 
-
+    //문자형으로 리턴을 받기 위한 toString 선언
     @Override
     public String toString() {
         return "matchingDTO{" +
