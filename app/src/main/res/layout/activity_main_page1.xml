@@ -35,24 +35,26 @@
             android:text="검색">
         </Button>
     </LinearLayout>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="40dp"
         app:cardCornerRadius="40dp"
-        android:layout_height="350dp"
+        android:layout_height="400dp"
 
         >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:background="#EEE6C4">
 
+        </LinearLayout>
 
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+        </ImageView>
 
         <TextView
             android:textSize="15dp"
@@ -61,8 +63,8 @@
             android:layout_width="280dp"
             android:layout_marginTop="16dp"
             android:layout_height="40dp"
-
-            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
             >
 
         </TextView>
@@ -74,6 +76,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="56dp"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -85,6 +88,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="96dp"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -97,6 +101,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="136dp"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -108,6 +113,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="176dp"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -119,6 +125,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="206dp"
             android:textSize="15dp"
+            android:textStyle="bold"
             android:gravity="center">
 
         </TextView>
@@ -136,20 +143,17 @@
             >
 
         </TextView>
-
-            <Button
-                android:id="@+id/matching_but1"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="280dp"
-                android:backgroundTint="#00FFFFFF"
-                android:text="매칭"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
+        <Button
+            android:id="@+id/matching_but1"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="80dp"
+            android:backgroundTint="#EEE6C4"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="매칭" />
 
 
 
@@ -159,22 +163,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="9dp"
         android:gravity="center"
         >
-
 
         <Button
             android:id="@+id/choiceBtn1"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginRight="4dp"
             android:backgroundTint="#eee6c4"
-            android:scaleType="fitCenter"
+            android:textColor="@color/black"
             android:text="이전"
-            android:textColor="@color/black">
-
+            android:layout_marginRight="4dp"
+            android:scaleType="fitCenter">
         </Button>
+
 
         <Button
             android:id="@+id/choiceBtn2"
@@ -194,7 +196,7 @@
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="10dp">
         <Button
             android:id="@+id/info3_button"
             android:layout_width="3000dp"
@@ -208,7 +210,6 @@
             android:id="@+id/info4_button"
             android:layout_width="300dp"
             android:layout_height="200dp"
-            android:layout_marginBottom="5dp"
             android:backgroundTint="#EEE6C4"
             android:text="환자 정보 등록 및 수정"
             android:textColor="@color/black"
@@ -220,8 +221,8 @@
     <LinearLayout
 
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:layout_marginTop="10dp"
         >
 
@@ -229,20 +230,20 @@
         <ImageButton
             android:id="@+id/bottomHomeBtn"
             android:layout_width="136dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/home" />
 
         <ImageButton
             android:id="@+id/bottomMyPageBtn"
-            android:layout_width="136dp"
+            android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/person"/>
 
         <ImageButton
             android:id="@+id/bottomBackBtn"
-            android:layout_width="136dp"
+            android:layout_width="138dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/back"/>
