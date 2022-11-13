@@ -1,13 +1,13 @@
 package com.example.signup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -67,7 +67,9 @@ public class Mkd2Activity extends AppCompatActivity {
 
                             String userID = item.getString(json_userID);
                             String userName = item.getString(json_userName);
-                            String time = item.getString(json_time1);
+                            String time1 = item.getString(json_time1).substring(0,2);
+                            String time2 = item.getString(json_time1).substring(2,4);
+                            String time = time1+":"+time2;
                             String location = item.getString(json_location_work1);
                             String ration = item.getString(json_ration1);
 
@@ -115,7 +117,9 @@ public class Mkd2Activity extends AppCompatActivity {
 
                             String userID = item.getString(json_userID);
                             String userName = item.getString(json_userName);
-                            String time = item.getString(json_time2);
+                            String time1 = item.getString(json_time2).substring(0,2);
+                            String time2 = item.getString(json_time2).substring(2,4);
+                            String time = time1+":"+time2;
                             String location = item.getString(json_location_work2);
                             String ration = item.getString(json_ration2);
 

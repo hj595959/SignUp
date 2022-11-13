@@ -2,11 +2,17 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 public class loginMyPage extends AppCompatActivity {
 
@@ -26,95 +32,57 @@ public class loginMyPage extends AppCompatActivity {
         TextView loginMyPageBirth3Tv = findViewById(R.id.loginMyPageBirth3Tv);
         TextView loginMyPageAddressTv = findViewById(R.id.loginMyPageAddressTv);
         TextView loginMyPagePhoneNBTv = findViewById(R.id.loginMyPagePhoneNBTv);
-
         Button loginMyPageCheck = findViewById(R.id.loginMyPageCheck);
-
-
-
-
 
         //가져오기
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
-
         String userServiceID = intent.getStringExtra("userServiceID");
-        String userName = intent.getStringExtra("userName");
-        String userPW =intent.getStringExtra("userPW");
 
-        String userBirthday = intent.getStringExtra("userBirthday");
-        String userBirthday2 = intent.getStringExtra("userBirthday2");
-        String userBirthday3 = intent.getStringExtra("userBirthday3");
-        String userMail = intent.getStringExtra("userMail");
-        String userAddress = intent.getStringExtra("userAddress");
-        String userPhoneNB = intent.getStringExtra("userPhoneNB");
-
-
-
-
-
-
-
-        //넣기
-
-        loginMyPageIDTv.setText(userID);
-        loginMyPageWhatTv.setText(userServiceID);
-        loginMyPageNameTv.setText(userName);
-        loginMyPageEmailTv.setText(userMail);
-        loginMyPagePWTv.setText(userPW);
-        loginMyPageBirth1Tv.setText(userBirthday);
-        loginMyPageBirth2Tv.setText(userBirthday2);
-        loginMyPageBirth3Tv.setText(userBirthday3);
-        loginMyPageAddressTv.setText(userAddress);
-        loginMyPagePhoneNBTv.setText("0"+userPhoneNB);
-
-
-        loginMyPageCheck.setOnClickListener(new View.OnClickListener() {
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
-            public void onClick(View v) {
-//                StringRequest request = new StringRequest(Request.Method.POST, "http://favor531.ivyro.net/loginmypage.php",
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                Toast.makeText(loginMyPage.this, response, Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(loginMyPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                }){
-//                    @Override
-//                    protected Map<String, String> getParams() throws AuthFailureError {
-//                        Map<String,String> params = new HashMap<>();
-//                        String tvID = loginMyPageIDTv.getText().toString();
-//
-//
-//
-//
-//                        params.put("userID",tvID);
-//                        params.put("userServiceID", userServiceID);
-//                        params.put("userName", userName);
-//                        params.put("userMail", userMail);
-//                        params.put("userPW", userPW);
-//                        params.put("userBirthday", userBirthday);
-//                        params.put("userBirthday2", userBirthday2);
-//                        params.put("userBirthday3", userBirthday3);
-//                        params.put("userAddress", userAddress);
-//                        params.put("userPhoneNB", userPhoneNB);
-//
-//                        return super.getParams();
-//                    }
-//                };
-//
-//                RequestQueue requestQueue = Volley.newRequestQueue(loginMyPage.this);
-//                requestQueue.add(request);
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    if (success) {
+                        String userID_result = jsonResponse.getString("userID");
+                        String userPassword_result = jsonResponse.getString("userPassword");
+                        String userName_result = jsonResponse.getString("userName");
+                        String userMail_result = jsonResponse.getString("userMail");
+                        String userBirthday_result = jsonResponse.getString("userBirthday");
+                        String userBirthday2_result = jsonResponse.getString("userBirthday2");
+                        String userBirthday3_result = jsonResponse.getString("userBirthday3");
+                        String userGender_result = jsonResponse.getString("userGender");
+                        String userServiceID_result = jsonResponse.getString("userServiceID");
+                        String userPhoneNB_result = jsonResponse.getString("userPhoneNB");
+                        String userAddress_result = jsonResponse.getString("userAddress");
 
+                        loginMyPageNameTv.setText(userName_result);
+                        loginMyPageWhatTv.setText(userServiceID_result);
+                        loginMyPageIDTv.setText(userID_result);
+                        loginMyPageEmailTv.setText(userMail_result);
+                        loginMyPagePWTv.setText(userPassword_result);
+                        loginMyPageBirth1Tv.setText(userBirthday_result);
+                        loginMyPageBirth2Tv.setText(userBirthday2_result);
+                        loginMyPageBirth3Tv.setText(userBirthday3_result);
+                        loginMyPageAddressTv.setText(userAddress_result);
+                        loginMyPagePhoneNBTv.setText("0"+userPhoneNB_result);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "정보를 찾을수 없습니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                finish();
-
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        });
+        };
+        mypageList mypageList = new mypageList(userID, userServiceID, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(loginMyPage.this);
+        queue.add(mypageList);
+
+
+
     }
 }

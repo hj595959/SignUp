@@ -61,17 +61,7 @@ public class MainPage1 extends AppCompatActivity {
         caregiver caregiver = new caregiver();
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
-        String userPW =intent.getStringExtra("userPW");
         String userServiceID = intent.getStringExtra("userServiceID");
-        String userName = intent.getStringExtra("userName");
-        String userBirthday = intent.getStringExtra("userBirthday");
-        String userBirthday2 = intent.getStringExtra("userBirthday2");
-        String userBirthday3 = intent.getStringExtra("userBirthday3");
-        String userMail = intent.getStringExtra("userMail");
-        String userAddress = intent.getStringExtra("userAddress");
-        String userPhoneNB = intent.getStringExtra("userPhoneNB");
-
-
 
         matching_but1 = findViewById(R.id.matching_but1);
         info3_button = findViewById(R.id.info3_button);
@@ -208,16 +198,7 @@ public class MainPage1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage1.this, Mypage.class);
                 intent.putExtra("userID",userID);
-                intent.putExtra("userPW",userPW);
                 intent.putExtra("userServiceID",userServiceID);
-                intent.putExtra("userName",userName);
-                intent.putExtra("userAddress", userAddress);
-                intent.putExtra("userMail", userMail);
-                intent.putExtra("userBirthday", userBirthday);
-                intent.putExtra("userBirthday2", userBirthday2);
-                intent.putExtra("userBirthday3", userBirthday3);
-                intent.putExtra("userPhoneNB", userPhoneNB);
-
                 startActivity(intent);
             }
         });
@@ -275,8 +256,9 @@ public class MainPage1 extends AppCompatActivity {
                                      String lovation_work = item.getString(json_lovation_work);
                                      String Ucareer = item.getString(json_Ucareer);
                                      String Ulicense = item.getString(json_Ulicense);
-                                     String uWorkTime = item.getString(json_uWorkTime);
-
+                                     String uWorkTime1 = item.getString(json_uWorkTime).substring(0,2);
+                                     String uWorkTime2 = item.getString(json_uWorkTime).substring(2,4);
+                                     String uWorkTime = uWorkTime1+":"+uWorkTime2;
                                      matchingDTO matchingDTO = new matchingDTO();
                                      matchingDTO.setUserID(userID);
                                      matchingDTO.setUserName(userName);
@@ -286,7 +268,7 @@ public class MainPage1 extends AppCompatActivity {
                                      matchingDTO.setUlicense(Ulicense);
                                      matchingDTO.setUworkTime(uWorkTime);
                                      matchList.add(matchingDTO);
-                                     Log.v("count userID", matchList.get(i).getUserID());
+
                                  }
 
                              } catch (Exception e) {
@@ -323,7 +305,7 @@ public class MainPage1 extends AppCompatActivity {
                                  JSONObject jsonObject = new JSONObject(result);
                                  JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
                                  matchList2.clear();
-                                 Log.v("count jsonArray", String.valueOf(jsonArray.length()));
+
                                  for (int i = 0; i < jsonArray.length(); i++) {
                                      JSONObject item = jsonArray.getJSONObject(i);
 
@@ -333,7 +315,9 @@ public class MainPage1 extends AppCompatActivity {
                                      String diseaseName = item.getString(json_diseaseName);
                                      String location_check = item.getString(json_location_check);
                                      String note = item.getString(json_note);
-                                     String time = item.getString(json_time);
+                                     String time1 = item.getString(json_time).substring(0,2);
+                                     String time2 = item.getString(json_time).substring(2,4);
+                                     String time = time1+":"+time2;
 
                                      matchingDTO2 matchingDTO2 = new matchingDTO2();
                                      matchingDTO2.setUserID(userID);

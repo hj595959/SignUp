@@ -2,6 +2,7 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,15 +22,8 @@ public class Mypage extends AppCompatActivity {
 
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
-        String userPW = intent.getStringExtra("userPW");
-        String userPhoneNB = intent.getStringExtra("userPhoneNB");
         String userServiceID = intent.getStringExtra("userServiceID");
-        String userName = intent.getStringExtra("userName");
-        String userBirthday = intent.getStringExtra("userBirthday");
-        String userBirthday2 = intent.getStringExtra("userBirthday2");
-        String userBirthday3 = intent.getStringExtra("userBirthday3");
-        String userMail = intent.getStringExtra("userMail");
-        String userAddress = intent.getStringExtra("userAddress");
+        Log.v("test_Mypage",userServiceID);
 
 //매칭목록
         matching_list = findViewById(R.id.matching_list);
@@ -68,19 +62,9 @@ public class Mypage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Mypage.this, loginMyPage.class);
                 intent.putExtra("userID", userID);
-                intent.putExtra("userPW", userPW);
                 intent.putExtra("userServiceID", userServiceID);
-                intent.putExtra("userName", userName);
-                intent.putExtra("userAddress", userAddress);
-                intent.putExtra("userMail", userMail);
-                intent.putExtra("userBirthday", userBirthday);
-                intent.putExtra("userBirthday2", userBirthday2);
-                intent.putExtra("userBirthday3", userBirthday3);
-                intent.putExtra("userPhoneNB", userPhoneNB);
+
                 startActivity(intent);
-
-
-
             }
         });
 
