@@ -47,7 +47,7 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
                             if (success) {
                                 String userID = jsonResponse.getString("userID");
-                                Toast.makeText(getApplicationContext(), "회원님의 아이디는" + userID + "입니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "회원님의 아이디는 " + userID + " 입니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MemberFindLoginIdActivity2.this, activity_mkd3.class);
                                 MemberFindLoginIdActivity2.this.startActivity(intent);
                             } else {
@@ -60,7 +60,7 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
                         }
                     }
                 };
-                idfindRequest idfindRequest = new idfindRequest(usermail, responseListener);
+                idfindRequest idfindRequest = new idfindRequest(usermail,username, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(MemberFindLoginIdActivity2.this);
                 queue.add(idfindRequest);
 

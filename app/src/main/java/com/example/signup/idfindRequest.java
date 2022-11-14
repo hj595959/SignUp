@@ -12,11 +12,12 @@ public class idfindRequest extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/findid.php";
     private Map<String, String> map;
 
-    public idfindRequest(String usermail, Response.Listener<String> listener){
+    public idfindRequest(String usermail,String username ,Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("usermail",usermail);
+        map.put("username",username);
 
 
     }

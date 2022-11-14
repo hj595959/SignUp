@@ -11,12 +11,13 @@ public class PWCheckRequest extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/findpw.php";
     private Map<String, String> map;
 
-    public PWCheckRequest(String userID, Response.Listener<String> listener)
+    public PWCheckRequest(String userID,String username, Response.Listener<String> listener)
     {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("userID",userID);
+        map.put("username",username);
 
     }
 
