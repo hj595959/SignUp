@@ -30,12 +30,14 @@ public class MemberFindLoginIdActivity2 extends AppCompatActivity {
 
         buttonDoFindLoginId = findViewById(R.id.buttonDoFindLoginId);
         backBtn = findViewById(R.id.backBtn);
+        final EditText name  = findViewById(R.id.name);
         final EditText signmail  = findViewById(R.id.signmail);
 
         buttonDoFindLoginId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String usermail = signmail.getText().toString();
+                final String username = name.getText().toString();
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
