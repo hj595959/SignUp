@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 public class apply_list extends AppCompatActivity {
     private Button matching_choice , choiceBtn1 , choiceBtn2;
+    private ImageButton bottomMyPageBtn2;
     private TextView cardName , cardDate , cardLocation , cardDetail , receive_ID1;
     private static final String TAG_JSON = "result";
     private static final String json_userID = "receiveID";
@@ -46,7 +48,7 @@ public class apply_list extends AppCompatActivity {
         choiceBtn1 = findViewById(R.id.choiceBtn1);
         choiceBtn2 = findViewById(R.id.choiceBtn2);
         matching_choice = findViewById(R.id.matching_choice);
-
+        bottomMyPageBtn2 = findViewById(R.id.bottomMyPageBtn2);
 
         ArrayList<mypageMatchDTO> mypageMatchList = new ArrayList<mypageMatchDTO>();
         Intent intent = getIntent();
@@ -253,6 +255,14 @@ public class apply_list extends AppCompatActivity {
 
             }
         });
-
+        bottomMyPageBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(apply_list.this, Mypage.class);
+                intent.putExtra("userID",userID);
+                intent.putExtra("userServiceID",userServiceID);
+                startActivity(intent);
+            }
+        });
     }
 }

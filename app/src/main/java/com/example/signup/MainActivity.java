@@ -4,8 +4,8 @@ package com.example.signup;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +14,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +26,6 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.Base64;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private Button signImageBtn;
     private ImageView imageView;
     private static final int REQUEST_CODE = 0;
-
+    private Bitmap img;
+    private String image;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     InputStream in = getContentResolver().openInputStream(data.getData());
 
-                    Bitmap img = BitmapFactory.decodeStream(in);
+                    img = BitmapFactory.decodeStream(in);
                     in.close();
 
                     imageView.setImageBitmap(img);
@@ -99,18 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -182,13 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     int userPhoneNB = Integer.parseInt(phoneNb.getText().toString());
                     String userAddress= signAddress.getText().toString();
 
-
-                    String img = imageView.toString();
-
-
-
-
-
+                    imgCompress(img);
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
                         @Override
@@ -213,7 +194,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, img, responseListener);
+                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, image, responseListener);
+                    Log.v("image2",image);
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                     queue.add(registerRequest);
 
@@ -263,29 +245,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
     }
 
-    private Object bitmapToString(@NonNull Bitmap bitmap) {
+    public void imgCompress(Bitmap img){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        img.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 
-        String image = "";
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            image = Base64.getEncoder().encodeToString(byteArray);
+        byte[] bytes = baos.toByteArray();
+        image = "&image=" + byteArrayToBinaryString(bytes);
+        Log.v("image",image);
+    }
+
+    // byte[] to String
+    // 바이너리 바이트 배열을 스트링으로
+    public static String byteArrayToBinaryString(byte[] b) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < b.length; ++i) {
+            sb.append(byteToBinaryString(b[i]));
         }
-        return image;
+        return sb.toString();
+    }
+
+    // 바이너리 바이트를 스트링으로
+    public static String byteToBinaryString(byte n) {
+        StringBuilder sb = new StringBuilder("00000000");
+        for (int bit = 0; bit < 8; bit++) {
+            if (((n >> bit) & 1) > 0) {
+                sb.setCharAt(7 - bit, '1');
+            }
+        }
+        return sb.toString();
     }
 }
-
-
-
-
-
-

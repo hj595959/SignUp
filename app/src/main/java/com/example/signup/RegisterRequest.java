@@ -11,7 +11,7 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://favor531.ivyro.net/Register.php";
     private Map<String, String> map;
 
-    public RegisterRequest(String userID, String userName, String userPassword, String userMail, int userBirthday, int userBirthday2, int userBirthday3, int userPhoneNB, String userAddress, String userGender, String userServiceID, String img, Response.Listener<String> listener)
+    public RegisterRequest(String userID, String userName, String userPassword, String userMail, int userBirthday, int userBirthday2, int userBirthday3, int userPhoneNB, String userAddress, String userGender, String userServiceID, String image, Response.Listener<String> listener)
     {
         super(Method.POST, URL, listener, null);
 
@@ -28,7 +28,7 @@ public class RegisterRequest extends StringRequest {
         map.put("userServiceID", userServiceID);
         map.put("userPhoneNB", userPhoneNB +"");
         map.put("userAddress", userAddress);
-        map.put("img", img);
+        map.put("img", image);
 
 
 
