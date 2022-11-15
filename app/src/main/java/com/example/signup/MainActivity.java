@@ -4,6 +4,7 @@ package com.example.signup;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +25,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Base64;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +38,25 @@ public class MainActivity extends AppCompatActivity {
     private Button signImageBtn;
     private ImageView imageView;
     private static final int REQUEST_CODE = 0;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    imageView.setImageBitmap(img);
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
 
 
     @Override
@@ -114,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         //회원가입 버튼
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +183,11 @@ public class MainActivity extends AppCompatActivity {
                     String userAddress= signAddress.getText().toString();
 
 
+                    String img = imageView.toString();
+
+
+
+
 
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -181,7 +211,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     };
 
-                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, responseListener);
+
+
+                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, img, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                     queue.add(registerRequest);
 
@@ -238,24 +270,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                try {
-                    InputStream in = getContentResolver().openInputStream(data.getData());
+    private Object bitmapToString(@NonNull Bitmap bitmap) {
 
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
-
-                    imageView.setImageBitmap(img);
-                } catch (Exception e) {
-                }
-            }
+        String image = "";
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            image = Base64.getEncoder().encodeToString(byteArray);
         }
-    }}
+        return image;
+    }
+}
 
 
 

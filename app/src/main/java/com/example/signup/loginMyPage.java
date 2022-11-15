@@ -1,11 +1,16 @@
 package com.example.signup;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -13,6 +18,9 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
+
+import java.io.ByteArrayInputStream;
+import java.util.Base64;
 
 public class loginMyPage extends AppCompatActivity {
 
@@ -32,7 +40,9 @@ public class loginMyPage extends AppCompatActivity {
         TextView loginMyPageBirth3Tv = findViewById(R.id.loginMyPageBirth3Tv);
         TextView loginMyPageAddressTv = findViewById(R.id.loginMyPageAddressTv);
         TextView loginMyPagePhoneNBTv = findViewById(R.id.loginMyPagePhoneNBTv);
+        TextView loginMyPageGenderTv = findViewById(R.id.loginMyPageGenderTv);
         Button loginMyPageCheck = findViewById(R.id.loginMyPageCheck);
+        ImageView imgTv = findViewById(R.id.loginImg);
 
         //가져오기
         Intent intent = getIntent();
@@ -40,12 +50,17 @@ public class loginMyPage extends AppCompatActivity {
         String userServiceID = intent.getStringExtra("userServiceID");
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
                     if (success) {
+
+
+
+
                         String userID_result = jsonResponse.getString("userID");
                         String userPassword_result = jsonResponse.getString("userPassword");
                         String userName_result = jsonResponse.getString("userName");
@@ -57,6 +72,9 @@ public class loginMyPage extends AppCompatActivity {
                         String userServiceID_result = jsonResponse.getString("userServiceID");
                         String userPhoneNB_result = jsonResponse.getString("userPhoneNB");
                         String userAddress_result = jsonResponse.getString("userAddress");
+                        Bitmap stringBitmap = stringToBitmap("img");
+
+
 
                         loginMyPageNameTv.setText(userName_result);
                         loginMyPageWhatTv.setText(userServiceID_result);
@@ -68,6 +86,11 @@ public class loginMyPage extends AppCompatActivity {
                         loginMyPageBirth3Tv.setText(userBirthday3_result);
                         loginMyPageAddressTv.setText(userAddress_result);
                         loginMyPagePhoneNBTv.setText("0"+userPhoneNB_result);
+                        loginMyPageGenderTv.setText(userGender_result);
+                        imgTv.setImageBitmap(stringBitmap);
+
+
+
                     } else {
                         Toast.makeText(getApplicationContext(), "정보를 찾을수 없습니다.", Toast.LENGTH_SHORT).show();
                         return;
@@ -84,5 +107,20 @@ public class loginMyPage extends AppCompatActivity {
 
 
 
+
+
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private Bitmap stringToBitmap(String imgString) {
+
+        Bitmap bitmap = null;
+        byte[] byteArray = new byte[0];
+        byteArray = Base64.getDecoder().decode(imgString);
+
+        ByteArrayInputStream stream = new ByteArrayInputStream(byteArray);
+        bitmap = BitmapFactory.decodeStream(stream);
+        return bitmap;
+    }
+
 }

@@ -68,6 +68,14 @@
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/loginImg">
+
+                </ImageView>
+
 
 
 
@@ -95,6 +103,31 @@
                     android:textColor="#020202"
 
                      />
+
+                <TextView
+                    android:id="@+id/loginMyPageGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#EEE6C4"
+                    android:textSize="21dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/loginMyPageGenderTv"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/underline"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#020202"
+
+                    />
 
 
                 <TextView
