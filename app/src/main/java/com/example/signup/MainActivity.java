@@ -2,9 +2,11 @@ package com.example.signup;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 0;
     private Bitmap img;
     private String image;
+    private String temp="";
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                     img = BitmapFactory.decodeStream(in);
                     in.close();
-
+                    img = resize(img);
                     imageView.setImageBitmap(img);
                 } catch (Exception e) {
                 }
@@ -194,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, image, responseListener);
-                    Log.v("image2",image);
+                    RegisterRequest registerRequest = new RegisterRequest(userID, userName, userPassword, userMail, userBirthday, userBirthday2, userBirthday3, userPhoneNB, userAddress, userGender, userServiceID, temp, responseListener);
+                    Log.v("image2",temp);
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                     queue.add(registerRequest);
 
@@ -249,31 +253,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void imgCompress(Bitmap img){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        img.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-
+        img.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] bytes = baos.toByteArray();
-        image = "&image=" + byteArrayToBinaryString(bytes);
-        Log.v("image",image);
+        image = Base64.encodeToString(bytes,Base64.DEFAULT);
+
+        try {
+            temp = "&imagedevice="+ URLEncoder.encode(image,"utf-8");
+            Log.v("imagedevice",temp);
+        }catch(Exception e){
+            Log.e("exception",e.toString());
+        }
+
     }
 
-    // byte[] to String
-    // 바이너리 바이트 배열을 스트링으로
-    public static String byteArrayToBinaryString(byte[] b) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < b.length; ++i) {
-            sb.append(byteToBinaryString(b[i]));
-        }
-        return sb.toString();
-    }
-
-    // 바이너리 바이트를 스트링으로
-    public static String byteToBinaryString(byte n) {
-        StringBuilder sb = new StringBuilder("00000000");
-        for (int bit = 0; bit < 8; bit++) {
-            if (((n >> bit) & 1) > 0) {
-                sb.setCharAt(7 - bit, '1');
-            }
-        }
-        return sb.toString();
+    private Bitmap resize(Bitmap img){
+        Configuration config=getResources().getConfiguration();
+        if(config.smallestScreenWidthDp>=800)
+            img = Bitmap.createScaledBitmap(img, 400, 240, true);
+        else if(config.smallestScreenWidthDp>=600)
+            img = Bitmap.createScaledBitmap(img, 300, 180, true);
+        else if(config.smallestScreenWidthDp>=400)
+            img = Bitmap.createScaledBitmap(img, 200, 120, true);
+        else if(config.smallestScreenWidthDp>=360)
+            img = Bitmap.createScaledBitmap(img, 180, 108, true);
+        else
+            img = Bitmap.createScaledBitmap(img, 160, 96, true);
+        return img;
     }
 }

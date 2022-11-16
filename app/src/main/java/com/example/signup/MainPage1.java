@@ -1,7 +1,10 @@
 package com.example.signup;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,9 +47,9 @@ public class MainPage1 extends AppCompatActivity {
     private static final String json_location_check = "location_check";
     private static final String json_note = "note";
     private static final String json_time = "time";
-
+    private static final String json_img = "img";
     int count = 0;
-
+    private static Bitmap bitmap;
     ArrayList<String> gender_list,location_list,home_care_list;
     ArrayAdapter<String> arrayAdapter;
 
@@ -259,6 +262,8 @@ public class MainPage1 extends AppCompatActivity {
                                      String uWorkTime1 = item.getString(json_uWorkTime).substring(0,2);
                                      String uWorkTime2 = item.getString(json_uWorkTime).substring(2,4);
                                      String uWorkTime = uWorkTime1+":"+uWorkTime2;
+                                     String img = item.getString(json_img);
+                                     StringToBitmap(img);
                                      matchingDTO matchingDTO = new matchingDTO();
                                      matchingDTO.setUserID(userID);
                                      matchingDTO.setUserName(userName);
@@ -267,6 +272,7 @@ public class MainPage1 extends AppCompatActivity {
                                      matchingDTO.setUcareer(Ucareer);
                                      matchingDTO.setUlicense(Ulicense);
                                      matchingDTO.setUworkTime(uWorkTime);
+                                     matchingDTO.setImg(bitmap);
                                      matchList.add(matchingDTO);
 
                                  }
@@ -468,5 +474,16 @@ public class MainPage1 extends AppCompatActivity {
         });
 
 
+    }
+
+    public static Bitmap StringToBitmap(String img) {
+        try {
+            byte[] encodeByte = Base64.decode(img, Base64.DEFAULT);
+            bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 }

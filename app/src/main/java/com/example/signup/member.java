@@ -14,7 +14,7 @@ public class member {
     String signBirth3; //일
     String signPW; //비밀번호
     String signPW2; //비밀번호 확인
-
+    String img;
     public member(){
 
     }
@@ -117,20 +117,12 @@ public class member {
         this.signPW2 = signPW2;
     }
 
+    public String getImg() {
+        return img;
+    }
 
-
-    public member(String gender,String serviceId,String signName , String phoneNb, String signAddress, String signmail, String signID,String signBirth, String signBirth2,String signBirth3,String signPW){
-        this.gender = gender;
-        this.serviceId = serviceId;
-        this.signName=  signName;
-        this.phoneNb= phoneNb;
-        this.signAddress=signAddress;
-        this.signmail = signmail;
-        this.signID = signID;
-        this.signBirth = signBirth;
-        this.signBirth2 = signBirth2;
-        this.signBirth3 = signBirth3;
-        this.signPW = signPW;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override
@@ -148,7 +140,7 @@ public class member {
                 ", signBirth3='" + signBirth3 + '\'' +
                 ", signPW='" + signPW + '\'' +
                 ", signPW2='" + signPW2 + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }
-//jj

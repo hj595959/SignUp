@@ -1,5 +1,7 @@
 package com.example.signup;
 
+import android.graphics.Bitmap;
+
 public class matchingDTO2 {
     private String userID;
     private String userName;
@@ -8,7 +10,7 @@ public class matchingDTO2 {
     private String location_check;
     private String note;
     private String time;
-
+    private Bitmap img;
     public String getUserID() {
         return userID;
     }
@@ -65,6 +67,14 @@ public class matchingDTO2 {
         this.time = time;
     }
 
+    public Bitmap getImg() {
+        return img;
+    }
+
+    public void setImg(Bitmap img) {
+        this.img = img;
+    }
+
     @Override
     public String toString() {
         return "matchingDTO2{" +
@@ -75,6 +85,7 @@ public class matchingDTO2 {
                 ", location_check='" + location_check + '\'' +
                 ", note='" + note + '\'' +
                 ", time='" + time + '\'' +
+                ", img=" + img +
                 '}';
     }
 }
