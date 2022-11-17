@@ -59,6 +59,7 @@ public class MainPage1 extends AppCompatActivity {
         setContentView(R.layout.activity_main_page1);
 
         member member = new member();
+        //매칭에 필요한 정보들을 하나로 담기(데이터 베이스 안 여러 테이블에 있는 정보를 가져오기 위해)
         ArrayList<matchingDTO> matchList = new ArrayList<matchingDTO>();
         ArrayList<matchingDTO2> matchList2 = new ArrayList<matchingDTO2>();
         caregiver caregiver = new caregiver();
@@ -79,8 +80,10 @@ public class MainPage1 extends AppCompatActivity {
         cardLicense = findViewById(R.id.cardLicense);
         cardID = findViewById(R.id.cardID);
 
+//버튼 안보이게 하기
         matching_but1.setVisibility(View.INVISIBLE);
 
+        //간병인인지 환자인지에 따라 겹쳐져 있던 버튼 중 하나를 안보이게하고 클릭되지 않게 하기
         if(userServiceID.equals("간병인")){
             info4_button.setVisibility(View.GONE);
         }else if(userServiceID.equals("환자")){
@@ -108,11 +111,12 @@ public class MainPage1 extends AppCompatActivity {
             }
         });
 
-
+//스피너에 담을 값 배열에 담기
         gender_list = new ArrayList<>();
         gender_list.add("남성");
         gender_list.add("여성");
 
+        //스피너에 성별 리스트 담기
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
                 gender_list);
@@ -121,6 +125,7 @@ public class MainPage1 extends AppCompatActivity {
         gender_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
 
         {
+            //성별을 선택해서 선별하는 부분
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String gender = gender_spinner.getSelectedItem().toString();
@@ -133,6 +138,7 @@ public class MainPage1 extends AppCompatActivity {
             }
         });
 
+        //지역 배열에 담기
         location_list = new ArrayList<>();
         location_list.add("인천시");
         location_list.add("경기시");
@@ -147,6 +153,7 @@ public class MainPage1 extends AppCompatActivity {
         location_list.add("대전시");
         location_list.add("울산시");
 
+        //지역 스피너에 담기
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
                 location_list);
@@ -154,7 +161,8 @@ public class MainPage1 extends AppCompatActivity {
         location_spinner.setAdapter(arrayAdapter);
         location_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
 
-        {
+        {        //지역 선택해서 선별하는 부분
+
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                  String location = location_spinner.getSelectedItem().toString();
@@ -253,6 +261,7 @@ public class MainPage1 extends AppCompatActivity {
                                      JSONObject item = jsonArray.getJSONObject(i);
 
 
+                                     // 두 테이블에 있는 정보들을 하나의 매칭dto에 담기
                                      String userID = item.getString(json_userID);
                                      String userName = item.getString(json_userName);
                                      String userGender = item.getString(json_userGender);
@@ -280,6 +289,7 @@ public class MainPage1 extends AppCompatActivity {
                              } catch (Exception e) {
                                  e.printStackTrace();
                              }
+                             //매칭리스트에 조건과 일치하는 사람이 있다면 그 사람 정보 세팅하기
                              if (matchList.size() > 0) {
                                  cardName.setText("이름: "+matchList.get(count).getUserName());
                                  cardGender.setText("성별: "+matchList.get(count).getUserGender());
@@ -297,6 +307,7 @@ public class MainPage1 extends AppCompatActivity {
                      };
 
 
+                     //매칭 리스트라는 클래스에 담아서 php 파일로 서버와 통신
                      matchingList matchingList = new matchingList(gender, location, location_work,checkServiceID, responseListener);
                      RequestQueue queue = Volley.newRequestQueue(MainPage1.this);
                      queue.add(matchingList);
@@ -405,6 +416,10 @@ public class MainPage1 extends AppCompatActivity {
         choiceBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //조건에 맞는 데이터(사람)가 출력 될 때마다 숫자를 세서
+                //카운트가 0보다 크거나 같으면 환자 정보를 출력하고 아니라면 처음페이지라는 메세지를 띄운다
+
                 count--;
                 if (userServiceID.equals("환자")) {
                     if (count >= 0) {
@@ -419,7 +434,9 @@ public class MainPage1 extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
                         count = 0;
                     }
+
                 }else if(userServiceID.equals("간병인")){
+                    //만약 0보다 크면 정보를 띄운다
                     if (count >= 0) {
                         cardName.setText("이름: "+matchList2.get(count).getUserName());
                         cardGender.setText("성별: "+matchList2.get(count).getUserGender());
@@ -473,9 +490,11 @@ public class MainPage1 extends AppCompatActivity {
             }
         });
 
-
     }
 
+
+
+    //스트링을 비트맵으로 바꿔주는 부분
     public static Bitmap StringToBitmap(String img) {
         try {
             byte[] encodeByte = Base64.decode(img, Base64.DEFAULT);

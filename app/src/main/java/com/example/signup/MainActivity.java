@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private String temp="";
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //이미지 비트맵으로 변환
 
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE) {
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.signImage);
 
 
+        //이미지 뷰를 누르면 갤러리가 나오는 부분
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
