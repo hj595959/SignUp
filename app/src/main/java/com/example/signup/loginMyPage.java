@@ -111,6 +111,7 @@ public class loginMyPage extends AppCompatActivity {
 
     }
 
+    //비트맵을 스트링 형식으로 바꾸는 부분
     @RequiresApi(api = Build.VERSION_CODES.O)
     private Bitmap stringToBitmap(String imgString) {
 
