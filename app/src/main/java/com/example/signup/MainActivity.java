@@ -253,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //비트맵으로 인코딩
     public void imgCompress(Bitmap img){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         img.compress(Bitmap.CompressFormat.PNG, 100, baos);
@@ -268,6 +269,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //비트맵으로 변환한 이미지 사이즈 조절
     private Bitmap resize(Bitmap img){
         Configuration config=getResources().getConfiguration();
         if(config.smallestScreenWidthDp>=800)

@@ -76,6 +76,7 @@ public class loginMyPage extends AppCompatActivity {
 
 
 
+                        //각 칸에 각각의 데이터세팅
                         loginMyPageNameTv.setText(userName_result);
                         loginMyPageWhatTv.setText(userServiceID_result);
                         loginMyPageIDTv.setText(userID_result);
