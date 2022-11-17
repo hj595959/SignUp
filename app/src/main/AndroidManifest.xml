@@ -38,9 +38,6 @@
             android:name=".user_info"
             android:exported="false" />
         <activity
-            android:name=".activity_mkd4"
-            android:exported="false" />
-        <activity
             android:name=".activity_mkd3"
             android:exported="false" />
         <activity

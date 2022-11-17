@@ -65,7 +65,7 @@ public class activity_mkd3 extends AppCompatActivity {
 
                                 //
                                 activity_mkd3.this.startActivity(intent);
-                            } else {
+                            } else {//아니라면
                                 Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
@@ -77,6 +77,8 @@ public class activity_mkd3 extends AppCompatActivity {
                         }
                     }
                 };
+
+                //로그인 리퀘스트라는 클래스를 선언해주고 id와 password를 담아서 서버와 통신하는 부분
                 LoginRequest loginRequest = new LoginRequest(userID, userPassword, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(activity_mkd3.this);
                 queue.add(loginRequest);
