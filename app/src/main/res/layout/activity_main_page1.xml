@@ -175,40 +175,44 @@
         android:gravity="center"
         >
 
-        <Button
+        <android.widget.Button
             android:id="@+id/choiceBtn1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:backgroundTint="#eee6c4"
             android:textColor="@color/black"
-
+            android:background="@drawable/radius"
             android:text="이전"
             android:layout_marginRight="30dp"
             android:scaleType="fitCenter">
-        </Button>
+        </android.widget.Button>
 
-        <Button
+        <android.widget.Button
             android:id="@+id/matching_but1"
             android:layout_width="150dp"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="#EEE6C4"
             android:textColor="#000000"
             android:textStyle="bold"
+            android:background="@drawable/qqq"
+            android:gravity="center"
             android:textSize="20dp"
             android:text="매칭" />
 
 
-        <Button
+        <android.widget.Button
             android:id="@+id/choiceBtn2"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:backgroundTint="#eee6c4"
             android:textColor="@color/black"
             android:layout_marginLeft="30dp"
+            android:background="@drawable/radius"
+
             android:text="다음"
             android:scaleType="fitCenter">
 
-        </Button>
+        </android.widget.Button>
 
     </LinearLayout>
 
