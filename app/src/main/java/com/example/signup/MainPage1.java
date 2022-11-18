@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class MainPage1 extends AppCompatActivity {
 
     public Spinner gender_spinner,location_spinner,home_care_spinner;
     private ImageButton bottomMyPageBtn, bottomBackBtn;
+    private ImageView cardImg;
     private Button info3_button,info4_button , find_matching ,choiceBtn1 ,choiceBtn2 ,matching_but1;
     private long backKeyPressedTime = 0;
     private Toast toast;
@@ -49,7 +51,6 @@ public class MainPage1 extends AppCompatActivity {
     private static final String json_time = "time";
     private static final String json_img = "img";
     int count = 0;
-    private static Bitmap bitmap;
     ArrayList<String> gender_list,location_list,home_care_list;
     ArrayAdapter<String> arrayAdapter;
 
@@ -79,7 +80,8 @@ public class MainPage1 extends AppCompatActivity {
         cardCareer =  findViewById(R.id.cardCareer);
         cardLicense = findViewById(R.id.cardLicense);
         cardID = findViewById(R.id.cardID);
-
+        cardImg = findViewById(R.id.cardImg);
+        cardImg.setVisibility(View.INVISIBLE);
 //버튼 안보이게 하기
         matching_but1.setVisibility(View.INVISIBLE);
 
@@ -271,8 +273,8 @@ public class MainPage1 extends AppCompatActivity {
                                      String uWorkTime1 = item.getString(json_uWorkTime).substring(0,2);
                                      String uWorkTime2 = item.getString(json_uWorkTime).substring(2,4);
                                      String uWorkTime = uWorkTime1+":"+uWorkTime2;
-                                     String img = item.getString(json_img);
-                                     StringToBitmap(img);
+
+
                                      matchingDTO matchingDTO = new matchingDTO();
                                      matchingDTO.setUserID(userID);
                                      matchingDTO.setUserName(userName);
@@ -281,7 +283,7 @@ public class MainPage1 extends AppCompatActivity {
                                      matchingDTO.setUcareer(Ucareer);
                                      matchingDTO.setUlicense(Ulicense);
                                      matchingDTO.setUworkTime(uWorkTime);
-                                     matchingDTO.setImg(bitmap);
+
                                      matchList.add(matchingDTO);
 
                                  }
@@ -298,6 +300,7 @@ public class MainPage1 extends AppCompatActivity {
                                  cardCareer.setText("경력: "+matchList.get(count).getUcareer());
                                  cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                                  cardID.setText(matchList.get(count).getUserID());
+                                 cardImg.setVisibility(View.VISIBLE);
                              } else {
                                  Toast.makeText(getApplicationContext(), "조건에 맞는 간병인이 없습니다.", Toast.LENGTH_LONG).show();
                              }
@@ -358,6 +361,7 @@ public class MainPage1 extends AppCompatActivity {
                                  cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
                                  cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                                  cardID.setText(matchList2.get(count).getUserID());
+                                 cardImg.setVisibility(View.VISIBLE);
                              } else {
                                  Toast.makeText(getApplicationContext(), "조건에 맞는 환자가 없습니다.", Toast.LENGTH_LONG).show();
                              }
@@ -394,6 +398,7 @@ public class MainPage1 extends AppCompatActivity {
                         cardCareer.setText("경력: "+matchList.get(count).getUcareer());
                         cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                         cardID.setText(matchList.get(count).getUserID());
+                        cardImg.setVisibility(View.VISIBLE);
                     }
                 }else if(userServiceID.equals("간병인")){
                     if (count == matchList2.size()) {
@@ -408,6 +413,7 @@ public class MainPage1 extends AppCompatActivity {
                         cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
                         cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                         cardID.setText(matchList2.get(count).getUserID());
+                        cardImg.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -430,6 +436,7 @@ public class MainPage1 extends AppCompatActivity {
                         cardCareer.setText("경력: "+matchList.get(count).getUcareer());
                         cardLicense.setText("자격증: "+matchList.get(count).getUlicense());
                         cardID.setText(matchList.get(count).getUserID());
+                        cardImg.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
                         count = 0;
@@ -445,6 +452,7 @@ public class MainPage1 extends AppCompatActivity {
                         cardCareer.setText("특이사항: "+matchList2.get(count).getNote());
                         cardLicense.setText("시간: "+ matchList2.get(count).getTime());
                         cardID.setText(matchList2.get(count).getUserID());
+                        cardImg.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(getApplicationContext(), " 처음페이지입니다.", Toast.LENGTH_LONG).show();
                         count = 0;
@@ -498,10 +506,12 @@ public class MainPage1 extends AppCompatActivity {
     public static Bitmap StringToBitmap(String img) {
         try {
             byte[] encodeByte = Base64.decode(img, Base64.DEFAULT);
-            bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            Log.v("imgBitmap",String.valueOf(bitmap));
             return bitmap;
         } catch (Exception e) {
             e.getMessage();
+            Log.v("imgerror","error");
             return null;
         }
     }
